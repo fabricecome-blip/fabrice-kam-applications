@@ -1,1 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Fabrice CÔME-PORTILLO — Responsable Grands Comptes TV/Audio Vidéo · LG Electronics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#f5f5f5;--white:#ffffff;--black:#1a1a1a;--text:#1a1a1a;--muted:#555555;
+  --dim:#888888;--border:rgba(0,0,0,0.10);--border-md:rgba(0,0,0,0.18);
+  --red:#a50034;--dark:#0d1117;--dark2:#161b22;
+  --body:'Inter','Helvetica Neue',Arial,sans-serif;
+  --mono:'Space Mono','Courier New',monospace;
+  --nav-h:60px;--card-radius:12px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+:root{color-scheme:light}*{color-scheme:light!important}
+body{font-family:var(--body);background:#f5f5f5!important;color:#1a1a1a!important;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);
+  background:rgba(245,245,245,0.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;padding:0 32px;z-index:1000}
+.nav-logo{font-family:var(--body);font-size:14px;font-weight:800;letter-spacing:-0.01em;
+  color:var(--black);text-decoration:none;
+  justify-self:center;display:flex;align-items:center;gap:12px;
+  background:#fff;border:1.5px solid rgba(0,0,0,0.12);border-radius:8px;
+  padding:10px 22px}
+.nav-logo .lg-dot{display:inline-block;width:10px;height:10px;background:var(--red);border-radius:50%;margin-left:4px}
+.nav-sections{display:flex;gap:20px;align-items:center;justify-self:start}
+.nav-sections a{font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:0.06em;
+  text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color 0.2s}
+.nav-sections a:hover{color:var(--black)}
+.nav-right{display:flex;align-items:center;gap:12px;justify-self:end}
+.nav-contact{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--red);text-decoration:none;border:1.5px solid var(--red);
+  padding:6px 14px;border-radius:4px;transition:all 0.2s}
+.nav-contact:hover{background:var(--red);color:#fff}
+.lang-toggle{display:flex;border:1.5px solid var(--border-md);border-radius:4px;overflow:hidden}
+.lang-btn{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.08em;
+  padding:5px 10px;border:none;cursor:pointer;background:var(--white);color:var(--dim);
+  transition:all 0.2s;text-transform:uppercase}
+.lang-btn.active{background:var(--black);color:#fff}
+.nav-offset{height:var(--nav-h)}
+section{position:relative;z-index:1}
+
+/* HAMBURGER MOBILE */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--black);border-radius:2px;transition:all 0.25s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-drawer{display:none;position:fixed;top:52px;left:0;right:0;
+  background:rgba(245,245,245,0.98);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  z-index:199;border-bottom:1px solid var(--border);flex-direction:column;padding:8px 0}
+.mobile-drawer.open{display:flex}
+.mobile-drawer a{font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
+  text-decoration:none;color:var(--black);padding:14px 24px;border-bottom:1px solid var(--border)}
+.mobile-drawer a:last-child{border-bottom:none}
+
+/* HERO */
+.hero{background:var(--bg);border-bottom:1px solid var(--border)}
+.hero-inner{max-width:1280px;margin:0 auto;padding:60px 48px 56px;
+  min-height:calc(100vh - var(--nav-h));min-height:calc(100svh - var(--nav-h));display:flex;flex-direction:column}
+.hero-label{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--red);margin-bottom:20px}
+.hero h1{font-family:var(--body);font-size:clamp(40px,8vw,88px);font-weight:900;
+  letter-spacing:-0.04em;line-height:0.92;color:var(--black);margin-bottom:48px}
+.hero h1 .red{color:var(--red)}
+.hero-bottom{display:flex;flex-direction:row;align-items:flex-end;gap:40px;flex:1}
+.hero-stat-group{display:flex;flex-direction:column;gap:28px;min-width:220px}
+.hero-stat-num{font-family:var(--body);font-size:32px;font-weight:800;letter-spacing:-0.03em;color:var(--black)}
+.hero-stat-label{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--dim);margin-top:3px}
+.hero-card{min-width:260px;max-width:320px;background:var(--white);border:1.5px solid var(--border);
+  border-radius:var(--card-radius);padding:28px;align-self:flex-end;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.hero-card-tag{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--red);margin-bottom:12px}
+.hero-card h2{font-family:var(--body);font-size:18px;font-weight:700;letter-spacing:-0.02em;
+  color:var(--black);line-height:1.3;margin-bottom:8px}
+.hero-card-p{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:0.06em;
+  text-transform:uppercase;font-weight:700}
+
+/* LG BRAND BAR */
+.brand-bar{background:var(--red);overflow:hidden;padding:14px 0;position:relative;z-index:2}
+.brand-track{display:flex;animation:brand-scroll 35s linear infinite;width:max-content}
+.brand-item{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:0.12em;
+  text-transform:uppercase;color:rgba(255,255,255,0.85);padding:0 32px;white-space:nowrap}
+.brand-sep{color:rgba(255,255,255,0.4);padding:0 4px}
+@keyframes brand-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* SECTIONS */
+.section-inner{max-width:1280px;margin:0 auto;padding:80px 48px}
+.section-label{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.section-title{font-family:var(--body);font-size:clamp(26px,3.5vw,48px);font-weight:800;
+  letter-spacing:-0.03em;color:var(--black);line-height:1.1;margin-bottom:56px;white-space:pre-line}
+
+/* TRACK RECORD */
+#track-record{background:var(--white);border-bottom:1px solid var(--border)}
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--card-radius);overflow:hidden}
+.metric-card{background:var(--white);padding:32px 28px;display:flex;flex-direction:column;gap:8px}
+.metric-num{font-family:var(--body);font-size:clamp(24px,3vw,40px);font-weight:800;
+  letter-spacing:-0.03em;color:var(--red)}
+.metric-label{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--black)}
+.metric-sub{font-family:var(--mono);font-size:9px;color:var(--dim);letter-spacing:0.04em;margin-top:2px}
+
+/* TICKER */
+.ticker-wrap{overflow:hidden;border-top:1px solid var(--border);background:var(--black);padding:12px 0;margin-top:56px}
+.ticker-track{display:flex;width:max-content;animation:ticker-scroll 30s linear infinite}
+.ticker-track:hover{animation-play-state:paused}
+.ticker-item{font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:0.1em;
+  text-transform:uppercase;color:rgba(255,255,255,0.7);white-space:nowrap;padding:0 32px}
+.ticker-item span{color:var(--red)}
+@keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* EXPERIENCE */
+#experience{background:var(--bg);border-bottom:1px solid var(--border)}
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.exp-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--card-radius);
+  padding:28px;position:relative;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.04)}
+.exp-card.featured{grid-column:span 2;background:var(--black);color:#fff;border-color:var(--black)}
+.exp-card-tag{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.exp-card-company{font-family:var(--body);font-size:20px;font-weight:800;letter-spacing:-0.02em;
+  color:var(--black);margin-bottom:4px}
+.exp-card.featured .exp-card-company{color:#fff}
+.exp-card-role{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.exp-card.featured .exp-card-role{color:rgba(255,255,255,0.5)}
+.exp-card-years{position:absolute;top:28px;right:28px;font-family:var(--mono);font-size:10px;
+  font-weight:700;letter-spacing:0.1em;color:var(--dim)}
+.exp-card.featured .exp-card-years{color:rgba(255,255,255,0.35)}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.exp-bullets li{font-size:12px;color:var(--muted);padding-left:16px;position:relative;line-height:1.6}
+.exp-card.featured .exp-bullets li{color:rgba(255,255,255,0.7)}
+.exp-bullets li::before{content:"";display:inline-block;width:6px;height:6px;background:var(--red);
+  position:absolute;left:0;top:6px}
+.exp-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.exp-tag{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  padding:4px 8px;border-radius:20px;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6)}
+.exp-card:not(.featured) .exp-tag{border-color:var(--border-md);color:var(--muted)}
+
+/* WHY LG */
+#why-lg{background:var(--dark);border-bottom:1px solid #1e2530;position:relative;overflow:hidden}
+#why-lg::before{content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(165,0,52,0.12) 1.2px,transparent 1.2px);
+  background-size:28px 28px;pointer-events:none}
+#why-lg .section-inner{position:relative}
+#why-lg .section-title{color:#fff}
+.values-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.value-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--card-radius);padding:32px}
+.value-tag{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--red);margin-bottom:12px}
+.value-title{font-family:var(--body);font-size:22px;font-weight:800;letter-spacing:-0.02em;
+  color:#fff;margin-bottom:12px}
+.value-body{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.75}
+
+/* SKILLS */
+#skills{background:var(--bg);border-bottom:1px solid var(--border)}
+.skills-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.skill-bars{display:flex;flex-direction:column;gap:16px}
+.skill-row{display:flex;flex-direction:column;gap:6px}
+.skill-label{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--red)}
+.skill-bar-bg{height:3px;background:rgba(165,0,52,0.12);border-radius:2px;overflow:hidden}
+.skill-bar-fill{height:100%;background:var(--red);border-radius:2px;width:0;transition:width 1.2s cubic-bezier(.22,1,.36,1)}
+.skill-tags{display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}
+.skill-tag{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+  padding:5px 10px;border-radius:20px;border:1.5px solid var(--border-md);color:var(--muted);
+  background:var(--white);transition:all 0.2s;cursor:default}
+.skill-tag:hover{border-color:var(--red);color:var(--red)}
+
+/* REFERENCES */
+#references{background:var(--white);border-bottom:1px solid var(--border)}
+.ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+.ref-card{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--card-radius);padding:24px}
+.ref-tag{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.ref-title{font-family:var(--mono);font-size:10px;color:var(--dim);line-height:1.5;margin-bottom:12px}
+.ref-banner{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:0.04em;
+  text-align:center;padding:16px;border:1px dashed var(--border-md);border-radius:8px}
+
+/* CONTACT */
+#contact{background:var(--bg);border-bottom:1px solid var(--border)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.contact-body{display:flex;flex-direction:column;gap:20px}
+.contact-body p{font-size:14px;color:var(--muted);line-height:1.75}
+.contact-body p strong{color:var(--black)}
+.contact-cta{display:flex;flex-direction:column;gap:16px}
+.cta-item{display:flex;align-items:center;gap:12px;padding:20px;
+  background:var(--white);border:1.5px solid var(--border);border-radius:var(--card-radius)}
+.cta-icon{width:36px;height:36px;background:var(--red);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cta-icon svg{width:18px;height:18px;fill:#fff}
+.cta-label{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--dim);margin-bottom:4px}
+.cta-value{font-family:var(--body);font-size:14px;font-weight:600;color:var(--black);text-decoration:none}
+.cv-download{display:inline-flex;align-items:center;gap:8px;margin-top:8px;
+  font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  color:#fff;background:var(--red);padding:12px 24px;border-radius:6px;text-decoration:none;
+  transition:opacity 0.2s}
+.cv-download:hover{opacity:0.85}
+
+/* FOOTER */
+footer{background:var(--black);padding:32px 48px;display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:12px}
+.footer-logo{font-family:var(--body);font-size:13px;font-weight:700;letter-spacing:-0.01em;color:rgba(255,255,255,0.5)}
+.footer-logo span{color:var(--red)}
+.footer-note{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:0.06em;text-transform:uppercase}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 0.55s ease,transform 0.55s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{grid-template-columns:auto 1fr auto;padding:0 20px}
+  .nav-sections{display:none}
+  .hamburger{display:flex}
+  .hero-inner{padding:40px 20px 36px}
+  .hero h1{font-size:clamp(36px,11vw,64px)}
+  .hero-bottom{flex-direction:column;gap:28px}
+  .hero-card{max-width:100%;align-self:stretch}
+  .section-inner{padding:56px 20px}
+  .metrics-grid{grid-template-columns:repeat(2,1fr)}
+  .exp-grid{grid-template-columns:1fr}
+  .exp-card.featured{grid-column:span 1}
+  .values-grid{grid-template-columns:1fr}
+  .skills-layout{grid-template-columns:1fr}
+  .ref-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  footer{padding:24px 20px;flex-direction:column;text-align:center;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-sections">
+    <a href="#track-record" data-i18n="nav_track">Track Record</a>
+    <a href="#experience" data-i18n="nav_exp">Experience</a>
+    <a href="#why-lg" data-i18n="nav_why">Why LG</a>
+    <a href="#skills" data-i18n="nav_skills">Skills</a>
+    <a href="#references" data-i18n="nav_refs">References</a>
+    <a href="#contact" data-i18n="nav_contact_link">Contact</a>
+  </div>
+  <a class="nav-logo" href="#">
+    LG Electronics<span class="lg-dot"></span>
+  </a>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+    </div>
+    <a href="#contact" class="nav-contact" data-i18n="nav_cta">Get in touch</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-drawer" id="mobile-drawer">
+  <a href="#track-record" onclick="closeDrawer()" data-i18n="nav_track">Track Record</a>
+  <a href="#experience" onclick="closeDrawer()" data-i18n="nav_exp">Experience</a>
+  <a href="#why-lg" onclick="closeDrawer()" data-i18n="nav_why">Why LG</a>
+  <a href="#skills" onclick="closeDrawer()" data-i18n="nav_skills">Skills</a>
+  <a href="#references" onclick="closeDrawer()" data-i18n="nav_refs">References</a>
+  <a href="#contact" onclick="closeDrawer()" data-i18n="nav_contact_link">Contact</a>
+</div>
+<div class="nav-offset"></div>
+
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="hero-inner">
+    <div class="hero-label" data-i18n="hero_label">Application — Responsable Grands Comptes TV / Audio Vidéo · France</div>
+    <h1>FABRICE<br>CÔME-<span class="red">PORTILLO</span></h1>
+    <div class="hero-bottom">
+      <div class="hero-stat-group">
+        <div class="hero-stat">
+          <div class="hero-stat-num counter" data-target="15" data-suffix="+ ans" data-i18n="stat1_num">15+ ans</div>
+          <div class="hero-stat-label" data-i18n="stat1_label">Consumer Electronics</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num counter" data-target="2" data-suffix="M+" data-i18n="stat2_num">2M+</div>
+          <div class="hero-stat-label" data-i18n="stat2_label">Appareils vendus</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num counter" data-target="50" data-prefix="€" data-suffix="M" data-i18n="stat3_num">€50M</div>
+          <div class="hero-stat-label" data-i18n="stat3_label">P&amp;L Géré</div>
+        </div>
+      </div>
+      <div class="hero-card reveal">
+        <div class="hero-card-tag" data-i18n="hero_card_tag">Pour LG Electronics · France</div>
+        <h2 data-i18n="hero_card_h">Développer les grands comptes TV & Audio en France. Durablement.</h2>
+        <div class="hero-card-p" data-i18n="hero_card_sub">Responsable Grands Comptes · TV / Audio Vidéo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND BAR -->
+<div class="brand-bar">
+  <div class="brand-track">
+    <span class="brand-item">Life's Good<span class="brand-sep"> · </span></span>
+    <span class="brand-item">OLED Technology<span class="brand-sep"> · </span></span>
+    <span class="brand-item">ThinQ AI<span class="brand-sep"> · </span></span>
+    <span class="brand-item">French Retail Expertise<span class="brand-sep"> · </span></span>
+    <span class="brand-item">10,000+ POS Activated<span class="brand-sep"> · </span></span>
+    <span class="brand-item">€50M P&L Managed<span class="brand-sep"> · </span></span>
+    <span class="brand-item">GMS · Operators · E-tail<span class="brand-sep"> · </span></span>
+    <span class="brand-item">2M+ Units Sold<span class="brand-sep"> · </span></span>
+    <!-- duplicate for seamless loop -->
+    <span class="brand-item">Life's Good<span class="brand-sep"> · </span></span>
+    <span class="brand-item">OLED Technology<span class="brand-sep"> · </span></span>
+    <span class="brand-item">ThinQ AI<span class="brand-sep"> · </span></span>
+    <span class="brand-item">French Retail Expertise<span class="brand-sep"> · </span></span>
+    <span class="brand-item">10,000+ POS Activated<span class="brand-sep"> · </span></span>
+    <span class="brand-item">€50M P&L Managed<span class="brand-sep"> · </span></span>
+    <span class="brand-item">GMS · Operators · E-tail<span class="brand-sep"> · </span></span>
+    <span class="brand-item">2M+ Units Sold<span class="brand-sep"> · </span></span>
+  </div>
+</div>
+
+<!-- TRACK RECORD -->
+<section id="track-record">
+  <div class="section-inner">
+    <div class="section-label" data-i18n="s1_label">Track Record</div>
+    <div class="section-title" data-i18n="s1_title">Numbers are<br>the numbers.</div>
+    <div class="metrics-grid">
+      <div class="metric-card reveal">
+        <div class="metric-num counter" data-target="2" data-suffix="M+">0</div>
+        <div class="metric-label" data-i18n="m1_label">Appareils Vendus</div>
+        <div class="metric-sub" data-i18n="m1_sub">France &amp; Europe du Sud</div>
+      </div>
+      <div class="metric-card reveal">
+        <div class="metric-num counter" data-target="50" data-prefix="€" data-suffix="M">€0</div>
+        <div class="metric-label" data-i18n="m2_label">P&amp;L Géré</div>
+        <div class="metric-sub">Revenue · GM · PBT</div>
+      </div>
+      <div class="metric-card reveal">
+        <div class="metric-num counter" data-target="10" data-suffix="K+">0</div>
+        <div class="metric-label" data-i18n="m3_label">POS Activés</div>
+        <div class="metric-sub" data-i18n="m3_sub">GMS · Operators · E-tail</div>
+      </div>
+      <div class="metric-card reveal">
+        <div class="metric-num counter" data-target="5" data-suffix="%">0</div>
+        <div class="metric-label" data-i18n="m4_label">Part de Marché</div>
+        <div class="metric-sub">Open Market France</div>
+      </div>
+      <div class="metric-card reveal">
+        <div class="metric-num counter" data-target="15" data-suffix="+">0</div>
+        <div class="metric-label" data-i18n="m5_label">Années Exp.</div>
+        <div class="metric-sub">Consumer Electronics</div>
+      </div>
+      <div class="metric-card reveal">
+        <div class="metric-num counter" data-target="150" data-suffix="%">0</div>
+        <div class="metric-label" data-i18n="m6_label">Objectif Kickstarter</div>
+        <div class="metric-sub">D-Wager · NY, Paris, Milan, Tokyo</div>
+      </div>
+      <div class="metric-card reveal">
+        <div class="metric-num counter" data-target="800" data-suffix="+">0</div>
+        <div class="metric-label" data-i18n="m7_label">Magasins Orange</div>
+        <div class="metric-sub">Channel launch · Full network</div>
+      </div>
+      <div class="metric-card reveal">
+        <div class="metric-num counter" data-target="120" data-prefix="€" data-suffix="K">€0</div>
+        <div class="metric-label" data-i18n="m8_label">ARR MVNO / FinTech</div>
+        <div class="metric-sub">Recurring revenue created</div>
+      </div>
+    </div>
+    <!-- ticker -->
+    <div class="ticker-wrap">
+      <div class="ticker-track">
+        <span class="ticker-item">GMS <span>·</span></span>
+        <span class="ticker-item">Fnac-Darty <span>·</span></span>
+        <span class="ticker-item">Boulanger <span>·</span></span>
+        <span class="ticker-item">Amazon <span>·</span></span>
+        <span class="ticker-item">Orange <span>·</span></span>
+        <span class="ticker-item">SFR <span>·</span></span>
+        <span class="ticker-item">Bouygues <span>·</span></span>
+        <span class="ticker-item">E-tail <span>·</span></span>
+        <span class="ticker-item">Sell-in <span>·</span></span>
+        <span class="ticker-item">Sell-through <span>·</span></span>
+        <span class="ticker-item">Sell-out <span>·</span></span>
+        <span class="ticker-item">P&L Management <span>·</span></span>
+        <span class="ticker-item">GTM <span>·</span></span>
+        <span class="ticker-item">TV · Audio · OLED <span>·</span></span>
+        <!-- duplicate -->
+        <span class="ticker-item">GMS <span>·</span></span>
+        <span class="ticker-item">Fnac-Darty <span>·</span></span>
+        <span class="ticker-item">Boulanger <span>·</span></span>
+        <span class="ticker-item">Amazon <span>·</span></span>
+        <span class="ticker-item">Orange <span>·</span></span>
+        <span class="ticker-item">SFR <span>·</span></span>
+        <span class="ticker-item">Bouygues <span>·</span></span>
+        <span class="ticker-item">E-tail <span>·</span></span>
+        <span class="ticker-item">Sell-in <span>·</span></span>
+        <span class="ticker-item">Sell-through <span>·</span></span>
+        <span class="ticker-item">Sell-out <span>·</span></span>
+        <span class="ticker-item">P&L Management <span>·</span></span>
+        <span class="ticker-item">GTM <span>·</span></span>
+        <span class="ticker-item">TV · Audio · OLED <span>·</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label" data-i18n="s2_label">Experience</div>
+    <div class="section-title" data-i18n="s2_title">Key experiences,<br>broken down.</div>
+    <div class="exp-grid">
+      <!-- Featured card -->
+      <div class="exp-card featured reveal">
+        <div class="exp-card-tag">2014 – 2019</div>
+        <div class="exp-card-company">Acer Group</div>
+        <div class="exp-card-role" data-i18n="e1_role">Business Manager Smartphone · South Europe</div>
+        <div class="exp-card-years">5 ans</div>
+        <ul class="exp-bullets">
+          <li data-i18n="e1_l1">Définir et exécuter la stratégie commerciale France, Espagne, Portugal, Italie</li>
+          <li data-i18n="e1_l2">Gérer les comptes stratégiques C-level, sell-in / sell-through / prévisions de stock</li>
+          <li data-i18n="e1_l3">Planification campagnes, négociation pricing, budget et P&L</li>
+          <li data-i18n="e1_l4">CA €50M · GM €4M · PBT €1.3M · 2M+ appareils vendus</li>
+          <li data-i18n="e1_l5">10 000+ PDV stratégiques activés (GMS, opérateurs, e-tail)</li>
+          <li data-i18n="e1_l6">Création MVNO & Top-Up (FinTech) ARR €120K</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Key Account</span>
+          <span class="exp-tag">Sell-in / Sell-through</span>
+          <span class="exp-tag">P&L €50M</span>
+          <span class="exp-tag">Europe du Sud</span>
+          <span class="exp-tag">Smartphones · Audio · Wearables</span>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="exp-card reveal">
+        <div class="exp-card-tag">2012 – 2014</div>
+        <div class="exp-card-company">Acer France</div>
+        <div class="exp-card-role" data-i18n="e2_role">Business Manager Smartphone</div>
+        <div class="exp-card-years">2 ans</div>
+        <ul class="exp-bullets">
+          <li data-i18n="e2_l1">Grands comptes stratégiques : GMS, opérateurs, e-tail</li>
+          <li data-i18n="e2_l2">Référencement, pricing, campagnes, suivi KPI</li>
+          <li data-i18n="e2_l3">Équipe : 3 KAM + 1 Trade Marketing</li>
+          <li data-i18n="e2_l4">80% retail FR · 5% PDM · Launch Orange</li>
+        </ul>
+      </div>
+      <!-- Card 3 -->
+      <div class="exp-card reveal">
+        <div class="exp-card-tag">2010 – 2012</div>
+        <div class="exp-card-company">Acer France</div>
+        <div class="exp-card-role" data-i18n="e3_role">KAM Open Market &amp; MVNOs</div>
+        <div class="exp-card-years">2 ans</div>
+        <ul class="exp-bullets">
+          <li data-i18n="e3_l1">Développement open market &amp; segment MVNO</li>
+          <li data-i18n="e3_l2">Nouveaux comptes, distribution, marketing PDV</li>
+          <li data-i18n="e3_l3">CA triplé (€2.8M) · 3 MVNO ouverts (La Poste, NRJ, Virgin)</li>
+        </ul>
+      </div>
+      <!-- Card 4 -->
+      <div class="exp-card reveal">
+        <div class="exp-card-tag">2025 – 2026</div>
+        <div class="exp-card-company">NextinCom</div>
+        <div class="exp-card-role" data-i18n="e4_role">Head of Sales &amp; Operations</div>
+        <div class="exp-card-years">1 an</div>
+        <ul class="exp-bullets">
+          <li data-i18n="e4_l1">Ventes &amp; ops B2B (FTTO, IPBX, Circular Devices)</li>
+          <li data-i18n="e4_l2">20K€ MRR · 40 clients actifs</li>
+        </ul>
+      </div>
+      <!-- Card 5 -->
+      <div class="exp-card reveal">
+        <div class="exp-card-tag">2019 – 2022</div>
+        <div class="exp-card-company">D-Wager</div>
+        <div class="exp-card-role" data-i18n="e5_role">Co-Fondateur</div>
+        <div class="exp-card-years">3 ans</div>
+        <ul class="exp-bullets">
+          <li data-i18n="e5_l1">Marque premium éco-responsable</li>
+          <li data-i18n="e5_l2">Kickstarter 150% · NY, Paris, Milan, Tokyo</li>
+          <li data-i18n="e5_l3">Brevet cédé 2022</li>
+        </ul>
+      </div>
+      <!-- Card 6 -->
+      <div class="exp-card reveal">
+        <div class="exp-card-tag">2002 – 2009</div>
+        <div class="exp-card-company">Partelec (E-Ten)</div>
+        <div class="exp-card-role" data-i18n="e6_role">KAM Smartphone</div>
+        <div class="exp-card-years">7 ans</div>
+        <ul class="exp-bullets">
+          <li data-i18n="e6_l1">Distributeur exclusif E-Ten/Glofiish France</li>
+          <li data-i18n="e6_l2">Réseau retail &amp; e-tail constitué</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY LG -->
+<section id="why-lg">
+  <div class="section-inner">
+    <div class="section-label" data-i18n="s3_label">Why LG</div>
+    <div class="section-title" data-i18n="s3_title">Pourquoi Fabrice<br>et LG.</div>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-tag" data-i18n="v1_tag">Innovation Premium</div>
+        <div class="value-title" data-i18n="v1_title">OLED obsédé, dès le départ</div>
+        <div class="value-body" data-i18n="v1_body">15 ans à vendre des produits technologiques premium — de l'entrée de gamme jusqu'au haut de gamme. LG occupe un espace unique avec l'OLED et le ThinQ AI. Ce sont exactement les histoires produit qui se vendent en rayon, quand le compte est bien géré.</div>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-tag" data-i18n="v2_tag">Marché Français</div>
+        <div class="value-title" data-i18n="v2_title">Le retail français, en profondeur</div>
+        <div class="value-body" data-i18n="v2_body">Fnac-Darty, Boulanger, Amazon, Orange, SFR, Bouygues — j'ai construit et maintenu des relations de confiance avec ces comptes depuis plus de 10 ans. Je connais leurs processus d'achat, leurs cycles de référencement, et ce qui fait vraiment performer un rayon TV/Audio.</div>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-tag" data-i18n="v3_tag">Écosystème Complet</div>
+        <div class="value-title" data-i18n="v3_title">Du sell-in au sell-out</div>
+        <div class="value-body" data-i18n="v3_body">GMS, GSS, opérateurs, e-tail, distributeurs — j'ai activé l'ensemble du spectre commercial. Forecast, P&L, animations commerciales, trade marketing : chaque levier actionné pour garantir la performance de bout en bout, pas seulement le référencement.</div>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-tag" data-i18n="v4_tag">Ownership</div>
+        <div class="value-title" data-i18n="v4_title">Chaque compte, comme le mien</div>
+        <div class="value-body" data-i18n="v4_body">Gérer €50M de P&L donne une perspective simple : chaque négociation, chaque mise en avant, chaque animation doit avoir un impact mesurable. J'apporte chez LG la même exigence que si j'avais une part personnelle dans chaque compte.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label" data-i18n="s4_label">Skills</div>
+    <div class="section-title" data-i18n="s4_title">Expertise &<br>capacités.</div>
+    <div class="skills-layout">
+      <div class="skill-bars">
+        <div class="skill-row reveal">
+          <div class="skill-label" data-i18n="sk1">Key Account Management</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="95%"></div></div>
+        </div>
+        <div class="skill-row reveal">
+          <div class="skill-label" data-i18n="sk2">P&amp;L Management</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
+        </div>
+        <div class="skill-row reveal">
+          <div class="skill-label" data-i18n="sk3">Retail France (GMS · GSS)</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="95%"></div></div>
+        </div>
+        <div class="skill-row reveal">
+          <div class="skill-label" data-i18n="sk4">Sell-in / Sell-through / Sell-out</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="92%"></div></div>
+        </div>
+        <div class="skill-row reveal">
+          <div class="skill-label" data-i18n="sk5">Forecast &amp; Inventory</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88%"></div></div>
+        </div>
+        <div class="skill-row reveal">
+          <div class="skill-label" data-i18n="sk6">GTM / Product Launch</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88%"></div></div>
+        </div>
+        <div class="skill-row reveal">
+          <div class="skill-label" data-i18n="sk7">Négociation C-level</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
+        </div>
+        <div class="skill-row reveal">
+          <div class="skill-label" data-i18n="sk8">Consumer Electronics</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="98%"></div></div>
+        </div>
+      </div>
+      <div class="skill-tags">
+        <span class="skill-tag">TV / OLED</span>
+        <span class="skill-tag">Audio Vidéo</span>
+        <span class="skill-tag">Smartphone</span>
+        <span class="skill-tag">Wearables</span>
+        <span class="skill-tag">Fnac-Darty</span>
+        <span class="skill-tag">Boulanger</span>
+        <span class="skill-tag">Amazon</span>
+        <span class="skill-tag">Orange</span>
+        <span class="skill-tag">SFR</span>
+        <span class="skill-tag">Bouygues</span>
+        <span class="skill-tag">MVNO</span>
+        <span class="skill-tag">Trade Marketing</span>
+        <span class="skill-tag">Sell-in</span>
+        <span class="skill-tag">MRR / ARR</span>
+        <span class="skill-tag">B2B / B2C</span>
+        <span class="skill-tag">EMEA</span>
+        <span class="skill-tag">HubSpot</span>
+        <span class="skill-tag">MEDDPIC</span>
+        <span class="skill-tag">Entrepreneurship</span>
+        <span class="skill-tag">Team Management</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section id="references">
+  <div class="section-inner">
+    <div class="section-label" data-i18n="s5_label">References</div>
+    <div class="section-title" data-i18n="s5_title">Collègues &amp; partenaires,<br>prêts à témoigner.</div>
+    <div class="ref-grid">
+      <div class="ref-card reveal">
+        <div class="ref-tag" data-i18n="ref1_cat">Ancien Manager</div>
+        <div class="ref-title" data-i18n="ref1_title">Ancien Manager · Acer<br>PDG actuel — Recommerce</div>
+      </div>
+      <div class="ref-card reveal">
+        <div class="ref-tag" data-i18n="ref2_cat">Ancien Manager</div>
+        <div class="ref-title" data-i18n="ref2_title">Président — Nextincom</div>
+      </div>
+      <div class="ref-card reveal">
+        <div class="ref-tag" data-i18n="ref3_cat">Client</div>
+        <div class="ref-title" data-i18n="ref3_title">Acheteur Terminaux — Bouygues Telecom<br>Ex Responsable Achats · CIC / NRJ Mobile</div>
+      </div>
+      <div class="ref-card reveal">
+        <div class="ref-tag" data-i18n="ref4_cat">Collègue</div>
+        <div class="ref-title" data-i18n="ref4_title">Global Marketing Manager — Lenovo<br>Ex EMEA Marketing Manager</div>
+      </div>
+      <div class="ref-card reveal">
+        <div class="ref-tag" data-i18n="ref5_cat">Équipe</div>
+        <div class="ref-title" data-i18n="ref5_title">KAM — Motorola<br>Ex KAM Smartphone · Acer France &amp; Espagne</div>
+      </div>
+    </div>
+    <div class="ref-banner" data-i18n="ref_banner">Plus de contacts disponibles sur demande — collègues, partenaires et clients du secteur consumer electronics.</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label" data-i18n="s6_label">Contact</div>
+    <div class="section-title" data-i18n="s6_title">Pourquoi moi<br>pour LG.</div>
+    <div class="contact-grid">
+      <div class="contact-body">
+        <p data-i18n="c_p1"><strong>LG Electronics France recrute un Responsable Grands Comptes TV / Audio Vidéo</strong> — et ce poste correspond précisément à ce que je fais depuis 15 ans dans le consumer electronics.</p>
+        <p data-i18n="c_p2">J'ai construit et géré des relations avec les principaux comptes du retail français : GMS, GSS, opérateurs, e-tail. La négociation de référencement, les plans trade, l'animation sell-out — j'en fais mon quotidien depuis Acer jusqu'à aujourd'hui. Avec LG, je peux apporter cette expérience immédiatement, sur des catégories que je connais et que j'apprécie.</p>
+        <p data-i18n="c_p3">TV OLED, audio premium, ThinQ AI : LG a les produits pour s'imposer dans chaque segment. Mon rôle serait de m'assurer qu'ils trouvent leur place en rayon, avec les bons arguments, les bons niveaux de stock, et les bonnes animations pour que chaque compte soit un vrai partenaire de croissance.</p>
+        <a href="Resume_Fabrice_EN_Gen_April2026.pdf" download class="cv-download" id="cv-download-btn" data-i18n="cv_btn">Télécharger le CV</a>
+      </div>
+      <div class="contact-cta">
+        <div class="cta-item">
+          <div class="cta-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <div>
+            <div class="cta-label">Email</div>
+            <a class="cta-value" href="mailto:fabrice.come@gmail.com">fabrice.come@gmail.com</a>
+          </div>
+        </div>
+        <div class="cta-item">
+          <div class="cta-icon">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </div>
+          <div>
+            <div class="cta-label">Téléphone</div>
+            <a class="cta-value" href="tel:+33674181393">+33 6 74 18 13 93</a>
+          </div>
+        </div>
+        <div class="cta-item">
+          <div class="cta-icon">
+            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </div>
+          <div>
+            <div class="cta-label">LinkedIn</div>
+            <a class="cta-value" href="https://linkedin.com/in/fabricecomeportillo" target="_blank">fabricecomeportillo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Fabrice CÔME-PORTILLO &mdash; <span>LG Electronics</span> · KAM France</div>
+  <div class="footer-note">Life's Good · 2026</div>
+</footer>
+
+<script>
+var translations = {
+  en: {
+    nav_track:"Track Record",nav_exp:"Experience",nav_why:"Why LG",nav_skills:"Skills",
+    nav_refs:"References",nav_contact_link:"Contact",nav_cta:"Get in touch",
+    hero_label:"Application — Senior Key Account Manager · TV / Audio · France",
+    stat1_num:"15+ yrs",stat1_label:"Consumer Electronics",
+    stat2_num:"2M+",stat2_label:"Units sold",
+    stat3_num:"€50M",stat3_label:"P&L Managed",
+    hero_card_tag:"For LG Electronics · France",
+    hero_card_h:"Growing LG's key accounts in French TV & Audio. For real.",
+    hero_card_sub:"Key Account Manager · TV / Audio",
+    s1_label:"Track Record",
+    m1_label:"Units Sold",m1_sub:"France & South Europe",
+    m2_label:"P&L Managed",
+    m3_label:"POS Activated",m3_sub:"GMS · Operators · E-tail",
+    m4_label:"Market Share",
+    m5_label:"Years Exp.",
+    m6_label:"Kickstarter Goal",
+    m7_label:"Orange Stores",
+    m8_label:"MVNO / FinTech ARR",
+    s1_title:"Numbers are\nthe numbers.",
+    s2_label:"Experience",s2_title:"Key experiences,\nbroken down.",
+    s3_label:"Why LG",s3_title:"Why Fabrice\nand LG.",
+    v1_tag:"Premium Innovation",v1_title:"OLED obsessed, from the start",
+    v1_body:"15 years selling premium tech — from entry-level to flagship. LG holds a unique position with OLED and ThinQ AI. These are exactly the product stories that sell on shelves, when the account is well managed.",
+    v2_tag:"French Market",v2_title:"French retail, in depth",
+    v2_body:"Fnac-Darty, Boulanger, Amazon, Orange, SFR, Bouygues — I've built and maintained trusted relationships with these accounts for over 10 years. I know their buying processes, their ranging cycles, and what really drives performance in TV/Audio.",
+    v3_tag:"Full Ecosystem",v3_title:"From sell-in to sell-out",
+    v3_body:"GMS, GSS, operators, e-tail, distributors — I've activated the full commercial spectrum. Forecasting, P&L, trade animations, trade marketing: every lever pulled to ensure end-to-end performance, not just listing.",
+    v4_tag:"Ownership",v4_title:"Every account, like my own",
+    v4_body:"Managing a €50M P&L gives a simple perspective: every negotiation, every product placement, every promotion must have a measurable impact. I bring to LG the same standards as if I had a personal stake in every account.",
+    s4_label:"Skills",s4_title:"Expertise &\ncapabilities.",
+    sk1:"Key Account Management",sk2:"P&L Management",sk3:"French Retail (GMS · GSS)",
+    sk4:"Sell-in / Sell-through / Sell-out",sk5:"Forecast & Inventory",sk6:"GTM / Product Launch",
+    sk7:"C-level Negotiation",sk8:"Consumer Electronics",
+    s5_label:"References",s5_title:"Colleagues & partners,\nready to speak.",
+    ref1_cat:"Former Manager",ref1_title:"Former Manager · Acer<br>Current CEO — Recommerce",
+    ref2_cat:"Former Manager",ref2_title:"President — Nextincom",
+    ref3_cat:"Client",ref3_title:"Buyer, Terminals — Bouygues Telecom<br>Ex Head of Purchasing · CIC / NRJ Mobile",
+    ref4_cat:"Colleague",ref4_title:"Global Marketing Manager — Lenovo<br>Ex EMEA Marketing Manager",
+    ref5_cat:"Team",ref5_title:"KAM — Motorola<br>Ex KAM Smartphone · Acer France & Spain",
+    ref_banner:"More contacts available on request — colleagues, partners and clients from the consumer electronics industry.",
+    s6_label:"Contact",s6_title:"Why me\nfor LG.",
+    c_p1:"<strong>LG Electronics France is recruiting a Key Account Manager for TV / Audio Video</strong> — and this role is precisely what I've been doing for 15 years in consumer electronics.",
+    c_p2:"I've built and managed relationships with the leading accounts in French retail: GMS, GSS, operators, e-tail. Listing negotiations, trade plans, sell-out animations — this is my day-to-day, from Acer to today. With LG, I can bring this experience immediately, on categories I know and love.",
+    c_p3:"OLED TVs, premium audio, ThinQ AI: LG has the products to dominate every segment. My role would be to ensure they find their place on shelves, with the right messaging, the right stock levels, and the right activations so every account becomes a true growth partner.",
+    e1_role:"Business Manager Smartphone · South Europe",
+    e1_l1:"Define & execute sales strategy for France, Spain, Portugal and Italy",
+    e1_l2:"Manage strategic accounts (C-level), drive sell-in / sell-through / inventory forecasting",
+    e1_l3:"Campaign planning, pricing negotiations, budget and P&L management",
+    e1_l4:"Revenue €50M · GM €4M · PBT €1.3M · 2M+ units sold",
+    e1_l5:"10,000+ strategic POS activated (GMS, operators, e-tail)",
+    e1_l6:"MVNO creation & Top-Up (FinTech) ARR €120K",
+    e2_role:"Business Manager Smartphone",
+    e2_l1:"Strategic key accounts: GMS, operators, e-tail",
+    e2_l2:"Product ranging, pricing, campaigns, KPI tracking",
+    e2_l3:"Team: 3 KAMs + 1 Trade Marketing",
+    e2_l4:"80% French retail · 5% market share · Orange launch",
+    e3_role:"KAM Open Market & MVNOs",
+    e3_l1:"Open market & MVNO segment development",
+    e3_l2:"New accounts, distribution, in-store marketing",
+    e3_l3:"Revenue tripled (€2.8M) · 3 MVNOs opened",
+    e4_role:"Head of Sales & Operations",
+    e4_l1:"B2B sales & ops (FTTO, IPBX, Circular Devices)",
+    e4_l2:"€20K MRR · 40 active clients",
+    e5_role:"Co-Founder",
+    e5_l1:"Premium eco-responsible brand",
+    e5_l2:"Kickstarter 150% · NY, Paris, Milan, Tokyo",
+    e5_l3:"Patent sold 2022",
+    e6_role:"KAM Smartphone",
+    e6_l1:"French exclusive distributor for E-Ten/Glofiish smartphones",
+    e6_l2:"Retail & e-tail distribution network built",
+    cv_btn:"Download CV"
+  },
+  fr: {
+    nav_track:"Chiffres Clés",nav_exp:"Expérience",nav_why:"Pourquoi LG",nav_skills:"Compétences",
+    nav_refs:"Références",nav_contact_link:"Contact",nav_cta:"Me contacter",
+    hero_label:"Candidature — Responsable Grands Comptes TV / Audio Vidéo · France",
+    stat1_num:"15+ ans",stat1_label:"Consumer Electronics",
+    stat2_num:"2M+",stat2_label:"Appareils vendus",
+    stat3_num:"50M€",stat3_label:"P&L Géré",
+    hero_card_tag:"Pour LG Electronics · France",
+    hero_card_h:"Développer les grands comptes TV & Audio en France. Durablement.",
+    hero_card_sub:"Responsable Grands Comptes · TV / Audio Vidéo",
+    s1_label:"Chiffres Clés",
+    m1_label:"Appareils Vendus",m1_sub:"France & Europe du Sud",
+    m2_label:"P&L Géré",
+    m3_label:"PDV Activés",m3_sub:"GMS · Opérateurs · E-tail",
+    m4_label:"Part de Marché",
+    m5_label:"Années Exp.",
+    m6_label:"Objectif Kickstarter",
+    m7_label:"Magasins Orange",
+    m8_label:"ARR MVNO / FinTech",
+    s1_title:"Les chiffres sont\nles chiffres.",
+    s2_label:"Expérience",s2_title:"Expériences clés,\ndétaillées.",
+    s3_label:"Pourquoi LG",s3_title:"Pourquoi Fabrice\net LG.",
+    v1_tag:"Innovation Premium",v1_title:"OLED obsédé, dès le départ",
+    v1_body:"15 ans à vendre des produits technologiques premium — de l'entrée de gamme jusqu'au haut de gamme. LG occupe un espace unique avec l'OLED et le ThinQ AI. Ce sont exactement les histoires produit qui se vendent en rayon, quand le compte est bien géré.",
+    v2_tag:"Marché Français",v2_title:"Le retail français, en profondeur",
+    v2_body:"Fnac-Darty, Boulanger, Amazon, Orange, SFR, Bouygues — j'ai construit et maintenu des relations de confiance avec ces comptes depuis plus de 10 ans. Je connais leurs processus d'achat, leurs cycles de référencement, et ce qui fait vraiment performer un rayon TV/Audio.",
+    v3_tag:"Écosystème Complet",v3_title:"Du sell-in au sell-out",
+    v3_body:"GMS, GSS, opérateurs, e-tail, distributeurs — j'ai activé l'ensemble du spectre commercial. Forecast, P&L, animations commerciales, trade marketing : chaque levier actionné pour garantir la performance de bout en bout, pas seulement le référencement.",
+    v4_tag:"Ownership",v4_title:"Chaque compte, comme le mien",
+    v4_body:"Gérer €50M de P&L donne une perspective simple : chaque négociation, chaque mise en avant, chaque animation doit avoir un impact mesurable. J'apporte chez LG la même exigence que si j'avais une part personnelle dans chaque compte.",
+    s4_label:"Compétences",s4_title:"Expertise &\ncapacités.",
+    sk1:"Key Account Management",sk2:"Gestion P&L",sk3:"Retail France (GMS · GSS)",
+    sk4:"Sell-in / Sell-through / Sell-out",sk5:"Forecast & Stock",sk6:"GTM / Lancement Produit",
+    sk7:"Négociation C-level",sk8:"Consumer Electronics",
+    s5_label:"Références",s5_title:"Collègues & partenaires,\nprêts à témoigner.",
+    ref1_cat:"Ancien Manager",ref1_title:"Ancien Manager · Acer<br>PDG actuel — Recommerce",
+    ref2_cat:"Ancien Manager",ref2_title:"Président — Nextincom",
+    ref3_cat:"Client",ref3_title:"Acheteur Terminaux — Bouygues Telecom<br>Ex Responsable Achats · CIC / NRJ Mobile",
+    ref4_cat:"Collègue",ref4_title:"Global Marketing Manager — Lenovo<br>Ex EMEA Marketing Manager",
+    ref5_cat:"Équipe",ref5_title:"KAM — Motorola<br>Ex KAM Smartphone · Acer France & Espagne",
+    ref_banner:"Plus de contacts disponibles sur demande — collègues, partenaires et clients du secteur consumer electronics.",
+    s6_label:"Contact",s6_title:"Pourquoi moi\npour LG.",
+    c_p1:"<strong>LG Electronics France recrute un Responsable Grands Comptes TV / Audio Vidéo</strong> — et ce poste correspond précisément à ce que je fais depuis 15 ans dans le consumer electronics.",
+    c_p2:"J'ai construit et géré des relations avec les principaux comptes du retail français : GMS, GSS, opérateurs, e-tail. La négociation de référencement, les plans trade, l'animation sell-out — j'en fais mon quotidien depuis Acer jusqu'à aujourd'hui. Avec LG, je peux apporter cette expérience immédiatement, sur des catégories que je connais et que j'apprécie.",
+    c_p3:"TV OLED, audio premium, ThinQ AI : LG a les produits pour s'imposer dans chaque segment. Mon rôle serait de m'assurer qu'ils trouvent leur place en rayon, avec les bons arguments, les bons niveaux de stock, et les bonnes animations pour que chaque compte soit un vrai partenaire de croissance.",
+    e1_role:"Business Manager Smartphone · Europe du Sud",
+    e1_l1:"Définir et exécuter la stratégie commerciale France, Espagne, Portugal, Italie",
+    e1_l2:"Gérer les comptes stratégiques C-level, sell-in / sell-through / prévisions de stock",
+    e1_l3:"Planification campagnes, négociation pricing, budget et P&L",
+    e1_l4:"CA €50M · GM €4M · PBT €1.3M · 2M+ appareils vendus",
+    e1_l5:"10 000+ PDV stratégiques activés (GMS, opérateurs, e-tail)",
+    e1_l6:"Création MVNO & Top-Up (FinTech) ARR €120K",
+    e2_role:"Business Manager Smartphone",
+    e2_l1:"Grands comptes stratégiques : GMS, opérateurs, e-tail",
+    e2_l2:"Référencement, pricing, campagnes, suivi KPI",
+    e2_l3:"Équipe : 3 KAM + 1 Trade Marketing",
+    e2_l4:"80% retail FR · 5% PDM · Lancement Orange",
+    e3_role:"KAM Open Market & MVNOs",
+    e3_l1:"Développement open market & segment MVNO",
+    e3_l2:"Nouveaux comptes, distribution, marketing PDV",
+    e3_l3:"CA triplé (€2.8M) · 3 MVNO ouverts",
+    e4_role:"Head of Sales & Operations",
+    e4_l1:"Ventes & ops B2B (FTTO, IPBX, Circular Devices)",
+    e4_l2:"20K€ MRR · 40 clients actifs",
+    e5_role:"Co-Fondateur",
+    e5_l1:"Marque premium éco-responsable",
+    e5_l2:"Kickstarter 150% · NY, Paris, Milan, Tokyo",
+    e5_l3:"Brevet cédé 2022",
+    e6_role:"KAM Smartphone",
+    e6_l1:"Distributeur exclusif E-Ten/Glofiish France",
+    e6_l2:"Réseau retail & e-tail constitué",
+    cv_btn:"Télécharger le CV"
+  }
+};
+var currentLang="en";
+function setLang(lang){
+  currentLang=lang;
+  document.querySelectorAll("[data-i18n]").forEach(function(el){
+    var key=el.getAttribute("data-i18n");
+    if(translations[lang]&&translations[lang][key]!==undefined){
+      el.innerHTML=translations[lang][key].replace(/\n/g,"<br>");
+    }
+  });
+  document.querySelectorAll(".lang-btn").forEach(function(btn){
+    btn.classList.toggle("active",btn.textContent.toLowerCase()===lang);
+  });
+  document.documentElement.lang=lang;
+}
+var hamburger=document.getElementById("hamburger");
+var drawer=document.getElementById("mobile-drawer");
+function closeDrawer(){if(hamburger)hamburger.classList.remove("open");if(drawer)drawer.classList.remove("open")}
+if(hamburger){hamburger.addEventListener("click",function(){this.classList.toggle("open");drawer.classList.toggle("open")})}
+var isMobileDevice=(window.innerWidth<=768)||('ontouchstart' in window)||(navigator.maxTouchPoints>0);
+function forceCounters(){
+  document.querySelectorAll(".counter").forEach(function(el){
+    var target=parseFloat(el.getAttribute("data-target"))||0;
+    var suffix=el.getAttribute("data-suffix")||"";
+    var prefix=el.getAttribute("data-prefix")||"";
+    el.textContent=prefix+target+suffix;
+  });
+  document.querySelectorAll(".skill-bar-fill").forEach(function(fill){
+    fill.style.width=fill.getAttribute("data-width");
+  });
+  document.querySelectorAll(".reveal").forEach(function(el){el.classList.add("visible")});
+}
+function animateCounter(el){
+  var target=parseFloat(el.getAttribute("data-target"))||0;
+  var suffix=el.getAttribute("data-suffix")||"";
+  var prefix=el.getAttribute("data-prefix")||"";
+  var duration=1400;var start=performance.now();
+  function step(now){
+    var t=Math.min((now-start)/duration,1);
+    var ease=1-Math.pow(1-t,3);
+    var val=Math.round(ease*target);
+    el.textContent=prefix+val+suffix;
+    if(t<1)requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+if(isMobileDevice){
+  forceCounters();setTimeout(forceCounters,200);
+}else{
+  var revealObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add("visible");revealObs.unobserve(e.target)}})
+  },{threshold:0.05});
+  document.querySelectorAll(".reveal").forEach(function(el){revealObs.observe(el)});
+  var counterObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){animateCounter(e.target);counterObs.unobserve(e.target)}})
+  },{threshold:0.05});
+  document.querySelectorAll(".counter").forEach(function(el){counterObs.observe(el)});
+  var skillObs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var fill=e.target.querySelector(".skill-bar-fill");
+        if(fill)fill.style.width=fill.getAttribute("data-width");
+        skillObs.unobserve(e.target);
+      }
+    })
+  },{threshold:0.2});
+  document.querySelectorAll(".skill-row").forEach(function(el){skillObs.observe(el)});
+}
+</script>
+</body>
+</html>
