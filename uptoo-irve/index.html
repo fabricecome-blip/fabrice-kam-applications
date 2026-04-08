@@ -249,6 +249,41 @@ footer{background:var(--black);padding:32px 48px;display:flex;justify-content:sp
 .reveal{opacity:0;transform:translateY(18px);transition:opacity 0.55s ease,transform 0.55s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
+/* CHATBOT FLOTTANT */
+.fc-trigger{position:fixed;bottom:24px;right:24px;width:52px;height:52px;background:var(--green);border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,147,59,0.4);transition:all 0.2s;z-index:9999}
+.fc-trigger:hover{background:#00ab45;transform:scale(1.08)}
+.fc-trigger svg{width:22px;height:22px;fill:white;transition:all 0.2s}
+.fc-trigger.open svg.icon-chat{display:none}
+.fc-trigger.open svg.icon-close{display:block}
+.fc-trigger svg.icon-close{display:none}
+.fc-popup{position:fixed;bottom:88px;right:24px;width:360px;background:#0a1a0f;border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.6);z-index:9998;transform:scale(0.95) translateY(10px);opacity:0;pointer-events:none;transition:all 0.25s cubic-bezier(0.34,1.56,0.64,1)}
+.fc-popup.open{transform:scale(1) translateY(0);opacity:1;pointer-events:all}
+.fc-header{background:#0a1a0f;border-bottom:1px solid rgba(0,147,59,0.2);padding:14px 16px;display:flex;align-items:center;gap:10px}
+.fc-dot{width:7px;height:7px;background:var(--green);border-radius:50%;animation:fcpulse 2s infinite;flex-shrink:0}
+@keyframes fcpulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.fc-title{font-family:var(--body);font-size:14px;font-weight:600;color:rgba(255,255,255,0.9)}
+.fc-sub{font-family:var(--mono);font-size:8px;color:rgba(0,147,59,0.6);letter-spacing:0.1em;text-transform:uppercase;margin-left:auto}
+.fc-msgs{padding:12px 14px;min-height:200px;max-height:300px;overflow-y:auto;display:flex;flex-direction:column;gap:10px}
+.fc-msgs::-webkit-scrollbar{width:2px}
+.fc-msgs::-webkit-scrollbar-thumb{background:rgba(0,147,59,0.3);border-radius:2px}
+.fcm{max-width:88%}
+.fcm.user{align-self:flex-end}
+.fcm.bot{align-self:flex-start}
+.fcm-b{padding:8px 12px;border-radius:10px;font-family:var(--body);font-size:12px;line-height:1.6;font-weight:400}
+.fcm.user .fcm-b{background:var(--green);color:#fff;border-radius:10px 10px 2px 10px}
+.fcm.bot .fcm-b{background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.85);border:1px solid rgba(255,255,255,0.08);border-radius:2px 10px 10px 10px}
+.fcm.bot .fcm-b.thinking{color:rgba(255,255,255,0.3);font-style:italic;font-size:11px}
+.fc-row{background:rgba(255,255,255,0.03);border-top:1px solid rgba(255,255,255,0.06);padding:10px 12px;display:flex;gap:8px;align-items:center}
+.fc-inp{flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:8px 14px;color:rgba(255,255,255,0.9);font-family:var(--body);font-size:12px;font-weight:400;outline:none;transition:border-color 0.2s}
+.fc-inp::placeholder{color:rgba(255,255,255,0.2)}
+.fc-inp:focus{border-color:rgba(0,147,59,0.4)}
+.fc-send{width:32px;height:32px;background:var(--green);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0}
+.fc-send:hover{background:#00ab45}
+.fc-send:disabled{opacity:0.4;cursor:not-allowed}
+.fc-send svg{width:12px;height:12px;fill:white}
+.fc-footer{text-align:center;padding:6px;font-family:var(--mono);font-size:8px;color:rgba(255,255,255,0.15);letter-spacing:0.1em}
+.fc-cta{font-size:11px;line-height:1.6;border:1px solid rgba(0,147,59,0.3) !important;background:rgba(0,147,59,0.06) !important;}
+
 /* RESPONSIVE */
 @media(max-width:900px){
   nav{grid-template-columns:auto 1fr auto;padding:0 20px}
@@ -575,29 +610,29 @@ footer{background:var(--black);padding:32px 48px;display:flex;justify-content:sp
     <div class="section-title" data-i18n="sm_title">Un marché qui se construit.<br>Maintenant.</div>
     <div class="marche-grid">
       <div class="marche-stat reveal">
-        <div class="marche-num">130 000+</div>
-        <div class="marche-label" data-i18n="ms1_label">Bornes installées en France</div>
-        <div class="marche-sub" data-i18n="ms1_sub">Fin 2024 · source : Avere-France</div>
+        <div class="marche-num">~2 Md€</div>
+        <div class="marche-label" data-i18n="ms1_label">Valeur marché B2B 2025</div>
+        <div class="marche-sub" data-i18n="ms1_sub">IRVE entreprises, collectivités, multisites</div>
       </div>
       <div class="marche-stat reveal">
-        <div class="marche-num">400 000</div>
-        <div class="marche-label" data-i18n="ms2_label">Objectif national 2030</div>
-        <div class="marche-sub" data-i18n="ms2_sub">Loi d'Orientation des Mobilités (LOM)</div>
+        <div class="marche-num">+35%</div>
+        <div class="marche-label" data-i18n="ms2_label">CAGR estimé 2025-2027</div>
+        <div class="marche-sub" data-i18n="ms2_sub">Croissance annuelle attendue · secteur IRVE B2B</div>
       </div>
       <div class="marche-stat reveal">
-        <div class="marche-num">+50%</div>
-        <div class="marche-label" data-i18n="ms3_label">Croissance parc VE 2024</div>
-        <div class="marche-sub" data-i18n="ms3_sub">1,4M de véhicules électriques en circulation</div>
+        <div class="marche-num">6M</div>
+        <div class="marche-label" data-i18n="ms3_label">Véhicules de société en France</div>
+        <div class="marche-sub" data-i18n="ms3_sub">Cible principale du déploiement B2B · LFE 40% VE d'ici 2027</div>
       </div>
       <div class="marche-stat reveal">
-        <div class="marche-num">5 000+</div>
-        <div class="marche-label" data-i18n="ms4_label">Flottes en conversion active</div>
-        <div class="marche-sub" data-i18n="ms4_sub">Entreprises > 100 véhicules · marché B2B prioritaire</div>
+        <div class="marche-num">3 Md€</div>
+        <div class="marche-label" data-i18n="ms4_label">Investissements prévus d'ici 2028</div>
+        <div class="marche-sub" data-i18n="ms4_sub">Projections secteur · modèle OPEX dominant</div>
       </div>
     </div>
     <div class="marche-context reveal">
-      <p data-i18n="ms_ctx1"><strong>Le marché IRVE B2B est structurellement en construction</strong> — ce qui signifie que les acteurs qui s'imposent maintenant définissent les standards de demain. Les collectivités, les gestionnaires de flottes et les grands comptes multisites cherchent des partenaires capables de leur proposer une offre technique lisible, un interlocuteur senior, et une exécution fiable.</p>
-      <p data-i18n="ms_ctx2">C'est exactement le positionnement que je sais construire : un compte, une relation de confiance, un contrat-cadre qui dure. J'ai fait ça sur 10 000 points de vente dans la grande distribution. Le terrain change — le métier, non.</p>
+      <p data-i18n="ms_ctx1"><strong>Le marché IRVE B2B est en phase de structuration rapide</strong> : la réglementation LFE impose 40% de VE ou GNV dans les flottes de plus de 100 véhicules d'ici 2027, créant une demande massive et non optionnelle. Les collectivités, les gestionnaires de flottes et les grands comptes multisites cherchent des partenaires capables de proposer une offre lisible, un interlocuteur senior, et une exécution fiable sur la durée.</p>
+      <p data-i18n="ms_ctx2">Le modèle économique dominant est l'OPEX (50 à 150€/mois/borne), ce qui implique des contrats récurrents à valeur long terme — exactement la logique des contrats-cadres que je pilotais sur des comptes CAC 40. Le terrain change, la mécanique commerciale reste identique.</p>
     </div>
   </div>
 </section>
@@ -753,7 +788,7 @@ footer{background:var(--black);padding:32px 48px;display:flex;justify-content:sp
         <p data-i18n="c_p1"><strong>Responsable Commercial &amp; Grands Comptes IRVE</strong> — ce poste correspond à ce que je sais faire depuis 15 ans, appliqué à un secteur en pleine expansion que je considère comme une vraie opportunité de contribution.</p>
         <p data-i18n="c_p2">J’ai construit et piloté des réseaux commerciaux nationaux à grande échelle, négocié avec des interlocuteurs C-level dans des grands comptes (Orange, SFR, Bouygues, Fnac-Darty), et managé des équipes vers des objectifs ambitieux. Le secteur énergétique/IRVE m’apporte un nouveau terrain d’action ; le métier commercial reste identique.</p>
         <p data-i18n="c_p3">Activer 10 000 points de vente ou déployer un réseau de bornes sur des flottes et collectivités — dans les deux cas, la valeur créée vient de la capacité à convaincre des décideurs, à structurer des accords durables, et à piloter l’exécution. C’est ce que j’apporte.</p>
-        <a href="../Resume_Fabrice_EN_Gen_April2026.pdf" download class="cv-download" data-i18n="cv_btn">Télécharger le CV</a>
+        <a href="Resume_Fabrice_EN_Gen_April2026.pdf" download class="cv-download" data-i18n="cv_btn">Télécharger le CV</a>
       </div>
       <div class="contact-cta">
         <div class="cta-item">
@@ -793,6 +828,29 @@ footer{background:var(--black);padding:32px 48px;display:flex;justify-content:sp
   <div class="footer-note">Transition énergétique &middot; 2026</div>
 </footer>
 
+<button class="fc-trigger" id="fcTrigger" onclick="fcToggle()">
+  <svg class="icon-chat" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 10H6V10h12v2zm0-3H6V7h12v2z"/></svg>
+  <svg class="icon-close" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+</button>
+
+<div class="fc-popup" id="fcPopup">
+  <div class="fc-header">
+    <div class="fc-dot"></div>
+    <div class="fc-title" id="fcTitle">Posez-moi vos questions sur Fabrice</div>
+    <div class="fc-sub">Powered by Claude</div>
+  </div>
+  <div class="fc-msgs" id="fcMsgs">
+    <div class="fcm bot"><div class="fcm-b" id="fcWelcome">Bonjour ! Poser des candidatures prend du temps — je suis là pour vous faciliter la tâche. Posez-moi n'importe quelle question sur Fabrice.</div></div>
+  </div>
+  <div class="fc-row">
+    <input class="fc-inp" id="fcInp" type="text" placeholder="Votre question..." onkeydown="if(event.key==='Enter')fcSend()"/>
+    <button class="fc-send" id="fcBtn" onclick="fcSend()">
+      <svg viewBox="0 0 24 24"><path d="M2 21L23 12 2 3v7l15 2-15 2z"/></svg>
+    </button>
+  </div>
+  <div class="fc-footer">Propulsé par Claude · Anthropic</div>
+</div>
+
 <script>
 var translations = {
   fr: {
@@ -826,12 +884,12 @@ var translations = {
     v4_body:"Gérer €50M de P&L donne une perspective simple : chaque négociation, chaque contrat, chaque animation a un impact mesurable sur le bas de bilan. J’apporte cette exigence à ce poste IRVE — sans complexe sur les chiffres, avec un track record concret de dépassement d’objectifs.",
     nav_marche:"Marché",nav_plan:"Plan 30/60/90",
     sm_label:"Marché IRVE",sm_title:"Un marché qui se construit.\nMaintenant.",
-    ms1_label:"Bornes installées en France",ms1_sub:"Fin 2024 · source : Avere-France",
-    ms2_label:"Objectif national 2030",ms2_sub:"Loi d’Orientation des Mobilités (LOM)",
-    ms3_label:"Croissance parc VE 2024",ms3_sub:"1,4M de véhicules électriques en circulation",
-    ms4_label:"Flottes en conversion active",ms4_sub:"Entreprises > 100 véhicules · marché B2B prioritaire",
-    ms_ctx1:"<strong>Le marché IRVE B2B est structurellement en construction</strong> — ce qui signifie que les acteurs qui s’imposent maintenant définissent les standards de demain. Les collectivités, les gestionnaires de flottes et les grands comptes multisites cherchent des partenaires capables de leur proposer une offre technique lisible, un interlocuteur senior, et une exécution fiable.",
-    ms_ctx2:"C’est exactement le positionnement que je sais construire : un compte, une relation de confiance, un contrat-cadre qui dure. J’ai fait ça sur 10 000 points de vente dans la grande distribution. Le terrain change — le métier, non.",
+    ms1_label:"Valeur marché B2B 2025",ms1_sub:"IRVE entreprises, collectivités, multisites",
+    ms2_label:"CAGR estimé 2025-2027",ms2_sub:"Croissance annuelle attendue · secteur IRVE B2B",
+    ms3_label:"Véhicules de société en France",ms3_sub:"Cible principale du déploiement B2B · LFE 40% VE d’ici 2027",
+    ms4_label:"Investissements prévus d’ici 2028",ms4_sub:"Projections secteur · modèle OPEX dominant",
+    ms_ctx1:"<strong>Le marché IRVE B2B est en phase de structuration rapide</strong> : la réglementation LFE impose 40% de VE ou GNV dans les flottes de plus de 100 véhicules d’ici 2027, créant une demande massive et non optionnelle. Les collectivités, les gestionnaires de flottes et les grands comptes multisites cherchent des partenaires capables de proposer une offre lisible, un interlocuteur senior, et une exécution fiable sur la durée.",
+    ms_ctx2:"Le modèle économique dominant est l’OPEX (50 à 150€/mois/borne), ce qui implique des contrats récurrents à valeur long terme — exactement la logique des contrats-cadres que je pilotais sur des comptes CAC 40. Le terrain change, la mécanique commerciale reste identique.",
     sp_label:"Plan d’intégration",sp_title:"30 · 60 · 90 jours.\nCe que je fais dès l’arrivée.",
     p1_period:"Premiers 30 jours",p1_title:"Comprendre avant d’agir",
     p1_l1:"Audit du portefeuille existant — comptes actifs, pipeline, historique de relation",
@@ -920,12 +978,12 @@ var translations = {
     v4_body:"Managing a €50M P&L gives a simple perspective: every negotiation, every contract, every activation must have a measurable bottom-line impact. I bring that standard to this EVCI role — with a concrete track record of exceeding targets.",
     nav_marche:"Market",nav_plan:"30/60/90 Plan",
     sm_label:"EVCI Market",sm_title:"A market being built.\nRight now.",
-    ms1_label:"Charge points in France",ms1_sub:"End 2024 · source: Avere-France",
-    ms2_label:"National target by 2030",ms2_sub:"French Mobility Law (LOM)",
-    ms3_label:"EV fleet growth 2024",ms3_sub:"1.4M electric vehicles in circulation",
-    ms4_label:"Fleets in active conversion",ms4_sub:"Companies > 100 vehicles · priority B2B market",
-    ms_ctx1:"<strong>The B2B EVCI market is structurally under construction</strong> — meaning the players who establish themselves now define tomorrow's standards. Local authorities, fleet managers and multi-site accounts are looking for partners who can offer clear technical solutions, senior contacts, and reliable execution.",
-    ms_ctx2:"That's exactly the positioning I know how to build: one account, one trusted relationship, one long-term framework agreement. I did this across 10,000 POS in French retail. The field changes — the job doesn't.",
+    ms1_label:"B2B market value 2025",ms1_sub:"EVCI for corporates, local authorities, multi-site",
+    ms2_label:"Estimated CAGR 2025-2027",ms2_sub:"Expected annual growth · B2B EVCI sector",
+    ms3_label:"Company vehicles in France",ms3_sub:"Primary B2B deployment target · LFE: 40% EV by 2027",
+    ms4_label:"Planned investments by 2028",ms4_sub:"Sector projections · OPEX model dominant",
+    ms_ctx1:"<strong>The B2B EVCI market is in rapid structuring mode</strong>: the LFE regulation mandates 40% electric or low-emission vehicles in fleets of 100+ by 2027, creating massive, non-optional demand. Local authorities, fleet managers and multi-site accounts need partners who can deliver a clear offer, a senior point of contact, and reliable long-term execution.",
+    ms_ctx2:"The dominant business model is OPEX (50 to 150€/month/charge point), meaning recurring long-term contracts — exactly the framework agreement logic I managed with CAC 40 accounts. The field changes; the commercial mechanics stay the same.",
     sp_label:"Onboarding Plan",sp_title:"30 · 60 · 90 days.\nWhat I do from day one.",
     p1_period:"First 30 days",p1_title:"Understand before acting",
     p1_l1:"Audit of existing portfolio — active accounts, pipeline, relationship history",
@@ -1047,6 +1105,43 @@ if(isMobileDevice){
 }
 // Init FR par défaut
 setLang("fr");
+
+// ===== CHATBOT FLOTTANT =====
+var fcHistory=[],fcLoading=false,fcOpen=false,fcExchangeCount=0,fcCtaShown=false;
+var FC_API='https://fabrice-hisense-app.netlify.app/api/chat';
+var FC_SYSTEM="You are a conversational AI assistant representing Fabrice Come-Portillo on his candidacy website for the role of Responsable Commercial & Grands Comptes IRVE at UPTOO.\n\n=== TONE ===\nThe person talking to you is a recruiter or hiring manager. Their job is hard. Be warm, human, and genuinely helpful. You are not a sales bot.\nIf they ask something unrelated to Fabrice, answer warmly. They have Google for facts; a kind conversation is rarer.\n\n=== CORE RULES ===\n- Maximum 2-3 sentences per answer. Never more.\n- Answer ONLY what was asked. One piece of information per answer.\n- If the answer is a single fact, give a single sentence. Stop there.\n- Never volunteer information that was not requested.\n- Always respond in the language the visitor uses (French or English default).\n- Keep language natural and simple (B2 English max).\n- No em dashes. No contrasting patterns like Not X. Y.\n- Never invent or embellish. If unsure, say you do not have that detail.\n\n=== ABOUT FABRICE ===\nName: Fabrice Come-Portillo. Age 44. Based in Paris. Married to Charlotte, two children (Lise, Axel). Bilingual French/English, Spanish heritage.\nEmail: fabrice.come@gmail.com · Phone: +33 6 74 18 13 93 · LinkedIn: fabricecomeportillo\n\nCareer:\n- Partelec (2002-2009): KAM, imported first E-Ten Windows Mobile smartphones in France.\n- Acer France (2010-2014): KAM then Business Manager Smartphone. Built from zero: 10K+ POS, 5% market share, launched Orange MVNO.\n- Acer Group / South Europe (2014-2019): Business Manager Smartphone reporting to VP EMEA. P&L EUR 50M, 2M+ units, France+Spain+Portugal+Italy.\n- D-Wager (2019-2022): Co-founded premium eco-responsible brand. Kickstarter 150% funded, 4 markets. Patent sold.\n- NextinCom (2022-2025): Head of Sales & Ops B2B. Built B2B telecom operation from zero. EUR 20K MRR.\n\nKey argument for IRVE: Activating 10,000 POS and deploying a national charging network use the same commercial logic — convince B2B decision-makers, negotiate framework agreements, drive execution. He has done this for 15 years.\n\nHonest gaps: No prior IRVE sector experience. Learning curve on technical product. No existing IRVE network yet.\n\nAvailability: Within 2 weeks. Open to travel across France.\n\nSPA: https://fabricecome-blip.github.io/fabrice-kam-applications/uptoo-irve/";
+
+function fcToggle(){fcOpen=!fcOpen;document.getElementById('fcPopup').classList.toggle('open',fcOpen);document.getElementById('fcTrigger').classList.toggle('open',fcOpen);if(fcOpen)setTimeout(function(){document.getElementById('fcInp').focus();},300);}
+function fcScroll(){var m=document.getElementById('fcMsgs');if(m)m.scrollTop=m.scrollHeight;}
+function fcAdd(role,text){var m=document.getElementById('fcMsgs');if(!m)return null;var d=document.createElement('div');d.className='fcm '+role;d.innerHTML='<div class="fcm-b">'+text+'</div>';m.appendChild(d);fcScroll();return d;}
+function fcAddStreaming(role){var m=document.getElementById('fcMsgs');if(!m)return null;var d=document.createElement('div');d.className='fcm '+role;var b=document.createElement('div');b.className='fcm-b';d.appendChild(b);m.appendChild(d);fcScroll();return b;}
+function fcShowCta(){if(fcCtaShown)return;fcCtaShown=true;var m=document.getElementById('fcMsgs');if(!m)return;var d=document.createElement('div');d.className='fcm bot';d.innerHTML='<div class="fcm-b fc-cta">Vous souhaitez échanger directement avec Fabrice ? <a href="mailto:fabrice.come@gmail.com" style="color:var(--green);text-decoration:underline;">Envoyez-lui un message</a> — il répond vite.</div>';m.appendChild(d);fcScroll();}
+async function fcSend(){
+  if(fcLoading)return;
+  var inp=document.getElementById('fcInp'),btn=document.getElementById('fcBtn');
+  if(!inp)return;var q=inp.value.trim();if(!q)return;
+  inp.value='';fcAdd('user',q);fcHistory.push({role:'user',content:q});
+  fcLoading=true;if(btn)btn.disabled=true;
+  var bubbleEl=fcAddStreaming('bot'),fullReply='';
+  try{
+    var res=await fetch(FC_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-haiku-4-5-20251001',max_tokens:400,system:FC_SYSTEM,messages:fcHistory})});
+    var reader=res.body.getReader(),decoder=new TextDecoder(),buffer='';
+    while(true){
+      var result=await reader.read();if(result.done)break;
+      buffer+=decoder.decode(result.value,{stream:true});
+      var lines=buffer.split('\n');buffer=lines.pop();
+      for(var i=0;i<lines.length;i++){
+        var line=lines[i].trim();if(!line||!line.startsWith('data:'))continue;
+        var data=line.slice(5).trim();if(data==='[DONE]')continue;
+        try{var parsed=JSON.parse(data);if(parsed.type==='content_block_delta'&&parsed.delta&&parsed.delta.text){fullReply+=parsed.delta.text;bubbleEl.textContent=fullReply;fcScroll();}}catch(e){}
+      }
+    }
+    if(!fullReply)fullReply='Une erreur est survenue, réessayez.';
+    bubbleEl.textContent=fullReply;fcHistory.push({role:'assistant',content:fullReply});
+    fcExchangeCount++;if(fcExchangeCount===3)setTimeout(fcShowCta,800);
+  }catch(e){bubbleEl.textContent='Erreur de connexion. Réessayez.';}
+  fcLoading=false;if(btn)btn.disabled=false;if(inp)inp.focus();
+}
 </script>
 </body>
 </html>
