@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Fabrice C\u00d4ME-PORTILLO \u2014 Responsable Commercial Grands Comptes IRVE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#f5f5f5;--white:#ffffff;--black:#1a1a1a;--text:#1a1a1a;--muted:#555555;
+  --dim:#888888;--border:rgba(0,0,0,0.10);--border-md:rgba(0,0,0,0.18);
+  --green:#00933b;--dark:#0a1a0f;--dark2:#0f2318;
+  --body:'Inter','Helvetica Neue',Arial,sans-serif;
+  --mono:'Space Mono','Courier New',monospace;
+  --nav-h:60px;--card-radius:12px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+:root{color-scheme:light}*{color-scheme:light!important}
+body{font-family:var(--body);background:#f5f5f5!important;color:#1a1a1a!important;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);
+  background:rgba(245,245,245,0.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;padding:0 32px;z-index:1000}
+.nav-logo{font-family:var(--body);font-size:14px;font-weight:800;letter-spacing:-0.01em;
+  color:var(--black);text-decoration:none;
+  justify-self:center;display:flex;align-items:center;gap:12px;
+  background:#fff;border:1.5px solid rgba(0,0,0,0.12);border-radius:8px;
+  padding:10px 22px}
+.nav-logo .dot{display:inline-block;width:10px;height:10px;background:var(--green);border-radius:50%;margin-left:4px}
+.nav-sections{display:flex;gap:20px;align-items:center;justify-self:start}
+.nav-sections a{font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:0.06em;
+  text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color 0.2s}
+.nav-sections a:hover{color:var(--black)}
+.nav-right{display:flex;align-items:center;gap:12px;justify-self:end}
+.nav-contact{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--green);text-decoration:none;border:1.5px solid var(--green);
+  padding:6px 14px;border-radius:4px;transition:all 0.2s}
+.nav-contact:hover{background:var(--green);color:#fff}
+.lang-toggle{display:flex;border:1.5px solid var(--border-md);border-radius:4px;overflow:hidden}
+.lang-btn{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.08em;
+  padding:5px 10px;border:none;cursor:pointer;background:var(--white);color:var(--dim);
+  transition:all 0.2s;text-transform:uppercase}
+.lang-btn.active{background:var(--black);color:#fff}
+.nav-offset{height:var(--nav-h)}
+section{position:relative;z-index:1}
+
+/* HAMBURGER MOBILE */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--black);border-radius:2px;transition:all 0.25s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-drawer{display:none;position:fixed;top:52px;left:0;right:0;
+  background:rgba(245,245,245,0.98);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  z-index:199;border-bottom:1px solid var(--border);flex-direction:column;padding:8px 0}
+.mobile-drawer.open{display:flex}
+.mobile-drawer a{font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
+  text-decoration:none;color:var(--black);padding:14px 24px;border-bottom:1px solid var(--border)}
+.mobile-drawer a:last-child{border-bottom:none}
+
+/* HERO */
+.hero{background:var(--bg);border-bottom:1px solid var(--border)}
+.hero-inner{max-width:1280px;margin:0 auto;padding:60px 48px 56px;
+  min-height:calc(100vh - var(--nav-h));min-height:calc(100svh - var(--nav-h));display:flex;flex-direction:column}
+.hero-label{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--green);margin-bottom:20px}
+.hero h1{font-family:var(--body);font-size:clamp(40px,8vw,88px);font-weight:900;
+  letter-spacing:-0.04em;line-height:0.92;color:var(--black);margin-bottom:48px}
+.hero h1 .accent{color:var(--green)}
+.hero-bottom{display:flex;flex-direction:row;align-items:flex-end;gap:40px;flex:1}
+.hero-stat-group{display:flex;flex-direction:column;gap:28px;min-width:220px}
+.hero-stat-num{font-family:var(--body);font-size:32px;font-weight:800;letter-spacing:-0.03em;color:var(--black)}
+.hero-stat-label{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--dim);margin-top:3px}
+.hero-card{min-width:260px;max-width:320px;background:var(--white);border:1.5px solid var(--border);
+  border-radius:var(--card-radius);padding:28px;align-self:flex-end;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+.hero-card-tag{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--green);margin-bottom:12px}
+.hero-card h2{font-family:var(--body);font-size:18px;font-weight:700;letter-spacing:-0.02em;
+  color:var(--black);line-height:1.3;margin-bottom:8px}
+.hero-card-p{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:0.06em;
+  text-transform:uppercase;font-weight:700}
+
+/* BRAND BAR */
+.brand-bar{background:var(--green);overflow:hidden;padding:14px 0;position:relative;z-index:2}
+.brand-track{display:flex;animation:brand-scroll 35s linear infinite;width:max-content}
+.brand-item{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:0.12em;
+  text-transform:uppercase;color:rgba(255,255,255,0.85);padding:0 32px;white-space:nowrap}
+.brand-sep{color:rgba(255,255,255,0.4);padding:0 4px}
+@keyframes brand-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* SECTIONS */
+.section-inner{max-width:1280px;margin:0 auto;padding:80px 48px}
+.section-label{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--green);margin-bottom:16px}
+.section-title{font-family:var(--body);font-size:clamp(26px,3.5vw,48px);font-weight:800;
+  letter-spacing:-0.03em;color:var(--black);line-height:1.1;margin-bottom:56px;white-space:pre-line}
+
+/* TRACK RECORD */
+#track-record{background:var(--white);border-bottom:1px solid var(--border)}
+.metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:var(--card-radius);overflow:hidden}
+.metric-card{background:var(--white);padding:32px 28px;display:flex;flex-direction:column;gap:8px}
+.metric-num{font-family:var(--body);font-size:clamp(24px,3vw,40px);font-weight:800;
+  letter-spacing:-0.03em;color:var(--green)}
+.metric-label{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--black)}
+.metric-sub{font-family:var(--mono);font-size:9px;color:var(--dim);letter-spacing:0.04em;margin-top:2px}
+
+/* TICKER */
+.ticker-wrap{overflow:hidden;border-top:1px solid var(--border);background:var(--black);padding:12px 0;margin-top:56px}
+.ticker-track{display:flex;width:max-content;animation:ticker-scroll 30s linear infinite}
+.ticker-track:hover{animation-play-state:paused}
+.ticker-item{font-family:var(--mono);font-size:11px;font-weight:400;letter-spacing:0.1em;
+  text-transform:uppercase;color:rgba(255,255,255,0.7);white-space:nowrap;padding:0 32px}
+.ticker-item span{color:var(--green)}
+@keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* EXPERIENCE */
+#experience{background:var(--bg);border-bottom:1px solid var(--border)}
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.exp-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--card-radius);
+  padding:28px;position:relative;overflow:hidden;box-shadow:0 1px 8px rgba(0,0,0,0.04)}
+.exp-card.featured{grid-column:span 2;background:var(--black);color:#fff;border-color:var(--black)}
+.exp-card-tag{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--green);margin-bottom:10px}
+.exp-card-company{font-family:var(--body);font-size:20px;font-weight:800;letter-spacing:-0.02em;
+  color:var(--black);margin-bottom:4px}
+.exp-card.featured .exp-card-company{color:#fff}
+.exp-card-role{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.exp-card.featured .exp-card-role{color:rgba(255,255,255,0.5)}
+.exp-card-years{position:absolute;top:28px;right:28px;font-family:var(--mono);font-size:10px;
+  font-weight:700;letter-spacing:0.1em;color:var(--dim)}
+.exp-card.featured .exp-card-years{color:rgba(255,255,255,0.35)}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.exp-bullets li{font-size:12px;color:var(--muted);padding-left:16px;position:relative;line-height:1.6}
+.exp-card.featured .exp-bullets li{color:rgba(255,255,255,0.7)}
+.exp-bullets li::before{content:"";display:inline-block;width:6px;height:6px;background:var(--green);
+  position:absolute;left:0;top:6px}
+.exp-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.exp-tag{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  padding:4px 8px;border-radius:20px;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6)}
+.exp-card:not(.featured) .exp-tag{border-color:var(--border-md);color:var(--muted)}
+
+/* WHY CE POSTE */
+#why-irve{background:var(--dark);border-bottom:1px solid #0f2318;position:relative;overflow:hidden}
+#why-irve::before{content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(0,147,59,0.14) 1.2px,transparent 1.2px);
+  background-size:28px 28px;pointer-events:none}
+#why-irve .section-inner{position:relative}
+#why-irve .section-title{color:#fff}
+.values-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.value-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--card-radius);padding:32px}
+.value-tag{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--green);margin-bottom:12px}
+.value-title{font-family:var(--body);font-size:22px;font-weight:800;letter-spacing:-0.02em;
+  color:#fff;margin-bottom:12px}
+.value-body{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.75}
+
+/* SKILLS */
+#skills{background:var(--bg);border-bottom:1px solid var(--border)}
+.skills-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.skill-bars{display:flex;flex-direction:column;gap:16px}
+.skill-row{display:flex;flex-direction:column;gap:6px}
+.skill-label{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--green)}
+.skill-bar-bg{height:3px;background:rgba(0,147,59,0.12);border-radius:2px;overflow:hidden}
+.skill-bar-fill{height:100%;background:var(--green);border-radius:2px;width:0;transition:width 1.2s cubic-bezier(.22,1,.36,1)}
+.skill-tags{display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}
+.skill-tag{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+  padding:5px 10px;border-radius:20px;border:1.5px solid var(--border-md);color:var(--muted);
+  background:var(--white);transition:all 0.2s;cursor:default}
+.skill-tag:hover{border-color:var(--green);color:var(--green)}
+
+/* REFERENCES */
+#references{background:var(--white);border-bottom:1px solid var(--border)}
+.ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+.ref-card{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--card-radius);padding:24px}
+.ref-tag{font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--green);margin-bottom:8px}
+.ref-title{font-family:var(--mono);font-size:10px;color:var(--dim);line-height:1.5;margin-bottom:12px}
+.ref-banner{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:0.04em;
+  text-align:center;padding:16px;border:1px dashed var(--border-md);border-radius:8px}
+
+/* CONTACT */
+#contact{background:var(--bg);border-bottom:1px solid var(--border)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.contact-body{display:flex;flex-direction:column;gap:20px}
+.contact-body p{font-size:14px;color:var(--muted);line-height:1.75}
+.contact-body p strong{color:var(--black)}
+.contact-cta{display:flex;flex-direction:column;gap:16px}
+.cta-item{display:flex;align-items:center;gap:12px;padding:20px;
+  background:var(--white);border:1.5px solid var(--border);border-radius:var(--card-radius)}
+.cta-icon{width:36px;height:36px;background:var(--green);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cta-icon svg{width:18px;height:18px;fill:#fff}
+.cta-label{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--dim);margin-bottom:4px}
+.cta-value{font-family:var(--body);font-size:14px;font-weight:600;color:var(--black);text-decoration:none}
+.cv-download{display:inline-flex;align-items:center;gap:8px;margin-top:8px;
+  font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  color:#fff;background:var(--green);padding:12px 24px;border-radius:6px;text-decoration:none;
+  transition:opacity 0.2s}
+.cv-download:hover{opacity:0.85}
+
+/* FOOTER */
+footer{background:var(--black);padding:32px 48px;display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:12px}
+.footer-logo{font-family:var(--body);font-size:13px;font-weight:700;letter-spacing:-0.01em;color:rgba(255,255,255,0.5)}
+.footer-logo span{color:var(--green)}
+.footer-note{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,0.3);letter-spacing:0.06em;text-transform:uppercase}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 0.55s ease,transform 0.55s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{grid-template-columns:auto 1fr auto;padding:0 20px}
+  .nav-sections{display:none}
+  .hamburger{display:flex}
+  .hero-inner{padding:40px 20px 36px}
+  .hero h1{font-size:clamp(36px,11vw,64px)}
+  .hero-bottom{flex-direction:column;gap:28px}
+  .hero-card{max-width:100%;align-self:stretch}
+  .section-inner{padding:56px 20px}
+  .metrics-grid{grid-template-columns:repeat(2,1fr)}
+  .exp-grid{grid-template-columns:1fr}
+  .exp-card.featured{grid-column:span 1}
+  .values-grid{grid-template-columns:1fr}
+  .skills-layout{grid-template-columns:1fr}
+  .ref-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  footer{padding:24px 20px;flex-direction:column;text-align:center;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-sections">
+    <a href="#track-record" data-i18n="nav_track">Chiffres Cl\u00e9s</a>
+    <a href="#experience" data-i18n="nav_exp">Exp\u00e9rience</a>
+    <a href="#why-irve" data-i18n="nav_why">Pourquoi ce poste</a>
+    <a href="#skills" data-i18n="nav_skills">Comp\u00e9tences</a>
+    <a href="#references" data-i18n="nav_refs">R\u00e9f\u00e9rences</a>
+    <a href="#contact" data-i18n="nav_contact_link">Contact</a>
+  </div>
+  <a class="nav-logo" href="#">
+    IRVE · Mobilit\u00e9 \u00c9lectrique<span class="dot"></span>
+  </a>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="#contact" class="nav-contact" data-i18n="nav_cta">Me contacter</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-drawer" id="mobile-drawer">
+  <a href="#track-record" onclick="closeDrawer()" data-i18n="nav_track">Chiffres Cl\u00e9s</a>
+  <a href="#experience" onclick="closeDrawer()" data-i18n="nav_exp">Exp\u00e9rience</a>
+  <a href="#why-irve" onclick="closeDrawer()" data-i18n="nav_why">Pourquoi ce poste</a>
+  <a href="#skills" onclick="closeDrawer()" data-i18n="nav_skills">Comp\u00e9tences</a>
+  <a href="#references" onclick="closeDrawer()" data-i18n="nav_refs">R\u00e9f\u00e9rences</a>
+  <a href="#contact" onclick="closeDrawer()" data-i18n="nav_contact_link">Contact</a>
+</div>
+<div class="nav-offset"></div>
+
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="hero-inner">
+    <div class="hero-label" data-i18n="hero_label">Candidature \u2014 Responsable Commercial &amp; Grands Comptes · IRVE · France</div>
+    <h1>FABRICE<br>C\u00d4ME-<span class="accent">PORTILLO</span></h1>
+    <div class="hero-bottom">
+      <div class="hero-stat-group">
+        <div class="hero-stat">
+          <div class="hero-stat-num counter" data-target="15" data-suffix="+ ans" data-i18n="stat1_num">15+ ans</div>
+          <div class="hero-stat-label" data-i18n="stat1_label">D\u00e9veloppement commercial B2B</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num" data-i18n="stat2_num">\u20ac50M</div>
+          <div class="hero-stat-label" data-i18n="stat2_label">P&amp;L g\u00e9r\u00e9</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num" data-i18n="stat3_num">+40%</div>
+          <div class="hero-stat-label" data-i18n="stat3_label">CA g\u00e9n\u00e9r\u00e9 / comp</div>
+        </div>
+      </div>
+      <div class="hero-card reveal">
+        <div class="hero-card-tag" data-i18n="hero_card_tag">Responsable Commercial IRVE</div>
+        <h2 data-i18n="hero_card_h">Piloter la croissance grands comptes sur le march\u00e9 de la recharge \u00e9lectrique. Avec m\u00e9thode.</h2>
+        <div class="hero-card-p" data-i18n="hero_card_sub">Manager Commercial &middot; IRVE &middot; France</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRAND BAR -->
+<div class="brand-bar">
+  <div class="brand-track">
+    <span class="brand-item">IRVE<span class="brand-sep"> \u00b7 </span></span>
+    <span class="brand-item">Flottes d\u2019Entreprises<span class="brand-sep"> \u00b7 </span></span>
+    <span class="brand-item">Collectivit\u00e9s<span class="brand-sep"> \u00b7 </span></span>
+    <span class="brand-item">Grands Comptes B2B<span class="brand-sep"> \u00b7 </span></span>
+    <span class="brand-item">\u20ac50M P&amp;L G\u00e9r\u00e9<span class="brand-sep"> \u00b7 </span></span>
+    <span class="brand-item">10 000+ PDV Activ\u00e9s<span class="brand-sep"> \u00b7 </span></span>
+    <span class="brand-item">N\u00e9gociation C-level<span class="brand-sep"> \u00b7 </span></span>
+    <span class="brand-item">Management d\u2019\u00c9quipe<span class="brand-sep"> \u00b7 </span></span>
+    <span class="brand-item">Transition \u00c9nerg\u00e9tique<span class="brand-sep"> \u00b7 </span></span>
+    <!-- duplicate -->
+    <span class="brand-item">IRVE<span class="brand-sep"> \u00b7 </span></span>
+    <span class="brand-item">Flottes d\u2019Entreprises<span class="brand-sep"> \u00b7 </span></span>
+    <span class="brand-item">Collectivit\u00e9s<span class="brand-sep"> \u00b7 </span></span>
+    <span class="brand-item">Grands Comptes B2B<span class="brand-sep"> \u00b7 </span></span>
+    <span class="brand-item">\u20ac50M P&amp;L G\u00e9r\u00e9<span class="brand-sep"> \u00b7 </span></span>
+    <span class="brand-item">10 000+ PDV Activ\u00e9s<span class="brand-sep"> \u00b7 </span></span>
+    <span class="brand-item">N\u00e9gociation C-level<span class="brand-sep"> \u00b7 </span></span>
+    <span class="brand-item">Management d\u2019\u00c9quipe<span class="brand-sep"> \u00b7 </span></span>
+    <span class="brand-item">Transition \u00c9nerg\u00e9tique<span class="brand-sep"> \u00b7 </span></span>
+  </div>
+</div>
+
+<!-- TRACK RECORD -->
+<section id="track-record">
+  <div class="section-inner">
+    <div class="section-label" data-i18n="s1_label">Chiffres Cl\u00e9s</div>
+    <div class="section-title" data-i18n="s1_title">Les chiffres sont\nles chiffres.</div>
+    <div class="metrics-grid">
+      <div class="metric-card reveal">
+        <div class="metric-num counter" data-target="15" data-suffix="+">0</div>
+        <div class="metric-label" data-i18n="m1_label">Ann\u00e9es Exp.</div>
+        <div class="metric-sub" data-i18n="m1_sub">D\u00e9veloppement commercial B2B</div>
+      </div>
+      <div class="metric-card reveal">
+        <div class="metric-num counter" data-target="50" data-prefix="\u20ac" data-suffix="M">\u20ac0</div>
+        <div class="metric-label" data-i18n="m2_label">P&amp;L G\u00e9r\u00e9</div>
+        <div class="metric-sub">Revenue \u00b7 GM \u00b7 PBT</div>
+      </div>
+      <div class="metric-card reveal">
+        <div class="metric-num counter" data-target="10" data-suffix="K+">0</div>
+        <div class="metric-label" data-i18n="m3_label">Points de Vente Activ\u00e9s</div>
+        <div class="metric-sub" data-i18n="m3_sub">R\u00e9seau national &amp; p\u00e9nitration territoriale</div>
+      </div>
+      <div class="metric-card reveal">
+        <div class="metric-num" data-i18n="m4_num">+40%</div>
+        <div class="metric-label" data-i18n="m4_label">Croissance CA</div>
+        <div class="metric-sub" data-i18n="m4_sub">Objectifs d\u00e9pass\u00e9s sur p\u00e9riode Acer</div>
+      </div>
+      <div class="metric-card reveal">
+        <div class="metric-num counter" data-target="6" data-suffix=" pers">0</div>
+        <div class="metric-label" data-i18n="m5_label">Management \u00c9quipe</div>
+        <div class="metric-sub" data-i18n="m5_sub">KAM + Trade Marketing + Ops</div>
+      </div>
+      <div class="metric-card reveal">
+        <div class="metric-num" data-i18n="m6_num">CAC 40</div>
+        <div class="metric-label" data-i18n="m6_label">Clients strat\u00e9giques</div>
+        <div class="metric-sub">Orange \u00b7 SFR \u00b7 Bouygues \u00b7 Fnac-Darty</div>
+      </div>
+      <div class="metric-card reveal">
+        <div class="metric-num counter" data-target="150" data-suffix="%">0</div>
+        <div class="metric-label" data-i18n="m7_label">Objectif Kickstarter</div>
+        <div class="metric-sub">D-Wager \u00b7 Entrepreneuriat</div>
+      </div>
+      <div class="metric-card reveal">
+        <div class="metric-num" data-i18n="m8_num">2M+</div>
+        <div class="metric-label" data-i18n="m8_label">Appareils Distribu\u00e9s</div>
+        <div class="metric-sub">France &amp; Europe du Sud</div>
+      </div>
+    </div>
+    <!-- ticker -->
+    <div class="ticker-wrap">
+      <div class="ticker-track">
+        <span class="ticker-item">Flottes <span>\u00b7</span></span>
+        <span class="ticker-item">Collectivit\u00e9s <span>\u00b7</span></span>
+        <span class="ticker-item">Multisites <span>\u00b7</span></span>
+        <span class="ticker-item">Contrats-cadres <span>\u00b7</span></span>
+        <span class="ticker-item">P&amp;L <span>\u00b7</span></span>
+        <span class="ticker-item">Forecast <span>\u00b7</span></span>
+        <span class="ticker-item">Go-to-Market <span>\u00b7</span></span>
+        <span class="ticker-item">N\u00e9gociation C-level <span>\u00b7</span></span>
+        <span class="ticker-item">KAM <span>\u00b7</span></span>
+        <span class="ticker-item">R\u00e9seau national <span>\u00b7</span></span>
+        <span class="ticker-item">IRVE <span>\u00b7</span></span>
+        <span class="ticker-item">Mobilit\u00e9 \u00e9lectrique <span>\u00b7</span></span>
+        <span class="ticker-item">Management \u00e9quipe <span>\u00b7</span></span>
+        <span class="ticker-item">Transition \u00e9nerg\u00e9tique <span>\u00b7</span></span>
+        <!-- duplicate -->
+        <span class="ticker-item">Flottes <span>\u00b7</span></span>
+        <span class="ticker-item">Collectivit\u00e9s <span>\u00b7</span></span>
+        <span class="ticker-item">Multisites <span>\u00b7</span></span>
+        <span class="ticker-item">Contrats-cadres <span>\u00b7</span></span>
+        <span class="ticker-item">P&amp;L <span>\u00b7</span></span>
+        <span class="ticker-item">Forecast <span>\u00b7</span></span>
+        <span class="ticker-item">Go-to-Market <span>\u00b7</span></span>
+        <span class="ticker-item">N\u00e9gociation C-level <span>\u00b7</span></span>
+        <span class="ticker-item">KAM <span>\u00b7</span></span>
+        <span class="ticker-item">R\u00e9seau national <span>\u00b7</span></span>
+        <span class="ticker-item">IRVE <span>\u00b7</span></span>
+        <span class="ticker-item">Mobilit\u00e9 \u00e9lectrique <span>\u00b7</span></span>
+        <span class="ticker-item">Management \u00e9quipe <span>\u00b7</span></span>
+        <span class="ticker-item">Transition \u00e9nerg\u00e9tique <span>\u00b7</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label" data-i18n="s2_label">Exp\u00e9rience</div>
+    <div class="section-title" data-i18n="s2_title">Exp\u00e9riences cl\u00e9s,\nd\u00e9taill\u00e9es.</div>
+    <div class="exp-grid">
+      <!-- Featured card -->
+      <div class="exp-card featured reveal">
+        <div class="exp-card-tag">2014 \u2013 2019</div>
+        <div class="exp-card-company">Acer Group</div>
+        <div class="exp-card-role" data-i18n="e1_role">Business Manager Smartphone \u00b7 Europe du Sud</div>
+        <div class="exp-card-years">5 ans</div>
+        <ul class="exp-bullets">
+          <li data-i18n="e1_l1">D\u00e9finir et ex\u00e9cuter la strat\u00e9gie commerciale France, Espagne, Portugal, Italie</li>
+          <li data-i18n="e1_l2">Comptes strat\u00e9giques C-level \u2014 sell-in / sell-through / pr\u00e9visions de stock</li>
+          <li data-i18n="e1_l3">Planification campagnes, n\u00e9gociation pricing, budget et P&amp;L</li>
+          <li data-i18n="e1_l4">CA \u20ac50M \u00b7 GM \u20ac4M \u00b7 PBT \u20ac1,3M \u00b7 2M+ appareils vendus</li>
+          <li data-i18n="e1_l5">10 000+ PDV strat\u00e9giques activ\u00e9s (GMS, op\u00e9rateurs, e-tail)</li>
+          <li data-i18n="e1_l6">\u00c9quipe : 3 KAM + 1 Trade Marketing encadr\u00e9s</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Key Account Management</span>
+          <span class="exp-tag">P&amp;L \u20ac50M</span>
+          <span class="exp-tag">Management \u00e9quipe</span>
+          <span class="exp-tag">Europe du Sud</span>
+          <span class="exp-tag">Grands Comptes B2B</span>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="exp-card reveal">
+        <div class="exp-card-tag">2012 \u2013 2014</div>
+        <div class="exp-card-company">Acer France</div>
+        <div class="exp-card-role" data-i18n="e2_role">Business Manager Smartphone</div>
+        <div class="exp-card-years">2 ans</div>
+        <ul class="exp-bullets">
+          <li data-i18n="e2_l1">Grands comptes strat\u00e9giques : GMS, op\u00e9rateurs, e-tail</li>
+          <li data-i18n="e2_l2">R\u00e9f\u00e9rencement, pricing, campagnes, suivi KPI</li>
+          <li data-i18n="e2_l3">\u00c9quipe : 3 KAM + 1 Trade Marketing</li>
+          <li data-i18n="e2_l4">80% retail FR \u00b7 5% PDM \u00b7 Lancement Orange</li>
+        </ul>
+      </div>
+      <!-- Card 3 -->
+      <div class="exp-card reveal">
+        <div class="exp-card-tag">2010 \u2013 2012</div>
+        <div class="exp-card-company">Acer France</div>
+        <div class="exp-card-role" data-i18n="e3_role">KAM Open Market &amp; MVNOs</div>
+        <div class="exp-card-years">2 ans</div>
+        <ul class="exp-bullets">
+          <li data-i18n="e3_l1">D\u00e9veloppement open market &amp; segment MVNO</li>
+          <li data-i18n="e3_l2">Nouveaux comptes, distribution, marketing PDV</li>
+          <li data-i18n="e3_l3">CA tripl\u00e9 (\u20ac2,8M) \u00b7 3 MVNO ouverts (La Poste, NRJ, Virgin)</li>
+        </ul>
+      </div>
+      <!-- Card 4 -->
+      <div class="exp-card reveal">
+        <div class="exp-card-tag">2025 \u2013 2026</div>
+        <div class="exp-card-company">NextinCom</div>
+        <div class="exp-card-role" data-i18n="e4_role">Head of Sales &amp; Operations</div>
+        <div class="exp-card-years">1 an</div>
+        <ul class="exp-bullets">
+          <li data-i18n="e4_l1">Ventes &amp; ops B2B (FTTO, IPBX, Circular Devices)</li>
+          <li data-i18n="e4_l2">20K\u20ac MRR \u00b7 40 clients actifs</li>
+        </ul>
+      </div>
+      <!-- Card 5 -->
+      <div class="exp-card reveal">
+        <div class="exp-card-tag">2019 \u2013 2022</div>
+        <div class="exp-card-company">D-Wager</div>
+        <div class="exp-card-role" data-i18n="e5_role">Co-Fondateur</div>
+        <div class="exp-card-years">3 ans</div>
+        <ul class="exp-bullets">
+          <li data-i18n="e5_l1">Marque premium \u00e9co-responsable</li>
+          <li data-i18n="e5_l2">Kickstarter 150% \u00b7 NY, Paris, Milan, Tokyo</li>
+          <li data-i18n="e5_l3">Brevet c\u00e9d\u00e9 2022</li>
+        </ul>
+      </div>
+      <!-- Card 6 -->
+      <div class="exp-card reveal">
+        <div class="exp-card-tag">2002 \u2013 2009</div>
+        <div class="exp-card-company">Partelec (E-Ten)</div>
+        <div class="exp-card-role" data-i18n="e6_role">KAM Smartphone</div>
+        <div class="exp-card-years">7 ans</div>
+        <ul class="exp-bullets">
+          <li data-i18n="e6_l1">Distributeur exclusif E-Ten/Glofiish France</li>
+          <li data-i18n="e6_l2">R\u00e9seau retail &amp; e-tail constitu\u00e9</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CE POSTE -->
+<section id="why-irve">
+  <div class="section-inner">
+    <div class="section-label" data-i18n="s3_label">Pourquoi ce poste</div>
+    <div class="section-title" data-i18n="s3_title">Pourquoi Fabrice\net l&apos;IRVE.</div>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <div class="value-tag" data-i18n="v1_tag">R\u00e9seaux \u00e0 grande \u00e9chelle</div>
+        <div class="value-title" data-i18n="v1_title">10 000 PDV = 10 000 bornes</div>
+        <div class="value-body" data-i18n="v1_body">Construire un r\u00e9seau de recharge national, c\u2019est le m\u00eame m\u00e9tier que d\u2019activer 10 000 points de vente : convaincre des d\u00e9cideurs B2B, n\u00e9gocier des contrats-cadres, et piloter l\u2019ex\u00e9cution sur le terrain. J\u2019ai fait \u00e7a pendant 15 ans. Le secteur change, la logique commerciale reste identique.</div>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-tag" data-i18n="v2_tag">Grands Comptes</div>
+        <div class="value-title" data-i18n="v2_title">CAC 40, flottes, collectivit\u00e9s</div>
+        <div class="value-body" data-i18n="v2_body">Orange, SFR, Bouygues, Fnac-Darty \u2014 des interlocuteurs C-level, des cycles de vente longs, des offres sur-mesure. Ce sont exactement les m\u00eames dynamiques que sur le march\u00e9 IRVE avec les gestionnaires de flottes et les collectivit\u00e9s. J\u2019ai les r\u00e9flexes et la posture adapt\u00e9s \u00e0 ces n\u00e9gociations.</div>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-tag" data-i18n="v3_tag">Management &amp; Performance</div>
+        <div class="value-title" data-i18n="v3_title">Piloter une \u00e9quipe de 6</div>
+        <div class="value-body" data-i18n="v3_body">J\u2019ai encadr\u00e9 des \u00e9quipes commerciales (3 KAM + trade marketing) en leur fixant des objectifs clairs, en assurant le coaching terrain et en pilotant la performance par les KPI. Structurer une \u00e9quipe IRVE de 6 personnes en mode croissance, c\u2019est exactement ce que je sais faire.</div>
+      </div>
+      <div class="value-card reveal">
+        <div class="value-tag" data-i18n="v4_tag">Ownership P&amp;L</div>
+        <div class="value-title" data-i18n="v4_title">R\u00e9sultat avant tout</div>
+        <div class="value-body" data-i18n="v4_body">G\u00e9rer \u20ac50M de P&amp;L donne une perspective simple : chaque n\u00e9gociation, chaque contrat, chaque animation a un impact mesurable sur le bas de bilan. J\u2019apporte cette exigence \u00e0 ce poste IRVE \u2014 sans complexe sur les chiffres, avec un track record concret de d\u00e9passement d\u2019objectifs.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label" data-i18n="s4_label">Comp\u00e9tences</div>
+    <div class="section-title" data-i18n="s4_title">Expertise &amp;\ncapacit\u00e9s.</div>
+    <div class="skills-layout">
+      <div class="skill-bars">
+        <div class="skill-row reveal">
+          <div class="skill-label" data-i18n="sk1">Key Account Management</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="95%"></div></div>
+        </div>
+        <div class="skill-row reveal">
+          <div class="skill-label" data-i18n="sk2">Gestion P&amp;L</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
+        </div>
+        <div class="skill-row reveal">
+          <div class="skill-label" data-i18n="sk3">Management d\u2019\u00e9quipe commerciale</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85%"></div></div>
+        </div>
+        <div class="skill-row reveal">
+          <div class="skill-label" data-i18n="sk4">N\u00e9gociation C-level &amp; Contrats-cadres</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="92%"></div></div>
+        </div>
+        <div class="skill-row reveal">
+          <div class="skill-label" data-i18n="sk5">Strat\u00e9gie Go-to-Market</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88%"></div></div>
+        </div>
+        <div class="skill-row reveal">
+          <div class="skill-label" data-i18n="sk6">D\u00e9veloppement commercial B2B</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="95%"></div></div>
+        </div>
+        <div class="skill-row reveal">
+          <div class="skill-label" data-i18n="sk7">Pilotage KPI &amp; Reporting</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="87%"></div></div>
+        </div>
+        <div class="skill-row reveal">
+          <div class="skill-label" data-i18n="sk8">R\u00e9seau national multi-comptes</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="93%"></div></div>
+        </div>
+      </div>
+      <div class="skill-tags">
+        <span class="skill-tag">IRVE</span>
+        <span class="skill-tag">Mobilit\u00e9 \u00e9lectrique</span>
+        <span class="skill-tag">Flottes d\u2019entreprises</span>
+        <span class="skill-tag">Collectivit\u00e9s</span>
+        <span class="skill-tag">Contrats-cadres</span>
+        <span class="skill-tag">B2B grands comptes</span>
+        <span class="skill-tag">Sell-in / Sell-out</span>
+        <span class="skill-tag">Forecast</span>
+        <span class="skill-tag">CRM</span>
+        <span class="skill-tag">MEDDPIC</span>
+        <span class="skill-tag">Trade Marketing</span>
+        <span class="skill-tag">P&amp;L Management</span>
+        <span class="skill-tag">GTM</span>
+        <span class="skill-tag">EMEA</span>
+        <span class="skill-tag">HubSpot</span>
+        <span class="skill-tag">Transition \u00e9nerg\u00e9tique</span>
+        <span class="skill-tag">Entrepreneuriat</span>
+        <span class="skill-tag">Team Leadership</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section id="references">
+  <div class="section-inner">
+    <div class="section-label" data-i18n="s5_label">R\u00e9f\u00e9rences</div>
+    <div class="section-title" data-i18n="s5_title">Coll\u00e8gues &amp; partenaires,\npr\u00eats \u00e0 t\u00e9moigner.</div>
+    <div class="ref-grid">
+      <div class="ref-card reveal">
+        <div class="ref-tag" data-i18n="ref1_cat">Ancien Manager</div>
+        <div class="ref-title" data-i18n="ref1_title">Ancien Manager \u00b7 Acer<br>PDG actuel \u2014 Recommerce</div>
+      </div>
+      <div class="ref-card reveal">
+        <div class="ref-tag" data-i18n="ref2_cat">Ancien Manager</div>
+        <div class="ref-title" data-i18n="ref2_title">Pr\u00e9sident \u2014 Nextincom</div>
+      </div>
+      <div class="ref-card reveal">
+        <div class="ref-tag" data-i18n="ref3_cat">Client</div>
+        <div class="ref-title" data-i18n="ref3_title">Acheteur Terminaux \u2014 Bouygues Telecom<br>Ex Responsable Achats \u00b7 CIC / NRJ Mobile</div>
+      </div>
+      <div class="ref-card reveal">
+        <div class="ref-tag" data-i18n="ref4_cat">Coll\u00e8gue</div>
+        <div class="ref-title" data-i18n="ref4_title">Global Marketing Manager \u2014 Lenovo<br>Ex EMEA Marketing Manager</div>
+      </div>
+      <div class="ref-card reveal">
+        <div class="ref-tag" data-i18n="ref5_cat">\u00c9quipe</div>
+        <div class="ref-title" data-i18n="ref5_title">KAM \u2014 Motorola<br>Ex KAM Smartphone \u00b7 Acer France &amp; Espagne</div>
+      </div>
+    </div>
+    <div class="ref-banner" data-i18n="ref_banner">Plus de contacts disponibles sur demande \u2014 anciens managers, partenaires commerciaux et clients du secteur tech.</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label" data-i18n="s6_label">Contact</div>
+    <div class="section-title" data-i18n="s6_title">Pourquoi moi\npour ce poste.</div>
+    <div class="contact-grid">
+      <div class="contact-body">
+        <p data-i18n="c_p1"><strong>Responsable Commercial &amp; Grands Comptes IRVE</strong> \u2014 ce poste correspond \u00e0 ce que je sais faire depuis 15 ans, appliqu\u00e9 \u00e0 un secteur en pleine expansion que je consid\u00e8re comme une vraie opportunit\u00e9 de contribution.</p>
+        <p data-i18n="c_p2">J\u2019ai construit et pilot\u00e9 des r\u00e9seaux commerciaux nationaux \u00e0 grande \u00e9chelle, n\u00e9goci\u00e9 avec des interlocuteurs C-level dans des grands comptes (Orange, SFR, Bouygues, Fnac-Darty), et manag\u00e9 des \u00e9quipes vers des objectifs ambitieux. Le secteur \u00e9nerg\u00e9tique/IRVE m\u2019apporte un nouveau terrain d\u2019action ; le m\u00e9tier commercial reste identique.</p>
+        <p data-i18n="c_p3">Activer 10 000 points de vente ou d\u00e9ployer un r\u00e9seau de bornes sur des flottes et collectivit\u00e9s \u2014 dans les deux cas, la valeur cr\u00e9\u00e9e vient de la capacit\u00e9 \u00e0 convaincre des d\u00e9cideurs, \u00e0 structurer des accords durables, et \u00e0 piloter l\u2019ex\u00e9cution. C\u2019est ce que j\u2019apporte.</p>
+        <a href="../Resume_Fabrice_EN_Gen_April2026.pdf" download class="cv-download" data-i18n="cv_btn">T\u00e9l\u00e9charger le CV</a>
+      </div>
+      <div class="contact-cta">
+        <div class="cta-item">
+          <div class="cta-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <div>
+            <div class="cta-label">Email</div>
+            <a class="cta-value" href="mailto:fabrice.come@gmail.com">fabrice.come@gmail.com</a>
+          </div>
+        </div>
+        <div class="cta-item">
+          <div class="cta-icon">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          </div>
+          <div>
+            <div class="cta-label">T\u00e9l\u00e9phone</div>
+            <a class="cta-value" href="tel:+33674181393">+33 6 74 18 13 93</a>
+          </div>
+        </div>
+        <div class="cta-item">
+          <div class="cta-icon">
+            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </div>
+          <div>
+            <div class="cta-label">LinkedIn</div>
+            <a class="cta-value" href="https://linkedin.com/in/fabricecomeportillo" target="_blank">fabricecomeportillo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Fabrice C\u00d4ME-PORTILLO &mdash; <span>IRVE &middot; Mobilit\u00e9 \u00c9lectrique</span></div>
+  <div class="footer-note">Transition \u00e9nerg\u00e9tique &middot; 2026</div>
+</footer>
+
+<script>
+var translations = {
+  fr: {
+    nav_track:"Chiffres Cl\u00e9s",nav_exp:"Exp\u00e9rience",nav_why:"Pourquoi ce poste",nav_skills:"Comp\u00e9tences",
+    nav_refs:"R\u00e9f\u00e9rences",nav_contact_link:"Contact",nav_cta:"Me contacter",
+    hero_label:"Candidature \u2014 Responsable Commercial & Grands Comptes \u00b7 IRVE \u00b7 France",
+    stat1_num:"15+ ans",stat1_label:"D\u00e9veloppement commercial B2B",
+    stat2_num:"\u20ac50M",stat2_label:"P&L g\u00e9r\u00e9",
+    stat3_num:"+40%",stat3_label:"CA g\u00e9n\u00e9r\u00e9 / comp",
+    hero_card_tag:"Responsable Commercial IRVE",
+    hero_card_h:"Piloter la croissance grands comptes sur le march\u00e9 de la recharge \u00e9lectrique. Avec m\u00e9thode.",
+    hero_card_sub:"Manager Commercial \u00b7 IRVE \u00b7 France",
+    s1_label:"Chiffres Cl\u00e9s",s1_title:"Les chiffres sont\nles chiffres.",
+    m1_label:"Ann\u00e9es Exp.",m1_sub:"D\u00e9veloppement commercial B2B",
+    m2_label:"P&L G\u00e9r\u00e9",
+    m3_label:"Points de Vente Activ\u00e9s",m3_sub:"R\u00e9seau national & p\u00e9n\u00e9tration territoriale",
+    m4_num:"+40%",m4_label:"Croissance CA",m4_sub:"Objectifs d\u00e9pass\u00e9s sur p\u00e9riode Acer",
+    m5_label:"Management \u00c9quipe",m5_sub:"KAM + Trade Marketing + Ops",
+    m6_num:"CAC 40",m6_label:"Clients strat\u00e9giques",
+    m7_label:"Objectif Kickstarter",
+    m8_num:"2M+",m8_label:"Appareils Distribu\u00e9s",
+    s2_label:"Exp\u00e9rience",s2_title:"Exp\u00e9riences cl\u00e9s,\nd\u00e9taill\u00e9es.",
+    s3_label:"Pourquoi ce poste",s3_title:"Pourquoi Fabrice\net l\u2019IRVE.",
+    v1_tag:"R\u00e9seaux \u00e0 grande \u00e9chelle",v1_title:"10 000 PDV = 10 000 bornes",
+    v1_body:"Construire un r\u00e9seau de recharge national, c\u2019est le m\u00eame m\u00e9tier que d\u2019activer 10 000 points de vente : convaincre des d\u00e9cideurs B2B, n\u00e9gocier des contrats-cadres, et piloter l\u2019ex\u00e9cution sur le terrain. J\u2019ai fait \u00e7a pendant 15 ans. Le secteur change, la logique commerciale reste identique.",
+    v2_tag:"Grands Comptes",v2_title:"CAC 40, flottes, collectivit\u00e9s",
+    v2_body:"Orange, SFR, Bouygues, Fnac-Darty \u2014 des interlocuteurs C-level, des cycles de vente longs, des offres sur-mesure. Ce sont exactement les m\u00eames dynamiques que sur le march\u00e9 IRVE avec les gestionnaires de flottes et les collectivit\u00e9s. J\u2019ai les r\u00e9flexes et la posture adapt\u00e9s \u00e0 ces n\u00e9gociations.",
+    v3_tag:"Management & Performance",v3_title:"Piloter une \u00e9quipe de 6",
+    v3_body:"J\u2019ai encadr\u00e9 des \u00e9quipes commerciales (3 KAM + trade marketing) en leur fixant des objectifs clairs, en assurant le coaching terrain et en pilotant la performance par les KPI. Structurer une \u00e9quipe IRVE de 6 personnes en mode croissance, c\u2019est exactement ce que je sais faire.",
+    v4_tag:"Ownership P&L",v4_title:"R\u00e9sultat avant tout",
+    v4_body:"G\u00e9rer \u20ac50M de P&L donne une perspective simple : chaque n\u00e9gociation, chaque contrat, chaque animation a un impact mesurable sur le bas de bilan. J\u2019apporte cette exigence \u00e0 ce poste IRVE \u2014 sans complexe sur les chiffres, avec un track record concret de d\u00e9passement d\u2019objectifs.",
+    s4_label:"Comp\u00e9tences",s4_title:"Expertise &\ncapacit\u00e9s.",
+    sk1:"Key Account Management",sk2:"Gestion P&L",sk3:"Management d\u2019\u00e9quipe commerciale",
+    sk4:"N\u00e9gociation C-level & Contrats-cadres",sk5:"Strat\u00e9gie Go-to-Market",
+    sk6:"D\u00e9veloppement commercial B2B",sk7:"Pilotage KPI & Reporting",sk8:"R\u00e9seau national multi-comptes",
+    s5_label:"R\u00e9f\u00e9rences",s5_title:"Coll\u00e8gues & partenaires,\npr\u00eats \u00e0 t\u00e9moigner.",
+    ref1_cat:"Ancien Manager",ref1_title:"Ancien Manager \u00b7 Acer<br>PDG actuel \u2014 Recommerce",
+    ref2_cat:"Ancien Manager",ref2_title:"Pr\u00e9sident \u2014 Nextincom",
+    ref3_cat:"Client",ref3_title:"Acheteur Terminaux \u2014 Bouygues Telecom<br>Ex Responsable Achats \u00b7 CIC / NRJ Mobile",
+    ref4_cat:"Coll\u00e8gue",ref4_title:"Global Marketing Manager \u2014 Lenovo<br>Ex EMEA Marketing Manager",
+    ref5_cat:"\u00c9quipe",ref5_title:"KAM \u2014 Motorola<br>Ex KAM Smartphone \u00b7 Acer France & Espagne",
+    ref_banner:"Plus de contacts disponibles sur demande \u2014 anciens managers, partenaires commerciaux et clients du secteur tech.",
+    s6_label:"Contact",s6_title:"Pourquoi moi\npour ce poste.",
+    c_p1:"<strong>Responsable Commercial & Grands Comptes IRVE</strong> \u2014 ce poste correspond \u00e0 ce que je sais faire depuis 15 ans, appliqu\u00e9 \u00e0 un secteur en pleine expansion que je consid\u00e8re comme une vraie opportunit\u00e9 de contribution.",
+    c_p2:"J\u2019ai construit et pilot\u00e9 des r\u00e9seaux commerciaux nationaux \u00e0 grande \u00e9chelle, n\u00e9goci\u00e9 avec des interlocuteurs C-level dans des grands comptes (Orange, SFR, Bouygues, Fnac-Darty), et manag\u00e9 des \u00e9quipes vers des objectifs ambitieux. Le secteur \u00e9nerg\u00e9tique/IRVE m\u2019apporte un nouveau terrain d\u2019action ; le m\u00e9tier commercial reste identique.",
+    c_p3:"Activer 10 000 points de vente ou d\u00e9ployer un r\u00e9seau de bornes sur des flottes et collectivit\u00e9s \u2014 dans les deux cas, la valeur cr\u00e9\u00e9e vient de la capacit\u00e9 \u00e0 convaincre des d\u00e9cideurs, \u00e0 structurer des accords durables, et \u00e0 piloter l\u2019ex\u00e9cution. C\u2019est ce que j\u2019apporte.",
+    e1_role:"Business Manager Smartphone \u00b7 Europe du Sud",
+    e1_l1:"D\u00e9finir et ex\u00e9cuter la strat\u00e9gie commerciale France, Espagne, Portugal, Italie",
+    e1_l2:"Comptes strat\u00e9giques C-level \u2014 sell-in / sell-through / pr\u00e9visions de stock",
+    e1_l3:"Planification campagnes, n\u00e9gociation pricing, budget et P&L",
+    e1_l4:"CA \u20ac50M \u00b7 GM \u20ac4M \u00b7 PBT \u20ac1,3M \u00b7 2M+ appareils vendus",
+    e1_l5:"10 000+ PDV strat\u00e9giques activ\u00e9s (GMS, op\u00e9rateurs, e-tail)",
+    e1_l6:"\u00c9quipe : 3 KAM + 1 Trade Marketing encadr\u00e9s",
+    e2_role:"Business Manager Smartphone",
+    e2_l1:"Grands comptes strat\u00e9giques : GMS, op\u00e9rateurs, e-tail",
+    e2_l2:"R\u00e9f\u00e9rencement, pricing, campagnes, suivi KPI",
+    e2_l3:"\u00c9quipe : 3 KAM + 1 Trade Marketing",e2_l4:"80% retail FR \u00b7 5% PDM \u00b7 Lancement Orange",
+    e3_role:"KAM Open Market & MVNOs",
+    e3_l1:"D\u00e9veloppement open market & segment MVNO",
+    e3_l2:"Nouveaux comptes, distribution, marketing PDV",
+    e3_l3:"CA tripl\u00e9 (\u20ac2,8M) \u00b7 3 MVNO ouverts",
+    e4_role:"Head of Sales & Operations",
+    e4_l1:"Ventes & ops B2B (FTTO, IPBX, Circular Devices)",e4_l2:"20K\u20ac MRR \u00b7 40 clients actifs",
+    e5_role:"Co-Fondateur",
+    e5_l1:"Marque premium \u00e9co-responsable",e5_l2:"Kickstarter 150% \u00b7 NY, Paris, Milan, Tokyo",e5_l3:"Brevet c\u00e9d\u00e9 2022",
+    e6_role:"KAM Smartphone",
+    e6_l1:"Distributeur exclusif E-Ten/Glofiish France",e6_l2:"R\u00e9seau retail & e-tail constitu\u00e9",
+    cv_btn:"T\u00e9l\u00e9charger le CV"
+  },
+  en: {
+    nav_track:"Track Record",nav_exp:"Experience",nav_why:"Why this role",nav_skills:"Skills",
+    nav_refs:"References",nav_contact_link:"Contact",nav_cta:"Get in touch",
+    hero_label:"Application \u2014 Senior Commercial Manager \u00b7 EVCI \u00b7 France",
+    stat1_num:"15+ yrs",stat1_label:"B2B Commercial Development",
+    stat2_num:"\u20ac50M",stat2_label:"P&L Managed",
+    stat3_num:"+40%",stat3_label:"Revenue growth vs target",
+    hero_card_tag:"Commercial Manager EVCI",
+    hero_card_h:"Driving key account growth in electric vehicle charging infrastructure. With method.",
+    hero_card_sub:"Commercial Manager \u00b7 EVCI \u00b7 France",
+    s1_label:"Track Record",s1_title:"Numbers are\nthe numbers.",
+    m1_label:"Years Exp.",m1_sub:"B2B commercial development",
+    m2_label:"P&L Managed",
+    m3_label:"POS Activated",m3_sub:"National network & territorial penetration",
+    m4_num:"+40%",m4_label:"Revenue Growth",m4_sub:"Targets exceeded at Acer",
+    m5_label:"Team Management",m5_sub:"KAM + Trade Marketing + Ops",
+    m6_num:"CAC 40",m6_label:"Strategic Clients",
+    m7_label:"Kickstarter Goal",
+    m8_num:"2M+",m8_label:"Devices Distributed",
+    s2_label:"Experience",s2_title:"Key experiences,\nbroken down.",
+    s3_label:"Why this role",s3_title:"Why Fabrice\nand EVCI.",
+    v1_tag:"Large-scale Networks",v1_title:"10,000 POS = 10,000 charge points",
+    v1_body:"Building a national charging network is the same job as activating 10,000 POS: convince B2B decision-makers, negotiate framework agreements, and drive field execution. I\u2019ve done this for 15 years. The sector changes; the commercial logic stays the same.",
+    v2_tag:"Key Accounts",v2_title:"CAC 40, fleets, local authorities",
+    v2_body:"Orange, SFR, Bouygues, Fnac-Darty \u2014 C-level contacts, long sales cycles, bespoke offers. These are exactly the same dynamics as EVCI market with fleet managers and local authorities. I have the right reflexes and posture for these negotiations.",
+    v3_tag:"Management & Performance",v3_title:"Leading a team of 6",
+    v3_body:"I\u2019ve managed commercial teams (3 KAMs + trade marketing) with clear targets, field coaching, and KPI-driven performance tracking. Structuring an EVCI team of 6 in growth mode is exactly what I know how to do.",
+    v4_tag:"P&L Ownership",v4_title:"Results first",
+    v4_body:"Managing a \u20ac50M P&L gives a simple perspective: every negotiation, every contract, every activation must have a measurable bottom-line impact. I bring that standard to this EVCI role \u2014 with a concrete track record of exceeding targets.",
+    s4_label:"Skills",s4_title:"Expertise &\ncapabilities.",
+    sk1:"Key Account Management",sk2:"P&L Management",sk3:"Commercial Team Management",
+    sk4:"C-level Negotiation & Framework Contracts",sk5:"Go-to-Market Strategy",
+    sk6:"B2B Commercial Development",sk7:"KPI Tracking & Reporting",sk8:"National Multi-Account Network",
+    s5_label:"References",s5_title:"Colleagues & partners,\nready to speak.",
+    ref1_cat:"Former Manager",ref1_title:"Former Manager \u00b7 Acer<br>Current CEO \u2014 Recommerce",
+    ref2_cat:"Former Manager",ref2_title:"President \u2014 Nextincom",
+    ref3_cat:"Client",ref3_title:"Buyer, Terminals \u2014 Bouygues Telecom<br>Ex Head of Purchasing \u00b7 CIC / NRJ Mobile",
+    ref4_cat:"Colleague",ref4_title:"Global Marketing Manager \u2014 Lenovo<br>Ex EMEA Marketing Manager",
+    ref5_cat:"Team",ref5_title:"KAM \u2014 Motorola<br>Ex KAM Smartphone \u00b7 Acer France & Spain",
+    ref_banner:"More contacts available on request \u2014 former managers, commercial partners and clients from the tech industry.",
+    s6_label:"Contact",s6_title:"Why me\nfor this role.",
+    c_p1:"<strong>Commercial & Key Account Manager \u2014 EVCI</strong> \u2014 this role matches what I\u2019ve been doing for 15 years, applied to a fast-growing sector I see as a real opportunity to contribute.",
+    c_p2:"I\u2019ve built and managed national commercial networks at scale, negotiated with C-level contacts at major accounts (Orange, SFR, Bouygues, Fnac-Darty), and led teams toward ambitious targets. The energy/EVCI sector is a new field; the commercial expertise is identical.",
+    c_p3:"Activating 10,000 POS or deploying a charging network across fleets and local authorities \u2014 in both cases, value is created through the ability to convince decision-makers, structure lasting agreements, and drive execution. That\u2019s what I bring.",
+    e1_role:"Business Manager Smartphone \u00b7 South Europe",
+    e1_l1:"Define & execute sales strategy across France, Spain, Portugal, Italy",
+    e1_l2:"Strategic C-level accounts \u2014 sell-in / sell-through / inventory forecasting",
+    e1_l3:"Campaign planning, pricing negotiations, budget & P&L management",
+    e1_l4:"Revenue \u20ac50M \u00b7 GM \u20ac4M \u00b7 PBT \u20ac1.3M \u00b7 2M+ devices sold",
+    e1_l5:"10,000+ strategic POS activated (GMS, operators, e-tail)",
+    e1_l6:"Team: 3 KAMs + 1 Trade Marketing managed",
+    e2_role:"Business Manager Smartphone",
+    e2_l1:"Strategic key accounts: GMS, operators, e-tail",
+    e2_l2:"Product ranging, pricing, campaigns, KPI tracking",
+    e2_l3:"Team: 3 KAMs + 1 Trade Marketing",e2_l4:"80% French retail \u00b7 5% market share \u00b7 Orange launch",
+    e3_role:"KAM Open Market & MVNOs",
+    e3_l1:"Open market & MVNO segment development",
+    e3_l2:"New accounts, distribution, in-store marketing",
+    e3_l3:"Revenue tripled (\u20ac2.8M) \u00b7 3 MVNOs opened",
+    e4_role:"Head of Sales & Operations",
+    e4_l1:"B2B sales & ops (FTTO, IPBX, Circular Devices)",e4_l2:"\u20ac20K MRR \u00b7 40 active clients",
+    e5_role:"Co-Founder",
+    e5_l1:"Premium eco-responsible brand",e5_l2:"Kickstarter 150% \u00b7 NY, Paris, Milan, Tokyo",e5_l3:"Patent sold 2022",
+    e6_role:"KAM Smartphone",
+    e6_l1:"French exclusive distributor for E-Ten/Glofiish smartphones",e6_l2:"Retail & e-tail distribution network built",
+    cv_btn:"Download CV"
+  }
+};
+var currentLang="fr";
+function setLang(lang){
+  currentLang=lang;
+  document.querySelectorAll("[data-i18n]").forEach(function(el){
+    var key=el.getAttribute("data-i18n");
+    if(translations[lang]&&translations[lang][key]!==undefined){
+      el.innerHTML=translations[lang][key].replace(/\n/g,"<br>");
+    }
+  });
+  document.querySelectorAll(".lang-btn").forEach(function(btn){
+    btn.classList.toggle("active",btn.textContent.toLowerCase()===lang);
+  });
+  document.documentElement.lang=lang;
+}
+var hamburger=document.getElementById("hamburger");
+var drawer=document.getElementById("mobile-drawer");
+function closeDrawer(){if(hamburger)hamburger.classList.remove("open");if(drawer)drawer.classList.remove("open")}
+if(hamburger){hamburger.addEventListener("click",function(){this.classList.toggle("open");drawer.classList.toggle("open")})}
+var isMobileDevice=(window.innerWidth<=768)||('ontouchstart' in window)||(navigator.maxTouchPoints>0);
+function forceCounters(){
+  document.querySelectorAll(".counter").forEach(function(el){
+    var target=parseFloat(el.getAttribute("data-target"))||0;
+    var suffix=el.getAttribute("data-suffix")||"";
+    var prefix=el.getAttribute("data-prefix")||"";
+    el.textContent=prefix+target+suffix;
+  });
+  document.querySelectorAll(".skill-bar-fill").forEach(function(fill){
+    fill.style.width=fill.getAttribute("data-width");
+  });
+  document.querySelectorAll(".reveal").forEach(function(el){el.classList.add("visible")});
+}
+function animateCounter(el){
+  var target=parseFloat(el.getAttribute("data-target"))||0;
+  var suffix=el.getAttribute("data-suffix")||"";
+  var prefix=el.getAttribute("data-prefix")||"";
+  var duration=1400;var start=performance.now();
+  function step(now){
+    var t=Math.min((now-start)/duration,1);
+    var ease=1-Math.pow(1-t,3);
+    var val=Math.round(ease*target);
+    el.textContent=prefix+val+suffix;
+    if(t<1)requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+if(isMobileDevice){
+  forceCounters();
+}else{
+  var observer=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var el=entry.target;
+        if(el.classList.contains("reveal")){el.classList.add("visible")}
+        if(el.classList.contains("counter")){animateCounter(el)}
+        if(el.classList.contains("skill-bar-fill")){el.style.width=el.getAttribute("data-width")}
+        observer.unobserve(el);
+      }
+    });
+  },{threshold:0.15});
+  document.querySelectorAll(".reveal,.counter,.skill-bar-fill").forEach(function(el){observer.observe(el)});
+}
+// Init FR par d\u00e9faut
+setLang("fr");
+</script>
+</body>
+</html>
