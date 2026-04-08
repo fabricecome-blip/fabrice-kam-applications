@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="color-scheme" content="light">
-<title>Fabrice C\u00d4ME-PORTILLO \u2014 Responsable Commercial Grands Comptes IRVE</title>
+<title>Fabrice CÔME-PORTILLO — Responsable Commercial Grands Comptes IRVE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -211,6 +211,33 @@ section{position:relative;z-index:1}
   transition:opacity 0.2s}
 .cv-download:hover{opacity:0.85}
 
+/* MARCHÉ IRVE */
+#marche{background:var(--bg);border-bottom:1px solid var(--border)}
+.marche-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:20px}
+.marche-stat{background:var(--white);border:1.5px solid var(--border);border-radius:var(--card-radius);padding:28px}
+.marche-num{font-family:var(--body);font-size:clamp(24px,3vw,40px);font-weight:900;letter-spacing:-0.04em;color:var(--green);line-height:1;margin-bottom:8px}
+.marche-label{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--black);margin-bottom:4px}
+.marche-sub{font-family:var(--mono);font-size:9px;color:var(--dim);letter-spacing:0.04em}
+.marche-context{background:var(--black);border-radius:var(--card-radius);padding:32px}
+.marche-context p{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.8}
+.marche-context p strong{color:#fff}
+.marche-context p + p{margin-top:12px}
+
+/* PLAN 30/60/90 */
+#plan{background:var(--white);border-bottom:1px solid var(--border)}
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.plan-card{background:var(--bg);border:1.5px solid var(--border);border-radius:var(--card-radius);padding:28px;position:relative;overflow:hidden}
+.plan-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green);opacity:0.3}
+.plan-card:nth-child(1)::before{opacity:0.4}
+.plan-card:nth-child(2)::before{opacity:0.7}
+.plan-card:nth-child(3)::before{opacity:1}
+.plan-period{font-family:var(--body);font-size:52px;font-weight:900;letter-spacing:-0.04em;color:var(--green);line-height:1;margin-bottom:4px}
+.plan-period-label{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim);margin-bottom:20px}
+.plan-title{font-family:var(--body);font-size:17px;font-weight:800;letter-spacing:-0.02em;color:var(--black);margin-bottom:14px;line-height:1.25}
+.plan-items{list-style:none;display:flex;flex-direction:column;gap:7px}
+.plan-items li{font-size:12px;color:var(--muted);padding-left:16px;position:relative;line-height:1.6}
+.plan-items li::before{content:'';display:inline-block;width:5px;height:5px;background:var(--green);border-radius:50%;position:absolute;left:0;top:7px}
+
 /* FOOTER */
 footer{background:var(--black);padding:32px 48px;display:flex;justify-content:space-between;
   align-items:center;flex-wrap:wrap;gap:12px}
@@ -236,6 +263,8 @@ footer{background:var(--black);padding:32px 48px;display:flex;justify-content:sp
   .exp-grid{grid-template-columns:1fr}
   .exp-card.featured{grid-column:span 1}
   .values-grid{grid-template-columns:1fr}
+  .marche-grid{grid-template-columns:repeat(2,1fr)}
+  .plan-grid{grid-template-columns:1fr}
   .skills-layout{grid-template-columns:1fr}
   .ref-grid{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr}
@@ -248,15 +277,16 @@ footer{background:var(--black);padding:32px 48px;display:flex;justify-content:sp
 <!-- NAV -->
 <nav>
   <div class="nav-sections">
-    <a href="#track-record" data-i18n="nav_track">Chiffres Cl\u00e9s</a>
-    <a href="#experience" data-i18n="nav_exp">Exp\u00e9rience</a>
+    <a href="#track-record" data-i18n="nav_track">Chiffres Clés</a>
+    <a href="#experience" data-i18n="nav_exp">Expérience</a>
     <a href="#why-irve" data-i18n="nav_why">Pourquoi ce poste</a>
-    <a href="#skills" data-i18n="nav_skills">Comp\u00e9tences</a>
-    <a href="#references" data-i18n="nav_refs">R\u00e9f\u00e9rences</a>
+    <a href="#marche" data-i18n="nav_marche">Marché</a>
+    <a href="#plan" data-i18n="nav_plan">Plan 30/60/90</a>
+    <a href="#skills" data-i18n="nav_skills">Compétences</a>
     <a href="#contact" data-i18n="nav_contact_link">Contact</a>
   </div>
   <a class="nav-logo" href="#">
-    IRVE · Mobilit\u00e9 \u00c9lectrique<span class="dot"></span>
+    IRVE · Mobilité Électrique<span class="dot"></span>
   </a>
   <div class="nav-right">
     <div class="lang-toggle">
@@ -269,11 +299,12 @@ footer{background:var(--black);padding:32px 48px;display:flex;justify-content:sp
 </nav>
 
 <div class="mobile-drawer" id="mobile-drawer">
-  <a href="#track-record" onclick="closeDrawer()" data-i18n="nav_track">Chiffres Cl\u00e9s</a>
-  <a href="#experience" onclick="closeDrawer()" data-i18n="nav_exp">Exp\u00e9rience</a>
+  <a href="#track-record" onclick="closeDrawer()" data-i18n="nav_track">Chiffres Clés</a>
+  <a href="#experience" onclick="closeDrawer()" data-i18n="nav_exp">Expérience</a>
   <a href="#why-irve" onclick="closeDrawer()" data-i18n="nav_why">Pourquoi ce poste</a>
-  <a href="#skills" onclick="closeDrawer()" data-i18n="nav_skills">Comp\u00e9tences</a>
-  <a href="#references" onclick="closeDrawer()" data-i18n="nav_refs">R\u00e9f\u00e9rences</a>
+  <a href="#marche" onclick="closeDrawer()" data-i18n="nav_marche">Marché</a>
+  <a href="#plan" onclick="closeDrawer()" data-i18n="nav_plan">Plan 30/60/90</a>
+  <a href="#skills" onclick="closeDrawer()" data-i18n="nav_skills">Compétences</a>
   <a href="#contact" onclick="closeDrawer()" data-i18n="nav_contact_link">Contact</a>
 </div>
 <div class="nav-offset"></div>
@@ -281,26 +312,26 @@ footer{background:var(--black);padding:32px 48px;display:flex;justify-content:sp
 <!-- HERO -->
 <section id="hero" class="hero">
   <div class="hero-inner">
-    <div class="hero-label" data-i18n="hero_label">Candidature \u2014 Responsable Commercial &amp; Grands Comptes · IRVE · France</div>
-    <h1>FABRICE<br>C\u00d4ME-<span class="accent">PORTILLO</span></h1>
+    <div class="hero-label" data-i18n="hero_label">Candidature — Responsable Commercial &amp; Grands Comptes · IRVE · France</div>
+    <h1>FABRICE<br>CÔME-<span class="accent">PORTILLO</span></h1>
     <div class="hero-bottom">
       <div class="hero-stat-group">
         <div class="hero-stat">
           <div class="hero-stat-num counter" data-target="15" data-suffix="+ ans" data-i18n="stat1_num">15+ ans</div>
-          <div class="hero-stat-label" data-i18n="stat1_label">D\u00e9veloppement commercial B2B</div>
+          <div class="hero-stat-label" data-i18n="stat1_label">Développement commercial B2B</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-num" data-i18n="stat2_num">\u20ac50M</div>
-          <div class="hero-stat-label" data-i18n="stat2_label">P&amp;L g\u00e9r\u00e9</div>
+          <div class="hero-stat-num" data-i18n="stat2_num">€50M</div>
+          <div class="hero-stat-label" data-i18n="stat2_label">P&amp;L géré</div>
         </div>
         <div class="hero-stat">
           <div class="hero-stat-num" data-i18n="stat3_num">+40%</div>
-          <div class="hero-stat-label" data-i18n="stat3_label">CA g\u00e9n\u00e9r\u00e9 / comp</div>
+          <div class="hero-stat-label" data-i18n="stat3_label">CA généré / comp</div>
         </div>
       </div>
       <div class="hero-card reveal">
         <div class="hero-card-tag" data-i18n="hero_card_tag">Responsable Commercial IRVE</div>
-        <h2 data-i18n="hero_card_h">Piloter la croissance grands comptes sur le march\u00e9 de la recharge \u00e9lectrique. Avec m\u00e9thode.</h2>
+        <h2 data-i18n="hero_card_h">Piloter la croissance grands comptes sur le marché de la recharge électrique. Avec méthode.</h2>
         <div class="hero-card-p" data-i18n="hero_card_sub">Manager Commercial &middot; IRVE &middot; France</div>
       </div>
     </div>
@@ -310,107 +341,107 @@ footer{background:var(--black);padding:32px 48px;display:flex;justify-content:sp
 <!-- BRAND BAR -->
 <div class="brand-bar">
   <div class="brand-track">
-    <span class="brand-item">IRVE<span class="brand-sep"> \u00b7 </span></span>
-    <span class="brand-item">Flottes d\u2019Entreprises<span class="brand-sep"> \u00b7 </span></span>
-    <span class="brand-item">Collectivit\u00e9s<span class="brand-sep"> \u00b7 </span></span>
-    <span class="brand-item">Grands Comptes B2B<span class="brand-sep"> \u00b7 </span></span>
-    <span class="brand-item">\u20ac50M P&amp;L G\u00e9r\u00e9<span class="brand-sep"> \u00b7 </span></span>
-    <span class="brand-item">10 000+ PDV Activ\u00e9s<span class="brand-sep"> \u00b7 </span></span>
-    <span class="brand-item">N\u00e9gociation C-level<span class="brand-sep"> \u00b7 </span></span>
-    <span class="brand-item">Management d\u2019\u00c9quipe<span class="brand-sep"> \u00b7 </span></span>
-    <span class="brand-item">Transition \u00c9nerg\u00e9tique<span class="brand-sep"> \u00b7 </span></span>
+    <span class="brand-item">IRVE<span class="brand-sep"> · </span></span>
+    <span class="brand-item">Flottes d’Entreprises<span class="brand-sep"> · </span></span>
+    <span class="brand-item">Collectivités<span class="brand-sep"> · </span></span>
+    <span class="brand-item">Grands Comptes B2B<span class="brand-sep"> · </span></span>
+    <span class="brand-item">€50M P&amp;L Géré<span class="brand-sep"> · </span></span>
+    <span class="brand-item">10 000+ PDV Activés<span class="brand-sep"> · </span></span>
+    <span class="brand-item">Négociation C-level<span class="brand-sep"> · </span></span>
+    <span class="brand-item">Management d’Équipe<span class="brand-sep"> · </span></span>
+    <span class="brand-item">Transition Énergétique<span class="brand-sep"> · </span></span>
     <!-- duplicate -->
-    <span class="brand-item">IRVE<span class="brand-sep"> \u00b7 </span></span>
-    <span class="brand-item">Flottes d\u2019Entreprises<span class="brand-sep"> \u00b7 </span></span>
-    <span class="brand-item">Collectivit\u00e9s<span class="brand-sep"> \u00b7 </span></span>
-    <span class="brand-item">Grands Comptes B2B<span class="brand-sep"> \u00b7 </span></span>
-    <span class="brand-item">\u20ac50M P&amp;L G\u00e9r\u00e9<span class="brand-sep"> \u00b7 </span></span>
-    <span class="brand-item">10 000+ PDV Activ\u00e9s<span class="brand-sep"> \u00b7 </span></span>
-    <span class="brand-item">N\u00e9gociation C-level<span class="brand-sep"> \u00b7 </span></span>
-    <span class="brand-item">Management d\u2019\u00c9quipe<span class="brand-sep"> \u00b7 </span></span>
-    <span class="brand-item">Transition \u00c9nerg\u00e9tique<span class="brand-sep"> \u00b7 </span></span>
+    <span class="brand-item">IRVE<span class="brand-sep"> · </span></span>
+    <span class="brand-item">Flottes d’Entreprises<span class="brand-sep"> · </span></span>
+    <span class="brand-item">Collectivités<span class="brand-sep"> · </span></span>
+    <span class="brand-item">Grands Comptes B2B<span class="brand-sep"> · </span></span>
+    <span class="brand-item">€50M P&amp;L Géré<span class="brand-sep"> · </span></span>
+    <span class="brand-item">10 000+ PDV Activés<span class="brand-sep"> · </span></span>
+    <span class="brand-item">Négociation C-level<span class="brand-sep"> · </span></span>
+    <span class="brand-item">Management d’Équipe<span class="brand-sep"> · </span></span>
+    <span class="brand-item">Transition Énergétique<span class="brand-sep"> · </span></span>
   </div>
 </div>
 
 <!-- TRACK RECORD -->
 <section id="track-record">
   <div class="section-inner">
-    <div class="section-label" data-i18n="s1_label">Chiffres Cl\u00e9s</div>
+    <div class="section-label" data-i18n="s1_label">Chiffres Clés</div>
     <div class="section-title" data-i18n="s1_title">Les chiffres sont\nles chiffres.</div>
     <div class="metrics-grid">
       <div class="metric-card reveal">
         <div class="metric-num counter" data-target="15" data-suffix="+">0</div>
-        <div class="metric-label" data-i18n="m1_label">Ann\u00e9es Exp.</div>
-        <div class="metric-sub" data-i18n="m1_sub">D\u00e9veloppement commercial B2B</div>
+        <div class="metric-label" data-i18n="m1_label">Années Exp.</div>
+        <div class="metric-sub" data-i18n="m1_sub">Développement commercial B2B</div>
       </div>
       <div class="metric-card reveal">
-        <div class="metric-num counter" data-target="50" data-prefix="\u20ac" data-suffix="M">\u20ac0</div>
-        <div class="metric-label" data-i18n="m2_label">P&amp;L G\u00e9r\u00e9</div>
-        <div class="metric-sub">Revenue \u00b7 GM \u00b7 PBT</div>
+        <div class="metric-num counter" data-target="50" data-prefix="€" data-suffix="M">€0</div>
+        <div class="metric-label" data-i18n="m2_label">P&amp;L Géré</div>
+        <div class="metric-sub">Revenue · GM · PBT</div>
       </div>
       <div class="metric-card reveal">
         <div class="metric-num counter" data-target="10" data-suffix="K+">0</div>
-        <div class="metric-label" data-i18n="m3_label">Points de Vente Activ\u00e9s</div>
-        <div class="metric-sub" data-i18n="m3_sub">R\u00e9seau national &amp; p\u00e9nitration territoriale</div>
+        <div class="metric-label" data-i18n="m3_label">Points de Vente Activés</div>
+        <div class="metric-sub" data-i18n="m3_sub">Réseau national &amp; pénitration territoriale</div>
       </div>
       <div class="metric-card reveal">
         <div class="metric-num" data-i18n="m4_num">+40%</div>
         <div class="metric-label" data-i18n="m4_label">Croissance CA</div>
-        <div class="metric-sub" data-i18n="m4_sub">Objectifs d\u00e9pass\u00e9s sur p\u00e9riode Acer</div>
+        <div class="metric-sub" data-i18n="m4_sub">Objectifs dépassés sur période Acer</div>
       </div>
       <div class="metric-card reveal">
         <div class="metric-num counter" data-target="6" data-suffix=" pers">0</div>
-        <div class="metric-label" data-i18n="m5_label">Management \u00c9quipe</div>
+        <div class="metric-label" data-i18n="m5_label">Management Équipe</div>
         <div class="metric-sub" data-i18n="m5_sub">KAM + Trade Marketing + Ops</div>
       </div>
       <div class="metric-card reveal">
         <div class="metric-num" data-i18n="m6_num">CAC 40</div>
-        <div class="metric-label" data-i18n="m6_label">Clients strat\u00e9giques</div>
-        <div class="metric-sub">Orange \u00b7 SFR \u00b7 Bouygues \u00b7 Fnac-Darty</div>
+        <div class="metric-label" data-i18n="m6_label">Clients stratégiques</div>
+        <div class="metric-sub">Orange · SFR · Bouygues · Fnac-Darty</div>
       </div>
       <div class="metric-card reveal">
         <div class="metric-num counter" data-target="150" data-suffix="%">0</div>
         <div class="metric-label" data-i18n="m7_label">Objectif Kickstarter</div>
-        <div class="metric-sub">D-Wager \u00b7 Entrepreneuriat</div>
+        <div class="metric-sub">D-Wager · Entrepreneuriat</div>
       </div>
       <div class="metric-card reveal">
         <div class="metric-num" data-i18n="m8_num">2M+</div>
-        <div class="metric-label" data-i18n="m8_label">Appareils Distribu\u00e9s</div>
+        <div class="metric-label" data-i18n="m8_label">Appareils Distribués</div>
         <div class="metric-sub">France &amp; Europe du Sud</div>
       </div>
     </div>
     <!-- ticker -->
     <div class="ticker-wrap">
       <div class="ticker-track">
-        <span class="ticker-item">Flottes <span>\u00b7</span></span>
-        <span class="ticker-item">Collectivit\u00e9s <span>\u00b7</span></span>
-        <span class="ticker-item">Multisites <span>\u00b7</span></span>
-        <span class="ticker-item">Contrats-cadres <span>\u00b7</span></span>
-        <span class="ticker-item">P&amp;L <span>\u00b7</span></span>
-        <span class="ticker-item">Forecast <span>\u00b7</span></span>
-        <span class="ticker-item">Go-to-Market <span>\u00b7</span></span>
-        <span class="ticker-item">N\u00e9gociation C-level <span>\u00b7</span></span>
-        <span class="ticker-item">KAM <span>\u00b7</span></span>
-        <span class="ticker-item">R\u00e9seau national <span>\u00b7</span></span>
-        <span class="ticker-item">IRVE <span>\u00b7</span></span>
-        <span class="ticker-item">Mobilit\u00e9 \u00e9lectrique <span>\u00b7</span></span>
-        <span class="ticker-item">Management \u00e9quipe <span>\u00b7</span></span>
-        <span class="ticker-item">Transition \u00e9nerg\u00e9tique <span>\u00b7</span></span>
+        <span class="ticker-item">Flottes <span>·</span></span>
+        <span class="ticker-item">Collectivités <span>·</span></span>
+        <span class="ticker-item">Multisites <span>·</span></span>
+        <span class="ticker-item">Contrats-cadres <span>·</span></span>
+        <span class="ticker-item">P&amp;L <span>·</span></span>
+        <span class="ticker-item">Forecast <span>·</span></span>
+        <span class="ticker-item">Go-to-Market <span>·</span></span>
+        <span class="ticker-item">Négociation C-level <span>·</span></span>
+        <span class="ticker-item">KAM <span>·</span></span>
+        <span class="ticker-item">Réseau national <span>·</span></span>
+        <span class="ticker-item">IRVE <span>·</span></span>
+        <span class="ticker-item">Mobilité électrique <span>·</span></span>
+        <span class="ticker-item">Management équipe <span>·</span></span>
+        <span class="ticker-item">Transition énergétique <span>·</span></span>
         <!-- duplicate -->
-        <span class="ticker-item">Flottes <span>\u00b7</span></span>
-        <span class="ticker-item">Collectivit\u00e9s <span>\u00b7</span></span>
-        <span class="ticker-item">Multisites <span>\u00b7</span></span>
-        <span class="ticker-item">Contrats-cadres <span>\u00b7</span></span>
-        <span class="ticker-item">P&amp;L <span>\u00b7</span></span>
-        <span class="ticker-item">Forecast <span>\u00b7</span></span>
-        <span class="ticker-item">Go-to-Market <span>\u00b7</span></span>
-        <span class="ticker-item">N\u00e9gociation C-level <span>\u00b7</span></span>
-        <span class="ticker-item">KAM <span>\u00b7</span></span>
-        <span class="ticker-item">R\u00e9seau national <span>\u00b7</span></span>
-        <span class="ticker-item">IRVE <span>\u00b7</span></span>
-        <span class="ticker-item">Mobilit\u00e9 \u00e9lectrique <span>\u00b7</span></span>
-        <span class="ticker-item">Management \u00e9quipe <span>\u00b7</span></span>
-        <span class="ticker-item">Transition \u00e9nerg\u00e9tique <span>\u00b7</span></span>
+        <span class="ticker-item">Flottes <span>·</span></span>
+        <span class="ticker-item">Collectivités <span>·</span></span>
+        <span class="ticker-item">Multisites <span>·</span></span>
+        <span class="ticker-item">Contrats-cadres <span>·</span></span>
+        <span class="ticker-item">P&amp;L <span>·</span></span>
+        <span class="ticker-item">Forecast <span>·</span></span>
+        <span class="ticker-item">Go-to-Market <span>·</span></span>
+        <span class="ticker-item">Négociation C-level <span>·</span></span>
+        <span class="ticker-item">KAM <span>·</span></span>
+        <span class="ticker-item">Réseau national <span>·</span></span>
+        <span class="ticker-item">IRVE <span>·</span></span>
+        <span class="ticker-item">Mobilité électrique <span>·</span></span>
+        <span class="ticker-item">Management équipe <span>·</span></span>
+        <span class="ticker-item">Transition énergétique <span>·</span></span>
       </div>
     </div>
   </div>
@@ -419,88 +450,88 @@ footer{background:var(--black);padding:32px 48px;display:flex;justify-content:sp
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="section-inner">
-    <div class="section-label" data-i18n="s2_label">Exp\u00e9rience</div>
-    <div class="section-title" data-i18n="s2_title">Exp\u00e9riences cl\u00e9s,\nd\u00e9taill\u00e9es.</div>
+    <div class="section-label" data-i18n="s2_label">Expérience</div>
+    <div class="section-title" data-i18n="s2_title">Expériences clés,\ndétaillées.</div>
     <div class="exp-grid">
       <!-- Featured card -->
       <div class="exp-card featured reveal">
-        <div class="exp-card-tag">2014 \u2013 2019</div>
+        <div class="exp-card-tag">2014 – 2019</div>
         <div class="exp-card-company">Acer Group</div>
-        <div class="exp-card-role" data-i18n="e1_role">Business Manager Smartphone \u00b7 Europe du Sud</div>
+        <div class="exp-card-role" data-i18n="e1_role">Business Manager Smartphone · Europe du Sud</div>
         <div class="exp-card-years">5 ans</div>
         <ul class="exp-bullets">
-          <li data-i18n="e1_l1">D\u00e9finir et ex\u00e9cuter la strat\u00e9gie commerciale France, Espagne, Portugal, Italie</li>
-          <li data-i18n="e1_l2">Comptes strat\u00e9giques C-level \u2014 sell-in / sell-through / pr\u00e9visions de stock</li>
-          <li data-i18n="e1_l3">Planification campagnes, n\u00e9gociation pricing, budget et P&amp;L</li>
-          <li data-i18n="e1_l4">CA \u20ac50M \u00b7 GM \u20ac4M \u00b7 PBT \u20ac1,3M \u00b7 2M+ appareils vendus</li>
-          <li data-i18n="e1_l5">10 000+ PDV strat\u00e9giques activ\u00e9s (GMS, op\u00e9rateurs, e-tail)</li>
-          <li data-i18n="e1_l6">\u00c9quipe : 3 KAM + 1 Trade Marketing encadr\u00e9s</li>
+          <li data-i18n="e1_l1">Définir et exécuter la stratégie commerciale France, Espagne, Portugal, Italie</li>
+          <li data-i18n="e1_l2">Comptes stratégiques C-level — sell-in / sell-through / prévisions de stock</li>
+          <li data-i18n="e1_l3">Planification campagnes, négociation pricing, budget et P&amp;L</li>
+          <li data-i18n="e1_l4">CA €50M · GM €4M · PBT €1,3M · 2M+ appareils vendus</li>
+          <li data-i18n="e1_l5">10 000+ PDV stratégiques activés (GMS, opérateurs, e-tail)</li>
+          <li data-i18n="e1_l6">Équipe : 3 KAM + 1 Trade Marketing encadrés</li>
         </ul>
         <div class="exp-tags">
           <span class="exp-tag">Key Account Management</span>
-          <span class="exp-tag">P&amp;L \u20ac50M</span>
-          <span class="exp-tag">Management \u00e9quipe</span>
+          <span class="exp-tag">P&amp;L €50M</span>
+          <span class="exp-tag">Management équipe</span>
           <span class="exp-tag">Europe du Sud</span>
           <span class="exp-tag">Grands Comptes B2B</span>
         </div>
       </div>
       <!-- Card 2 -->
       <div class="exp-card reveal">
-        <div class="exp-card-tag">2012 \u2013 2014</div>
+        <div class="exp-card-tag">2012 – 2014</div>
         <div class="exp-card-company">Acer France</div>
         <div class="exp-card-role" data-i18n="e2_role">Business Manager Smartphone</div>
         <div class="exp-card-years">2 ans</div>
         <ul class="exp-bullets">
-          <li data-i18n="e2_l1">Grands comptes strat\u00e9giques : GMS, op\u00e9rateurs, e-tail</li>
-          <li data-i18n="e2_l2">R\u00e9f\u00e9rencement, pricing, campagnes, suivi KPI</li>
-          <li data-i18n="e2_l3">\u00c9quipe : 3 KAM + 1 Trade Marketing</li>
-          <li data-i18n="e2_l4">80% retail FR \u00b7 5% PDM \u00b7 Lancement Orange</li>
+          <li data-i18n="e2_l1">Grands comptes stratégiques : GMS, opérateurs, e-tail</li>
+          <li data-i18n="e2_l2">Référencement, pricing, campagnes, suivi KPI</li>
+          <li data-i18n="e2_l3">Équipe : 3 KAM + 1 Trade Marketing</li>
+          <li data-i18n="e2_l4">80% retail FR · 5% PDM · Lancement Orange</li>
         </ul>
       </div>
       <!-- Card 3 -->
       <div class="exp-card reveal">
-        <div class="exp-card-tag">2010 \u2013 2012</div>
+        <div class="exp-card-tag">2010 – 2012</div>
         <div class="exp-card-company">Acer France</div>
         <div class="exp-card-role" data-i18n="e3_role">KAM Open Market &amp; MVNOs</div>
         <div class="exp-card-years">2 ans</div>
         <ul class="exp-bullets">
-          <li data-i18n="e3_l1">D\u00e9veloppement open market &amp; segment MVNO</li>
+          <li data-i18n="e3_l1">Développement open market &amp; segment MVNO</li>
           <li data-i18n="e3_l2">Nouveaux comptes, distribution, marketing PDV</li>
-          <li data-i18n="e3_l3">CA tripl\u00e9 (\u20ac2,8M) \u00b7 3 MVNO ouverts (La Poste, NRJ, Virgin)</li>
+          <li data-i18n="e3_l3">CA triplé (€2,8M) · 3 MVNO ouverts (La Poste, NRJ, Virgin)</li>
         </ul>
       </div>
       <!-- Card 4 -->
       <div class="exp-card reveal">
-        <div class="exp-card-tag">2025 \u2013 2026</div>
+        <div class="exp-card-tag">2025 – 2026</div>
         <div class="exp-card-company">NextinCom</div>
         <div class="exp-card-role" data-i18n="e4_role">Head of Sales &amp; Operations</div>
         <div class="exp-card-years">1 an</div>
         <ul class="exp-bullets">
           <li data-i18n="e4_l1">Ventes &amp; ops B2B (FTTO, IPBX, Circular Devices)</li>
-          <li data-i18n="e4_l2">20K\u20ac MRR \u00b7 40 clients actifs</li>
+          <li data-i18n="e4_l2">20K€ MRR · 40 clients actifs</li>
         </ul>
       </div>
       <!-- Card 5 -->
       <div class="exp-card reveal">
-        <div class="exp-card-tag">2019 \u2013 2022</div>
+        <div class="exp-card-tag">2019 – 2022</div>
         <div class="exp-card-company">D-Wager</div>
         <div class="exp-card-role" data-i18n="e5_role">Co-Fondateur</div>
         <div class="exp-card-years">3 ans</div>
         <ul class="exp-bullets">
-          <li data-i18n="e5_l1">Marque premium \u00e9co-responsable</li>
-          <li data-i18n="e5_l2">Kickstarter 150% \u00b7 NY, Paris, Milan, Tokyo</li>
-          <li data-i18n="e5_l3">Brevet c\u00e9d\u00e9 2022</li>
+          <li data-i18n="e5_l1">Marque premium éco-responsable</li>
+          <li data-i18n="e5_l2">Kickstarter 150% · NY, Paris, Milan, Tokyo</li>
+          <li data-i18n="e5_l3">Brevet cédé 2022</li>
         </ul>
       </div>
       <!-- Card 6 -->
       <div class="exp-card reveal">
-        <div class="exp-card-tag">2002 \u2013 2009</div>
+        <div class="exp-card-tag">2002 – 2009</div>
         <div class="exp-card-company">Partelec (E-Ten)</div>
         <div class="exp-card-role" data-i18n="e6_role">KAM Smartphone</div>
         <div class="exp-card-years">7 ans</div>
         <ul class="exp-bullets">
           <li data-i18n="e6_l1">Distributeur exclusif E-Ten/Glofiish France</li>
-          <li data-i18n="e6_l2">R\u00e9seau retail &amp; e-tail constitu\u00e9</li>
+          <li data-i18n="e6_l2">Réseau retail &amp; e-tail constitué</li>
         </ul>
       </div>
     </div>
@@ -514,24 +545,104 @@ footer{background:var(--black);padding:32px 48px;display:flex;justify-content:sp
     <div class="section-title" data-i18n="s3_title">Pourquoi Fabrice\net l&apos;IRVE.</div>
     <div class="values-grid">
       <div class="value-card reveal">
-        <div class="value-tag" data-i18n="v1_tag">R\u00e9seaux \u00e0 grande \u00e9chelle</div>
+        <div class="value-tag" data-i18n="v1_tag">Réseaux à grande échelle</div>
         <div class="value-title" data-i18n="v1_title">10 000 PDV = 10 000 bornes</div>
-        <div class="value-body" data-i18n="v1_body">Construire un r\u00e9seau de recharge national, c\u2019est le m\u00eame m\u00e9tier que d\u2019activer 10 000 points de vente : convaincre des d\u00e9cideurs B2B, n\u00e9gocier des contrats-cadres, et piloter l\u2019ex\u00e9cution sur le terrain. J\u2019ai fait \u00e7a pendant 15 ans. Le secteur change, la logique commerciale reste identique.</div>
+        <div class="value-body" data-i18n="v1_body">Construire un réseau de recharge national, c’est le même métier que d’activer 10 000 points de vente : convaincre des décideurs B2B, négocier des contrats-cadres, et piloter l’exécution sur le terrain. J’ai fait ça pendant 15 ans. Le secteur change, la logique commerciale reste identique.</div>
       </div>
       <div class="value-card reveal">
         <div class="value-tag" data-i18n="v2_tag">Grands Comptes</div>
-        <div class="value-title" data-i18n="v2_title">CAC 40, flottes, collectivit\u00e9s</div>
-        <div class="value-body" data-i18n="v2_body">Orange, SFR, Bouygues, Fnac-Darty \u2014 des interlocuteurs C-level, des cycles de vente longs, des offres sur-mesure. Ce sont exactement les m\u00eames dynamiques que sur le march\u00e9 IRVE avec les gestionnaires de flottes et les collectivit\u00e9s. J\u2019ai les r\u00e9flexes et la posture adapt\u00e9s \u00e0 ces n\u00e9gociations.</div>
+        <div class="value-title" data-i18n="v2_title">CAC 40, flottes, collectivités</div>
+        <div class="value-body" data-i18n="v2_body">Orange, SFR, Bouygues, Fnac-Darty — des interlocuteurs C-level, des cycles de vente longs, des offres sur-mesure. Ce sont exactement les mêmes dynamiques que sur le marché IRVE avec les gestionnaires de flottes et les collectivités. J’ai les réflexes et la posture adaptés à ces négociations.</div>
       </div>
       <div class="value-card reveal">
         <div class="value-tag" data-i18n="v3_tag">Management &amp; Performance</div>
-        <div class="value-title" data-i18n="v3_title">Piloter une \u00e9quipe de 6</div>
-        <div class="value-body" data-i18n="v3_body">J\u2019ai encadr\u00e9 des \u00e9quipes commerciales (3 KAM + trade marketing) en leur fixant des objectifs clairs, en assurant le coaching terrain et en pilotant la performance par les KPI. Structurer une \u00e9quipe IRVE de 6 personnes en mode croissance, c\u2019est exactement ce que je sais faire.</div>
+        <div class="value-title" data-i18n="v3_title">Piloter une équipe de 6</div>
+        <div class="value-body" data-i18n="v3_body">J’ai encadré des équipes commerciales (3 KAM + trade marketing) en leur fixant des objectifs clairs, en assurant le coaching terrain et en pilotant la performance par les KPI. Structurer une équipe IRVE de 6 personnes en mode croissance, c’est exactement ce que je sais faire.</div>
       </div>
       <div class="value-card reveal">
         <div class="value-tag" data-i18n="v4_tag">Ownership P&amp;L</div>
-        <div class="value-title" data-i18n="v4_title">R\u00e9sultat avant tout</div>
-        <div class="value-body" data-i18n="v4_body">G\u00e9rer \u20ac50M de P&amp;L donne une perspective simple : chaque n\u00e9gociation, chaque contrat, chaque animation a un impact mesurable sur le bas de bilan. J\u2019apporte cette exigence \u00e0 ce poste IRVE \u2014 sans complexe sur les chiffres, avec un track record concret de d\u00e9passement d\u2019objectifs.</div>
+        <div class="value-title" data-i18n="v4_title">Résultat avant tout</div>
+        <div class="value-body" data-i18n="v4_body">Gérer €50M de P&amp;L donne une perspective simple : chaque négociation, chaque contrat, chaque animation a un impact mesurable sur le bas de bilan. J’apporte cette exigence à ce poste IRVE — sans complexe sur les chiffres, avec un track record concret de dépassement d’objectifs.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARCHÉ IRVE -->
+<section id="marche">
+  <div class="section-inner">
+    <div class="section-label" data-i18n="sm_label">Marché IRVE</div>
+    <div class="section-title" data-i18n="sm_title">Un marché qui se construit.<br>Maintenant.</div>
+    <div class="marche-grid">
+      <div class="marche-stat reveal">
+        <div class="marche-num">130 000+</div>
+        <div class="marche-label" data-i18n="ms1_label">Bornes installées en France</div>
+        <div class="marche-sub" data-i18n="ms1_sub">Fin 2024 · source : Avere-France</div>
+      </div>
+      <div class="marche-stat reveal">
+        <div class="marche-num">400 000</div>
+        <div class="marche-label" data-i18n="ms2_label">Objectif national 2030</div>
+        <div class="marche-sub" data-i18n="ms2_sub">Loi d'Orientation des Mobilités (LOM)</div>
+      </div>
+      <div class="marche-stat reveal">
+        <div class="marche-num">+50%</div>
+        <div class="marche-label" data-i18n="ms3_label">Croissance parc VE 2024</div>
+        <div class="marche-sub" data-i18n="ms3_sub">1,4M de véhicules électriques en circulation</div>
+      </div>
+      <div class="marche-stat reveal">
+        <div class="marche-num">5 000+</div>
+        <div class="marche-label" data-i18n="ms4_label">Flottes en conversion active</div>
+        <div class="marche-sub" data-i18n="ms4_sub">Entreprises > 100 véhicules · marché B2B prioritaire</div>
+      </div>
+    </div>
+    <div class="marche-context reveal">
+      <p data-i18n="ms_ctx1"><strong>Le marché IRVE B2B est structurellement en construction</strong> — ce qui signifie que les acteurs qui s'imposent maintenant définissent les standards de demain. Les collectivités, les gestionnaires de flottes et les grands comptes multisites cherchent des partenaires capables de leur proposer une offre technique lisible, un interlocuteur senior, et une exécution fiable.</p>
+      <p data-i18n="ms_ctx2">C'est exactement le positionnement que je sais construire : un compte, une relation de confiance, un contrat-cadre qui dure. J'ai fait ça sur 10 000 points de vente dans la grande distribution. Le terrain change — le métier, non.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN 30/60/90 -->
+<section id="plan">
+  <div class="section-inner">
+    <div class="section-label" data-i18n="sp_label">Plan d'intégration</div>
+    <div class="section-title" data-i18n="sp_title">30 · 60 · 90 jours.<br>Ce que je fais dès l'arrivée.</div>
+    <div class="plan-grid">
+      <div class="plan-card reveal">
+        <div class="plan-period">30</div>
+        <div class="plan-period-label" data-i18n="p1_period">Premiers 30 jours</div>
+        <div class="plan-title" data-i18n="p1_title">Comprendre avant d'agir</div>
+        <ul class="plan-items">
+          <li data-i18n="p1_l1">Audit du portefeuille existant — comptes actifs, pipeline, historique de relation</li>
+          <li data-i18n="p1_l2">Rencontre individuelle des 6 membres de l'équipe — forces, blocages, attentes</li>
+          <li data-i18n="p1_l3">Cartographie des partenaires clés : fabricants, énergéticiens, installateurs</li>
+          <li data-i18n="p1_l4">Immersion terrain avec l'équipe commerciale sur 3 à 5 comptes cibles</li>
+          <li data-i18n="p1_l5">Analyse de la concurrence et des pratiques tarifaires du marché</li>
+        </ul>
+      </div>
+      <div class="plan-card reveal">
+        <div class="plan-period">60</div>
+        <div class="plan-period-label" data-i18n="p2_period">Jours 31 à 60</div>
+        <div class="plan-title" data-i18n="p2_title">Structurer et qualifier</div>
+        <ul class="plan-items">
+          <li data-i18n="p2_l1">Co-construction de la stratégie commerciale IRVE avec la direction</li>
+          <li data-i18n="p2_l2">Définition des KPIs d'équipe et mise en place du pilotage hebdomadaire</li>
+          <li data-i18n="p2_l3">Qualification du pipeline — identification des quick wins (< 90 jours) et des comptes stratégiques long terme</li>
+          <li data-i18n="p2_l4">Premières négociations sur les comptes prioritaires : flottes > 50 véhicules, collectivités cibles</li>
+          <li data-i18n="p2_l5">Cadrage des accords-cadres partenaires (installateurs, fabricants de bornes)</li>
+        </ul>
+      </div>
+      <div class="plan-card reveal">
+        <div class="plan-period">90</div>
+        <div class="plan-period-label" data-i18n="p3_period">Jours 61 à 90</div>
+        <div class="plan-title" data-i18n="p3_title">Générer les premiers résultats</div>
+        <ul class="plan-items">
+          <li data-i18n="p3_l1">Premiers contrats-cadres signés ou en phase de closing avancée</li>
+          <li data-i18n="p3_l2">Pipeline qualifié couvrant 6 mois de CA cible — visibilité trimestrielle assurée</li>
+          <li data-i18n="p3_l3">Équipe alignée sur les objectifs individuels et collectifs, rituels de performance en place</li>
+          <li data-i18n="p3_l4">Tableau de bord commercial opérationnel : KPIs, forecast, reporting direction</li>
+          <li data-i18n="p3_l5">Recommandations sur les ajustements go-to-market (ciblage, offre, pricing)</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -540,8 +651,8 @@ footer{background:var(--black);padding:32px 48px;display:flex;justify-content:sp
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-inner">
-    <div class="section-label" data-i18n="s4_label">Comp\u00e9tences</div>
-    <div class="section-title" data-i18n="s4_title">Expertise &amp;\ncapacit\u00e9s.</div>
+    <div class="section-label" data-i18n="s4_label">Compétences</div>
+    <div class="section-title" data-i18n="s4_title">Expertise &amp;\ncapacités.</div>
     <div class="skills-layout">
       <div class="skill-bars">
         <div class="skill-row reveal">
@@ -553,19 +664,19 @@ footer{background:var(--black);padding:32px 48px;display:flex;justify-content:sp
           <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="90%"></div></div>
         </div>
         <div class="skill-row reveal">
-          <div class="skill-label" data-i18n="sk3">Management d\u2019\u00e9quipe commerciale</div>
+          <div class="skill-label" data-i18n="sk3">Management d’équipe commerciale</div>
           <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="85%"></div></div>
         </div>
         <div class="skill-row reveal">
-          <div class="skill-label" data-i18n="sk4">N\u00e9gociation C-level &amp; Contrats-cadres</div>
+          <div class="skill-label" data-i18n="sk4">Négociation C-level &amp; Contrats-cadres</div>
           <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="92%"></div></div>
         </div>
         <div class="skill-row reveal">
-          <div class="skill-label" data-i18n="sk5">Strat\u00e9gie Go-to-Market</div>
+          <div class="skill-label" data-i18n="sk5">Stratégie Go-to-Market</div>
           <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="88%"></div></div>
         </div>
         <div class="skill-row reveal">
-          <div class="skill-label" data-i18n="sk6">D\u00e9veloppement commercial B2B</div>
+          <div class="skill-label" data-i18n="sk6">Développement commercial B2B</div>
           <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="95%"></div></div>
         </div>
         <div class="skill-row reveal">
@@ -573,15 +684,15 @@ footer{background:var(--black);padding:32px 48px;display:flex;justify-content:sp
           <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="87%"></div></div>
         </div>
         <div class="skill-row reveal">
-          <div class="skill-label" data-i18n="sk8">R\u00e9seau national multi-comptes</div>
+          <div class="skill-label" data-i18n="sk8">Réseau national multi-comptes</div>
           <div class="skill-bar-bg"><div class="skill-bar-fill" data-width="93%"></div></div>
         </div>
       </div>
       <div class="skill-tags">
         <span class="skill-tag">IRVE</span>
-        <span class="skill-tag">Mobilit\u00e9 \u00e9lectrique</span>
-        <span class="skill-tag">Flottes d\u2019entreprises</span>
-        <span class="skill-tag">Collectivit\u00e9s</span>
+        <span class="skill-tag">Mobilité électrique</span>
+        <span class="skill-tag">Flottes d’entreprises</span>
+        <span class="skill-tag">Collectivités</span>
         <span class="skill-tag">Contrats-cadres</span>
         <span class="skill-tag">B2B grands comptes</span>
         <span class="skill-tag">Sell-in / Sell-out</span>
@@ -593,7 +704,7 @@ footer{background:var(--black);padding:32px 48px;display:flex;justify-content:sp
         <span class="skill-tag">GTM</span>
         <span class="skill-tag">EMEA</span>
         <span class="skill-tag">HubSpot</span>
-        <span class="skill-tag">Transition \u00e9nerg\u00e9tique</span>
+        <span class="skill-tag">Transition énergétique</span>
         <span class="skill-tag">Entrepreneuriat</span>
         <span class="skill-tag">Team Leadership</span>
       </div>
@@ -604,31 +715,31 @@ footer{background:var(--black);padding:32px 48px;display:flex;justify-content:sp
 <!-- REFERENCES -->
 <section id="references">
   <div class="section-inner">
-    <div class="section-label" data-i18n="s5_label">R\u00e9f\u00e9rences</div>
-    <div class="section-title" data-i18n="s5_title">Coll\u00e8gues &amp; partenaires,\npr\u00eats \u00e0 t\u00e9moigner.</div>
+    <div class="section-label" data-i18n="s5_label">Références</div>
+    <div class="section-title" data-i18n="s5_title">Collègues &amp; partenaires,\nprêts à témoigner.</div>
     <div class="ref-grid">
       <div class="ref-card reveal">
         <div class="ref-tag" data-i18n="ref1_cat">Ancien Manager</div>
-        <div class="ref-title" data-i18n="ref1_title">Ancien Manager \u00b7 Acer<br>PDG actuel \u2014 Recommerce</div>
+        <div class="ref-title" data-i18n="ref1_title">Ancien Manager · Acer<br>PDG actuel — Recommerce</div>
       </div>
       <div class="ref-card reveal">
         <div class="ref-tag" data-i18n="ref2_cat">Ancien Manager</div>
-        <div class="ref-title" data-i18n="ref2_title">Pr\u00e9sident \u2014 Nextincom</div>
+        <div class="ref-title" data-i18n="ref2_title">Président — Nextincom</div>
       </div>
       <div class="ref-card reveal">
         <div class="ref-tag" data-i18n="ref3_cat">Client</div>
-        <div class="ref-title" data-i18n="ref3_title">Acheteur Terminaux \u2014 Bouygues Telecom<br>Ex Responsable Achats \u00b7 CIC / NRJ Mobile</div>
+        <div class="ref-title" data-i18n="ref3_title">Acheteur Terminaux — Bouygues Telecom<br>Ex Responsable Achats · CIC / NRJ Mobile</div>
       </div>
       <div class="ref-card reveal">
-        <div class="ref-tag" data-i18n="ref4_cat">Coll\u00e8gue</div>
-        <div class="ref-title" data-i18n="ref4_title">Global Marketing Manager \u2014 Lenovo<br>Ex EMEA Marketing Manager</div>
+        <div class="ref-tag" data-i18n="ref4_cat">Collègue</div>
+        <div class="ref-title" data-i18n="ref4_title">Global Marketing Manager — Lenovo<br>Ex EMEA Marketing Manager</div>
       </div>
       <div class="ref-card reveal">
-        <div class="ref-tag" data-i18n="ref5_cat">\u00c9quipe</div>
-        <div class="ref-title" data-i18n="ref5_title">KAM \u2014 Motorola<br>Ex KAM Smartphone \u00b7 Acer France &amp; Espagne</div>
+        <div class="ref-tag" data-i18n="ref5_cat">Équipe</div>
+        <div class="ref-title" data-i18n="ref5_title">KAM — Motorola<br>Ex KAM Smartphone · Acer France &amp; Espagne</div>
       </div>
     </div>
-    <div class="ref-banner" data-i18n="ref_banner">Plus de contacts disponibles sur demande \u2014 anciens managers, partenaires commerciaux et clients du secteur tech.</div>
+    <div class="ref-banner" data-i18n="ref_banner">Plus de contacts disponibles sur demande — anciens managers, partenaires commerciaux et clients du secteur tech.</div>
   </div>
 </section>
 
@@ -639,10 +750,10 @@ footer{background:var(--black);padding:32px 48px;display:flex;justify-content:sp
     <div class="section-title" data-i18n="s6_title">Pourquoi moi\npour ce poste.</div>
     <div class="contact-grid">
       <div class="contact-body">
-        <p data-i18n="c_p1"><strong>Responsable Commercial &amp; Grands Comptes IRVE</strong> \u2014 ce poste correspond \u00e0 ce que je sais faire depuis 15 ans, appliqu\u00e9 \u00e0 un secteur en pleine expansion que je consid\u00e8re comme une vraie opportunit\u00e9 de contribution.</p>
-        <p data-i18n="c_p2">J\u2019ai construit et pilot\u00e9 des r\u00e9seaux commerciaux nationaux \u00e0 grande \u00e9chelle, n\u00e9goci\u00e9 avec des interlocuteurs C-level dans des grands comptes (Orange, SFR, Bouygues, Fnac-Darty), et manag\u00e9 des \u00e9quipes vers des objectifs ambitieux. Le secteur \u00e9nerg\u00e9tique/IRVE m\u2019apporte un nouveau terrain d\u2019action ; le m\u00e9tier commercial reste identique.</p>
-        <p data-i18n="c_p3">Activer 10 000 points de vente ou d\u00e9ployer un r\u00e9seau de bornes sur des flottes et collectivit\u00e9s \u2014 dans les deux cas, la valeur cr\u00e9\u00e9e vient de la capacit\u00e9 \u00e0 convaincre des d\u00e9cideurs, \u00e0 structurer des accords durables, et \u00e0 piloter l\u2019ex\u00e9cution. C\u2019est ce que j\u2019apporte.</p>
-        <a href="../Resume_Fabrice_EN_Gen_April2026.pdf" download class="cv-download" data-i18n="cv_btn">T\u00e9l\u00e9charger le CV</a>
+        <p data-i18n="c_p1"><strong>Responsable Commercial &amp; Grands Comptes IRVE</strong> — ce poste correspond à ce que je sais faire depuis 15 ans, appliqué à un secteur en pleine expansion que je considère comme une vraie opportunité de contribution.</p>
+        <p data-i18n="c_p2">J’ai construit et piloté des réseaux commerciaux nationaux à grande échelle, négocié avec des interlocuteurs C-level dans des grands comptes (Orange, SFR, Bouygues, Fnac-Darty), et managé des équipes vers des objectifs ambitieux. Le secteur énergétique/IRVE m’apporte un nouveau terrain d’action ; le métier commercial reste identique.</p>
+        <p data-i18n="c_p3">Activer 10 000 points de vente ou déployer un réseau de bornes sur des flottes et collectivités — dans les deux cas, la valeur créée vient de la capacité à convaincre des décideurs, à structurer des accords durables, et à piloter l’exécution. C’est ce que j’apporte.</p>
+        <a href="../Resume_Fabrice_EN_Gen_April2026.pdf" download class="cv-download" data-i18n="cv_btn">Télécharger le CV</a>
       </div>
       <div class="contact-cta">
         <div class="cta-item">
@@ -659,7 +770,7 @@ footer{background:var(--black);padding:32px 48px;display:flex;justify-content:sp
             <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
           </div>
           <div>
-            <div class="cta-label">T\u00e9l\u00e9phone</div>
+            <div class="cta-label">Téléphone</div>
             <a class="cta-value" href="tel:+33674181393">+33 6 74 18 13 93</a>
           </div>
         </div>
@@ -678,89 +789,116 @@ footer{background:var(--black);padding:32px 48px;display:flex;justify-content:sp
 </section>
 
 <footer>
-  <div class="footer-logo">Fabrice C\u00d4ME-PORTILLO &mdash; <span>IRVE &middot; Mobilit\u00e9 \u00c9lectrique</span></div>
-  <div class="footer-note">Transition \u00e9nerg\u00e9tique &middot; 2026</div>
+  <div class="footer-logo">Fabrice CÔME-PORTILLO &mdash; <span>IRVE &middot; Mobilité Électrique</span></div>
+  <div class="footer-note">Transition énergétique &middot; 2026</div>
 </footer>
 
 <script>
 var translations = {
   fr: {
-    nav_track:"Chiffres Cl\u00e9s",nav_exp:"Exp\u00e9rience",nav_why:"Pourquoi ce poste",nav_skills:"Comp\u00e9tences",
-    nav_refs:"R\u00e9f\u00e9rences",nav_contact_link:"Contact",nav_cta:"Me contacter",
-    hero_label:"Candidature \u2014 Responsable Commercial & Grands Comptes \u00b7 IRVE \u00b7 France",
-    stat1_num:"15+ ans",stat1_label:"D\u00e9veloppement commercial B2B",
-    stat2_num:"\u20ac50M",stat2_label:"P&L g\u00e9r\u00e9",
-    stat3_num:"+40%",stat3_label:"CA g\u00e9n\u00e9r\u00e9 / comp",
+    nav_track:"Chiffres Clés",nav_exp:"Expérience",nav_why:"Pourquoi ce poste",nav_skills:"Compétences",
+    nav_refs:"Références",nav_contact_link:"Contact",nav_cta:"Me contacter",
+    hero_label:"Candidature — Responsable Commercial & Grands Comptes · IRVE · France",
+    stat1_num:"15+ ans",stat1_label:"Développement commercial B2B",
+    stat2_num:"€50M",stat2_label:"P&L géré",
+    stat3_num:"+40%",stat3_label:"CA généré / comp",
     hero_card_tag:"Responsable Commercial IRVE",
-    hero_card_h:"Piloter la croissance grands comptes sur le march\u00e9 de la recharge \u00e9lectrique. Avec m\u00e9thode.",
-    hero_card_sub:"Manager Commercial \u00b7 IRVE \u00b7 France",
-    s1_label:"Chiffres Cl\u00e9s",s1_title:"Les chiffres sont\nles chiffres.",
-    m1_label:"Ann\u00e9es Exp.",m1_sub:"D\u00e9veloppement commercial B2B",
-    m2_label:"P&L G\u00e9r\u00e9",
-    m3_label:"Points de Vente Activ\u00e9s",m3_sub:"R\u00e9seau national & p\u00e9n\u00e9tration territoriale",
-    m4_num:"+40%",m4_label:"Croissance CA",m4_sub:"Objectifs d\u00e9pass\u00e9s sur p\u00e9riode Acer",
-    m5_label:"Management \u00c9quipe",m5_sub:"KAM + Trade Marketing + Ops",
-    m6_num:"CAC 40",m6_label:"Clients strat\u00e9giques",
+    hero_card_h:"Piloter la croissance grands comptes sur le marché de la recharge électrique. Avec méthode.",
+    hero_card_sub:"Manager Commercial · IRVE · France",
+    s1_label:"Chiffres Clés",s1_title:"Les chiffres sont\nles chiffres.",
+    m1_label:"Années Exp.",m1_sub:"Développement commercial B2B",
+    m2_label:"P&L Géré",
+    m3_label:"Points de Vente Activés",m3_sub:"Réseau national & pénétration territoriale",
+    m4_num:"+40%",m4_label:"Croissance CA",m4_sub:"Objectifs dépassés sur période Acer",
+    m5_label:"Management Équipe",m5_sub:"KAM + Trade Marketing + Ops",
+    m6_num:"CAC 40",m6_label:"Clients stratégiques",
     m7_label:"Objectif Kickstarter",
-    m8_num:"2M+",m8_label:"Appareils Distribu\u00e9s",
-    s2_label:"Exp\u00e9rience",s2_title:"Exp\u00e9riences cl\u00e9s,\nd\u00e9taill\u00e9es.",
-    s3_label:"Pourquoi ce poste",s3_title:"Pourquoi Fabrice\net l\u2019IRVE.",
-    v1_tag:"R\u00e9seaux \u00e0 grande \u00e9chelle",v1_title:"10 000 PDV = 10 000 bornes",
-    v1_body:"Construire un r\u00e9seau de recharge national, c\u2019est le m\u00eame m\u00e9tier que d\u2019activer 10 000 points de vente : convaincre des d\u00e9cideurs B2B, n\u00e9gocier des contrats-cadres, et piloter l\u2019ex\u00e9cution sur le terrain. J\u2019ai fait \u00e7a pendant 15 ans. Le secteur change, la logique commerciale reste identique.",
-    v2_tag:"Grands Comptes",v2_title:"CAC 40, flottes, collectivit\u00e9s",
-    v2_body:"Orange, SFR, Bouygues, Fnac-Darty \u2014 des interlocuteurs C-level, des cycles de vente longs, des offres sur-mesure. Ce sont exactement les m\u00eames dynamiques que sur le march\u00e9 IRVE avec les gestionnaires de flottes et les collectivit\u00e9s. J\u2019ai les r\u00e9flexes et la posture adapt\u00e9s \u00e0 ces n\u00e9gociations.",
-    v3_tag:"Management & Performance",v3_title:"Piloter une \u00e9quipe de 6",
-    v3_body:"J\u2019ai encadr\u00e9 des \u00e9quipes commerciales (3 KAM + trade marketing) en leur fixant des objectifs clairs, en assurant le coaching terrain et en pilotant la performance par les KPI. Structurer une \u00e9quipe IRVE de 6 personnes en mode croissance, c\u2019est exactement ce que je sais faire.",
-    v4_tag:"Ownership P&L",v4_title:"R\u00e9sultat avant tout",
-    v4_body:"G\u00e9rer \u20ac50M de P&L donne une perspective simple : chaque n\u00e9gociation, chaque contrat, chaque animation a un impact mesurable sur le bas de bilan. J\u2019apporte cette exigence \u00e0 ce poste IRVE \u2014 sans complexe sur les chiffres, avec un track record concret de d\u00e9passement d\u2019objectifs.",
-    s4_label:"Comp\u00e9tences",s4_title:"Expertise &\ncapacit\u00e9s.",
-    sk1:"Key Account Management",sk2:"Gestion P&L",sk3:"Management d\u2019\u00e9quipe commerciale",
-    sk4:"N\u00e9gociation C-level & Contrats-cadres",sk5:"Strat\u00e9gie Go-to-Market",
-    sk6:"D\u00e9veloppement commercial B2B",sk7:"Pilotage KPI & Reporting",sk8:"R\u00e9seau national multi-comptes",
-    s5_label:"R\u00e9f\u00e9rences",s5_title:"Coll\u00e8gues & partenaires,\npr\u00eats \u00e0 t\u00e9moigner.",
-    ref1_cat:"Ancien Manager",ref1_title:"Ancien Manager \u00b7 Acer<br>PDG actuel \u2014 Recommerce",
-    ref2_cat:"Ancien Manager",ref2_title:"Pr\u00e9sident \u2014 Nextincom",
-    ref3_cat:"Client",ref3_title:"Acheteur Terminaux \u2014 Bouygues Telecom<br>Ex Responsable Achats \u00b7 CIC / NRJ Mobile",
-    ref4_cat:"Coll\u00e8gue",ref4_title:"Global Marketing Manager \u2014 Lenovo<br>Ex EMEA Marketing Manager",
-    ref5_cat:"\u00c9quipe",ref5_title:"KAM \u2014 Motorola<br>Ex KAM Smartphone \u00b7 Acer France & Espagne",
-    ref_banner:"Plus de contacts disponibles sur demande \u2014 anciens managers, partenaires commerciaux et clients du secteur tech.",
+    m8_num:"2M+",m8_label:"Appareils Distribués",
+    s2_label:"Expérience",s2_title:"Expériences clés,\ndétaillées.",
+    s3_label:"Pourquoi ce poste",s3_title:"Pourquoi Fabrice\net l’IRVE.",
+    v1_tag:"Réseaux à grande échelle",v1_title:"10 000 PDV = 10 000 bornes",
+    v1_body:"Construire un réseau de recharge national, c’est le même métier que d’activer 10 000 points de vente : convaincre des décideurs B2B, négocier des contrats-cadres, et piloter l’exécution sur le terrain. J’ai fait ça pendant 15 ans. Le secteur change, la logique commerciale reste identique.",
+    v2_tag:"Grands Comptes",v2_title:"CAC 40, flottes, collectivités",
+    v2_body:"Orange, SFR, Bouygues, Fnac-Darty — des interlocuteurs C-level, des cycles de vente longs, des offres sur-mesure. Ce sont exactement les mêmes dynamiques que sur le marché IRVE avec les gestionnaires de flottes et les collectivités. J’ai les réflexes et la posture adaptés à ces négociations.",
+    v3_tag:"Management & Performance",v3_title:"Piloter une équipe de 6",
+    v3_body:"J’ai encadré des équipes commerciales (3 KAM + trade marketing) en leur fixant des objectifs clairs, en assurant le coaching terrain et en pilotant la performance par les KPI. Structurer une équipe IRVE de 6 personnes en mode croissance, c’est exactement ce que je sais faire.",
+    v4_tag:"Ownership P&L",v4_title:"Résultat avant tout",
+    v4_body:"Gérer €50M de P&L donne une perspective simple : chaque négociation, chaque contrat, chaque animation a un impact mesurable sur le bas de bilan. J’apporte cette exigence à ce poste IRVE — sans complexe sur les chiffres, avec un track record concret de dépassement d’objectifs.",
+    nav_marche:"Marché",nav_plan:"Plan 30/60/90",
+    sm_label:"Marché IRVE",sm_title:"Un marché qui se construit.\nMaintenant.",
+    ms1_label:"Bornes installées en France",ms1_sub:"Fin 2024 · source : Avere-France",
+    ms2_label:"Objectif national 2030",ms2_sub:"Loi d’Orientation des Mobilités (LOM)",
+    ms3_label:"Croissance parc VE 2024",ms3_sub:"1,4M de véhicules électriques en circulation",
+    ms4_label:"Flottes en conversion active",ms4_sub:"Entreprises > 100 véhicules · marché B2B prioritaire",
+    ms_ctx1:"<strong>Le marché IRVE B2B est structurellement en construction</strong> — ce qui signifie que les acteurs qui s’imposent maintenant définissent les standards de demain. Les collectivités, les gestionnaires de flottes et les grands comptes multisites cherchent des partenaires capables de leur proposer une offre technique lisible, un interlocuteur senior, et une exécution fiable.",
+    ms_ctx2:"C’est exactement le positionnement que je sais construire : un compte, une relation de confiance, un contrat-cadre qui dure. J’ai fait ça sur 10 000 points de vente dans la grande distribution. Le terrain change — le métier, non.",
+    sp_label:"Plan d’intégration",sp_title:"30 · 60 · 90 jours.\nCe que je fais dès l’arrivée.",
+    p1_period:"Premiers 30 jours",p1_title:"Comprendre avant d’agir",
+    p1_l1:"Audit du portefeuille existant — comptes actifs, pipeline, historique de relation",
+    p1_l2:"Rencontre individuelle des 6 membres de l’équipe — forces, blocages, attentes",
+    p1_l3:"Cartographie des partenaires clés : fabricants, énergéticiens, installateurs",
+    p1_l4:"Immersion terrain avec l’équipe commerciale sur 3 à 5 comptes cibles",
+    p1_l5:"Analyse de la concurrence et des pratiques tarifaires du marché",
+    p2_period:"Jours 31 à 60",p2_title:"Structurer et qualifier",
+    p2_l1:"Co-construction de la stratégie commerciale IRVE avec la direction",
+    p2_l2:"Définition des KPIs d’équipe et mise en place du pilotage hebdomadaire",
+    p2_l3:"Qualification du pipeline — quick wins (< 90 jours) et comptes stratégiques long terme",
+    p2_l4:"Premières négociations sur les comptes prioritaires : flottes > 50 véhicules, collectivités cibles",
+    p2_l5:"Cadrage des accords-cadres partenaires (installateurs, fabricants de bornes)",
+    p3_period:"Jours 61 à 90",p3_title:"Générer les premiers résultats",
+    p3_l1:"Premiers contrats-cadres signés ou en phase de closing avancée",
+    p3_l2:"Pipeline qualifié couvrant 6 mois de CA cible — visibilité trimestrielle assurée",
+    p3_l3:"Équipe alignée sur les objectifs individuels et collectifs, rituels de performance en place",
+    p3_l4:"Tableau de bord commercial opérationnel : KPIs, forecast, reporting direction",
+    p3_l5:"Recommandations sur les ajustements go-to-market (ciblage, offre, pricing)",
+    s4_label:"Compétences",s4_title:"Expertise &\ncapacités.",
+    sk1:"Key Account Management",sk2:"Gestion P&L",sk3:"Management d’équipe commerciale",
+    sk4:"Négociation C-level & Contrats-cadres",sk5:"Stratégie Go-to-Market",
+    sk6:"Développement commercial B2B",sk7:"Pilotage KPI & Reporting",sk8:"Réseau national multi-comptes",
+    s5_label:"Références",s5_title:"Collègues & partenaires,\nprêts à témoigner.",
+    ref1_cat:"Ancien Manager",ref1_title:"Ancien Manager · Acer<br>PDG actuel — Recommerce",
+    ref2_cat:"Ancien Manager",ref2_title:"Président — Nextincom",
+    ref3_cat:"Client",ref3_title:"Acheteur Terminaux — Bouygues Telecom<br>Ex Responsable Achats · CIC / NRJ Mobile",
+    ref4_cat:"Collègue",ref4_title:"Global Marketing Manager — Lenovo<br>Ex EMEA Marketing Manager",
+    ref5_cat:"Équipe",ref5_title:"KAM — Motorola<br>Ex KAM Smartphone · Acer France & Espagne",
+    ref_banner:"Plus de contacts disponibles sur demande — anciens managers, partenaires commerciaux et clients du secteur tech.",
     s6_label:"Contact",s6_title:"Pourquoi moi\npour ce poste.",
-    c_p1:"<strong>Responsable Commercial & Grands Comptes IRVE</strong> \u2014 ce poste correspond \u00e0 ce que je sais faire depuis 15 ans, appliqu\u00e9 \u00e0 un secteur en pleine expansion que je consid\u00e8re comme une vraie opportunit\u00e9 de contribution.",
-    c_p2:"J\u2019ai construit et pilot\u00e9 des r\u00e9seaux commerciaux nationaux \u00e0 grande \u00e9chelle, n\u00e9goci\u00e9 avec des interlocuteurs C-level dans des grands comptes (Orange, SFR, Bouygues, Fnac-Darty), et manag\u00e9 des \u00e9quipes vers des objectifs ambitieux. Le secteur \u00e9nerg\u00e9tique/IRVE m\u2019apporte un nouveau terrain d\u2019action ; le m\u00e9tier commercial reste identique.",
-    c_p3:"Activer 10 000 points de vente ou d\u00e9ployer un r\u00e9seau de bornes sur des flottes et collectivit\u00e9s \u2014 dans les deux cas, la valeur cr\u00e9\u00e9e vient de la capacit\u00e9 \u00e0 convaincre des d\u00e9cideurs, \u00e0 structurer des accords durables, et \u00e0 piloter l\u2019ex\u00e9cution. C\u2019est ce que j\u2019apporte.",
-    e1_role:"Business Manager Smartphone \u00b7 Europe du Sud",
-    e1_l1:"D\u00e9finir et ex\u00e9cuter la strat\u00e9gie commerciale France, Espagne, Portugal, Italie",
-    e1_l2:"Comptes strat\u00e9giques C-level \u2014 sell-in / sell-through / pr\u00e9visions de stock",
-    e1_l3:"Planification campagnes, n\u00e9gociation pricing, budget et P&L",
-    e1_l4:"CA \u20ac50M \u00b7 GM \u20ac4M \u00b7 PBT \u20ac1,3M \u00b7 2M+ appareils vendus",
-    e1_l5:"10 000+ PDV strat\u00e9giques activ\u00e9s (GMS, op\u00e9rateurs, e-tail)",
-    e1_l6:"\u00c9quipe : 3 KAM + 1 Trade Marketing encadr\u00e9s",
+    c_p1:"<strong>Responsable Commercial & Grands Comptes IRVE</strong> — ce poste correspond à ce que je sais faire depuis 15 ans, appliqué à un secteur en pleine expansion que je considère comme une vraie opportunité de contribution.",
+    c_p2:"J’ai construit et piloté des réseaux commerciaux nationaux à grande échelle, négocié avec des interlocuteurs C-level dans des grands comptes (Orange, SFR, Bouygues, Fnac-Darty), et managé des équipes vers des objectifs ambitieux. Le secteur énergétique/IRVE m’apporte un nouveau terrain d’action ; le métier commercial reste identique.",
+    c_p3:"Activer 10 000 points de vente ou déployer un réseau de bornes sur des flottes et collectivités — dans les deux cas, la valeur créée vient de la capacité à convaincre des décideurs, à structurer des accords durables, et à piloter l’exécution. C’est ce que j’apporte.",
+    e1_role:"Business Manager Smartphone · Europe du Sud",
+    e1_l1:"Définir et exécuter la stratégie commerciale France, Espagne, Portugal, Italie",
+    e1_l2:"Comptes stratégiques C-level — sell-in / sell-through / prévisions de stock",
+    e1_l3:"Planification campagnes, négociation pricing, budget et P&L",
+    e1_l4:"CA €50M · GM €4M · PBT €1,3M · 2M+ appareils vendus",
+    e1_l5:"10 000+ PDV stratégiques activés (GMS, opérateurs, e-tail)",
+    e1_l6:"Équipe : 3 KAM + 1 Trade Marketing encadrés",
     e2_role:"Business Manager Smartphone",
-    e2_l1:"Grands comptes strat\u00e9giques : GMS, op\u00e9rateurs, e-tail",
-    e2_l2:"R\u00e9f\u00e9rencement, pricing, campagnes, suivi KPI",
-    e2_l3:"\u00c9quipe : 3 KAM + 1 Trade Marketing",e2_l4:"80% retail FR \u00b7 5% PDM \u00b7 Lancement Orange",
+    e2_l1:"Grands comptes stratégiques : GMS, opérateurs, e-tail",
+    e2_l2:"Référencement, pricing, campagnes, suivi KPI",
+    e2_l3:"Équipe : 3 KAM + 1 Trade Marketing",e2_l4:"80% retail FR · 5% PDM · Lancement Orange",
     e3_role:"KAM Open Market & MVNOs",
-    e3_l1:"D\u00e9veloppement open market & segment MVNO",
+    e3_l1:"Développement open market & segment MVNO",
     e3_l2:"Nouveaux comptes, distribution, marketing PDV",
-    e3_l3:"CA tripl\u00e9 (\u20ac2,8M) \u00b7 3 MVNO ouverts",
+    e3_l3:"CA triplé (€2,8M) · 3 MVNO ouverts",
     e4_role:"Head of Sales & Operations",
-    e4_l1:"Ventes & ops B2B (FTTO, IPBX, Circular Devices)",e4_l2:"20K\u20ac MRR \u00b7 40 clients actifs",
+    e4_l1:"Ventes & ops B2B (FTTO, IPBX, Circular Devices)",e4_l2:"20K€ MRR · 40 clients actifs",
     e5_role:"Co-Fondateur",
-    e5_l1:"Marque premium \u00e9co-responsable",e5_l2:"Kickstarter 150% \u00b7 NY, Paris, Milan, Tokyo",e5_l3:"Brevet c\u00e9d\u00e9 2022",
+    e5_l1:"Marque premium éco-responsable",e5_l2:"Kickstarter 150% · NY, Paris, Milan, Tokyo",e5_l3:"Brevet cédé 2022",
     e6_role:"KAM Smartphone",
-    e6_l1:"Distributeur exclusif E-Ten/Glofiish France",e6_l2:"R\u00e9seau retail & e-tail constitu\u00e9",
-    cv_btn:"T\u00e9l\u00e9charger le CV"
+    e6_l1:"Distributeur exclusif E-Ten/Glofiish France",e6_l2:"Réseau retail & e-tail constitué",
+    cv_btn:"Télécharger le CV"
   },
   en: {
     nav_track:"Track Record",nav_exp:"Experience",nav_why:"Why this role",nav_skills:"Skills",
     nav_refs:"References",nav_contact_link:"Contact",nav_cta:"Get in touch",
-    hero_label:"Application \u2014 Senior Commercial Manager \u00b7 EVCI \u00b7 France",
+    hero_label:"Application — Senior Commercial Manager · EVCI · France",
     stat1_num:"15+ yrs",stat1_label:"B2B Commercial Development",
-    stat2_num:"\u20ac50M",stat2_label:"P&L Managed",
+    stat2_num:"€50M",stat2_label:"P&L Managed",
     stat3_num:"+40%",stat3_label:"Revenue growth vs target",
     hero_card_tag:"Commercial Manager EVCI",
     hero_card_h:"Driving key account growth in electric vehicle charging infrastructure. With method.",
-    hero_card_sub:"Commercial Manager \u00b7 EVCI \u00b7 France",
+    hero_card_sub:"Commercial Manager · EVCI · France",
     s1_label:"Track Record",s1_title:"Numbers are\nthe numbers.",
     m1_label:"Years Exp.",m1_sub:"B2B commercial development",
     m2_label:"P&L Managed",
@@ -773,47 +911,74 @@ var translations = {
     s2_label:"Experience",s2_title:"Key experiences,\nbroken down.",
     s3_label:"Why this role",s3_title:"Why Fabrice\nand EVCI.",
     v1_tag:"Large-scale Networks",v1_title:"10,000 POS = 10,000 charge points",
-    v1_body:"Building a national charging network is the same job as activating 10,000 POS: convince B2B decision-makers, negotiate framework agreements, and drive field execution. I\u2019ve done this for 15 years. The sector changes; the commercial logic stays the same.",
+    v1_body:"Building a national charging network is the same job as activating 10,000 POS: convince B2B decision-makers, negotiate framework agreements, and drive field execution. I’ve done this for 15 years. The sector changes; the commercial logic stays the same.",
     v2_tag:"Key Accounts",v2_title:"CAC 40, fleets, local authorities",
-    v2_body:"Orange, SFR, Bouygues, Fnac-Darty \u2014 C-level contacts, long sales cycles, bespoke offers. These are exactly the same dynamics as EVCI market with fleet managers and local authorities. I have the right reflexes and posture for these negotiations.",
+    v2_body:"Orange, SFR, Bouygues, Fnac-Darty — C-level contacts, long sales cycles, bespoke offers. These are exactly the same dynamics as EVCI market with fleet managers and local authorities. I have the right reflexes and posture for these negotiations.",
     v3_tag:"Management & Performance",v3_title:"Leading a team of 6",
-    v3_body:"I\u2019ve managed commercial teams (3 KAMs + trade marketing) with clear targets, field coaching, and KPI-driven performance tracking. Structuring an EVCI team of 6 in growth mode is exactly what I know how to do.",
+    v3_body:"I’ve managed commercial teams (3 KAMs + trade marketing) with clear targets, field coaching, and KPI-driven performance tracking. Structuring an EVCI team of 6 in growth mode is exactly what I know how to do.",
     v4_tag:"P&L Ownership",v4_title:"Results first",
-    v4_body:"Managing a \u20ac50M P&L gives a simple perspective: every negotiation, every contract, every activation must have a measurable bottom-line impact. I bring that standard to this EVCI role \u2014 with a concrete track record of exceeding targets.",
+    v4_body:"Managing a €50M P&L gives a simple perspective: every negotiation, every contract, every activation must have a measurable bottom-line impact. I bring that standard to this EVCI role — with a concrete track record of exceeding targets.",
+    nav_marche:"Market",nav_plan:"30/60/90 Plan",
+    sm_label:"EVCI Market",sm_title:"A market being built.\nRight now.",
+    ms1_label:"Charge points in France",ms1_sub:"End 2024 · source: Avere-France",
+    ms2_label:"National target by 2030",ms2_sub:"French Mobility Law (LOM)",
+    ms3_label:"EV fleet growth 2024",ms3_sub:"1.4M electric vehicles in circulation",
+    ms4_label:"Fleets in active conversion",ms4_sub:"Companies > 100 vehicles · priority B2B market",
+    ms_ctx1:"<strong>The B2B EVCI market is structurally under construction</strong> — meaning the players who establish themselves now define tomorrow's standards. Local authorities, fleet managers and multi-site accounts are looking for partners who can offer clear technical solutions, senior contacts, and reliable execution.",
+    ms_ctx2:"That's exactly the positioning I know how to build: one account, one trusted relationship, one long-term framework agreement. I did this across 10,000 POS in French retail. The field changes — the job doesn't.",
+    sp_label:"Onboarding Plan",sp_title:"30 · 60 · 90 days.\nWhat I do from day one.",
+    p1_period:"First 30 days",p1_title:"Understand before acting",
+    p1_l1:"Audit of existing portfolio — active accounts, pipeline, relationship history",
+    p1_l2:"One-on-one with each of the 6 team members — strengths, blockers, expectations",
+    p1_l3:"Mapping of key partners: manufacturers, energy companies, installers",
+    p1_l4:"Field immersion with the commercial team on 3 to 5 target accounts",
+    p1_l5:"Competitive analysis and market pricing benchmarks",
+    p2_period:"Days 31 to 60",p2_title:"Structure and qualify",
+    p2_l1:"Co-build the EVCI commercial strategy with management",
+    p2_l2:"Define team KPIs and set up weekly performance tracking",
+    p2_l3:"Pipeline qualification — identify quick wins (< 90 days) and long-term strategic accounts",
+    p2_l4:"First negotiations on priority accounts: fleets > 50 vehicles, target local authorities",
+    p2_l5:"Framework agreements with key partners (installers, charge point manufacturers)",
+    p3_period:"Days 61 to 90",p3_title:"Deliver the first results",
+    p3_l1:"First framework agreements signed or in advanced closing stage",
+    p3_l2:"Qualified pipeline covering 6 months of target revenue — quarterly visibility secured",
+    p3_l3:"Team aligned on individual and collective targets, performance rituals in place",
+    p3_l4:"Operational sales dashboard: KPIs, forecast, management reporting",
+    p3_l5:"Go-to-market adjustment recommendations (targeting, offer, pricing)",
     s4_label:"Skills",s4_title:"Expertise &\ncapabilities.",
     sk1:"Key Account Management",sk2:"P&L Management",sk3:"Commercial Team Management",
     sk4:"C-level Negotiation & Framework Contracts",sk5:"Go-to-Market Strategy",
     sk6:"B2B Commercial Development",sk7:"KPI Tracking & Reporting",sk8:"National Multi-Account Network",
     s5_label:"References",s5_title:"Colleagues & partners,\nready to speak.",
-    ref1_cat:"Former Manager",ref1_title:"Former Manager \u00b7 Acer<br>Current CEO \u2014 Recommerce",
-    ref2_cat:"Former Manager",ref2_title:"President \u2014 Nextincom",
-    ref3_cat:"Client",ref3_title:"Buyer, Terminals \u2014 Bouygues Telecom<br>Ex Head of Purchasing \u00b7 CIC / NRJ Mobile",
-    ref4_cat:"Colleague",ref4_title:"Global Marketing Manager \u2014 Lenovo<br>Ex EMEA Marketing Manager",
-    ref5_cat:"Team",ref5_title:"KAM \u2014 Motorola<br>Ex KAM Smartphone \u00b7 Acer France & Spain",
-    ref_banner:"More contacts available on request \u2014 former managers, commercial partners and clients from the tech industry.",
+    ref1_cat:"Former Manager",ref1_title:"Former Manager · Acer<br>Current CEO — Recommerce",
+    ref2_cat:"Former Manager",ref2_title:"President — Nextincom",
+    ref3_cat:"Client",ref3_title:"Buyer, Terminals — Bouygues Telecom<br>Ex Head of Purchasing · CIC / NRJ Mobile",
+    ref4_cat:"Colleague",ref4_title:"Global Marketing Manager — Lenovo<br>Ex EMEA Marketing Manager",
+    ref5_cat:"Team",ref5_title:"KAM — Motorola<br>Ex KAM Smartphone · Acer France & Spain",
+    ref_banner:"More contacts available on request — former managers, commercial partners and clients from the tech industry.",
     s6_label:"Contact",s6_title:"Why me\nfor this role.",
-    c_p1:"<strong>Commercial & Key Account Manager \u2014 EVCI</strong> \u2014 this role matches what I\u2019ve been doing for 15 years, applied to a fast-growing sector I see as a real opportunity to contribute.",
-    c_p2:"I\u2019ve built and managed national commercial networks at scale, negotiated with C-level contacts at major accounts (Orange, SFR, Bouygues, Fnac-Darty), and led teams toward ambitious targets. The energy/EVCI sector is a new field; the commercial expertise is identical.",
-    c_p3:"Activating 10,000 POS or deploying a charging network across fleets and local authorities \u2014 in both cases, value is created through the ability to convince decision-makers, structure lasting agreements, and drive execution. That\u2019s what I bring.",
-    e1_role:"Business Manager Smartphone \u00b7 South Europe",
+    c_p1:"<strong>Commercial & Key Account Manager — EVCI</strong> — this role matches what I’ve been doing for 15 years, applied to a fast-growing sector I see as a real opportunity to contribute.",
+    c_p2:"I’ve built and managed national commercial networks at scale, negotiated with C-level contacts at major accounts (Orange, SFR, Bouygues, Fnac-Darty), and led teams toward ambitious targets. The energy/EVCI sector is a new field; the commercial expertise is identical.",
+    c_p3:"Activating 10,000 POS or deploying a charging network across fleets and local authorities — in both cases, value is created through the ability to convince decision-makers, structure lasting agreements, and drive execution. That’s what I bring.",
+    e1_role:"Business Manager Smartphone · South Europe",
     e1_l1:"Define & execute sales strategy across France, Spain, Portugal, Italy",
-    e1_l2:"Strategic C-level accounts \u2014 sell-in / sell-through / inventory forecasting",
+    e1_l2:"Strategic C-level accounts — sell-in / sell-through / inventory forecasting",
     e1_l3:"Campaign planning, pricing negotiations, budget & P&L management",
-    e1_l4:"Revenue \u20ac50M \u00b7 GM \u20ac4M \u00b7 PBT \u20ac1.3M \u00b7 2M+ devices sold",
+    e1_l4:"Revenue €50M · GM €4M · PBT €1.3M · 2M+ devices sold",
     e1_l5:"10,000+ strategic POS activated (GMS, operators, e-tail)",
     e1_l6:"Team: 3 KAMs + 1 Trade Marketing managed",
     e2_role:"Business Manager Smartphone",
     e2_l1:"Strategic key accounts: GMS, operators, e-tail",
     e2_l2:"Product ranging, pricing, campaigns, KPI tracking",
-    e2_l3:"Team: 3 KAMs + 1 Trade Marketing",e2_l4:"80% French retail \u00b7 5% market share \u00b7 Orange launch",
+    e2_l3:"Team: 3 KAMs + 1 Trade Marketing",e2_l4:"80% French retail · 5% market share · Orange launch",
     e3_role:"KAM Open Market & MVNOs",
     e3_l1:"Open market & MVNO segment development",
     e3_l2:"New accounts, distribution, in-store marketing",
-    e3_l3:"Revenue tripled (\u20ac2.8M) \u00b7 3 MVNOs opened",
+    e3_l3:"Revenue tripled (€2.8M) · 3 MVNOs opened",
     e4_role:"Head of Sales & Operations",
-    e4_l1:"B2B sales & ops (FTTO, IPBX, Circular Devices)",e4_l2:"\u20ac20K MRR \u00b7 40 active clients",
+    e4_l1:"B2B sales & ops (FTTO, IPBX, Circular Devices)",e4_l2:"€20K MRR · 40 active clients",
     e5_role:"Co-Founder",
-    e5_l1:"Premium eco-responsible brand",e5_l2:"Kickstarter 150% \u00b7 NY, Paris, Milan, Tokyo",e5_l3:"Patent sold 2022",
+    e5_l1:"Premium eco-responsible brand",e5_l2:"Kickstarter 150% · NY, Paris, Milan, Tokyo",e5_l3:"Patent sold 2022",
     e6_role:"KAM Smartphone",
     e6_l1:"French exclusive distributor for E-Ten/Glofiish smartphones",e6_l2:"Retail & e-tail distribution network built",
     cv_btn:"Download CV"
@@ -880,7 +1045,7 @@ if(isMobileDevice){
   },{threshold:0.15});
   document.querySelectorAll(".reveal,.counter,.skill-bar-fill").forEach(function(el){observer.observe(el)});
 }
-// Init FR par d\u00e9faut
+// Init FR par défaut
 setLang("fr");
 </script>
 </body>
