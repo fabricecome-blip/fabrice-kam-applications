@@ -23,29 +23,52 @@
   --sans: 'Geist', system-ui, sans-serif;
 }
 
-@page { size: A4 portrait; margin: 0; }
+@page { size: 210mm 297mm; margin: 0mm; }
 
 @media print {
   *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-  html { margin: 0; padding: 0; background: white !important; }
-  body { margin: 0 !important; padding: 0 !important; background: white !important; display: block !important; min-height: 0 !important; width: 210mm; }
-  .page { box-shadow: none !important; margin: 0 !important; width: 210mm !important; height: 297mm !important; overflow: hidden !important; }
-  .col-right { padding: 20px 22px 16px 20px !important; }
+  html {
+    margin: 0 !important; padding: 0 !important;
+    width: 210mm !important; height: 297mm !important;
+    overflow: hidden !important;
+  }
+  body {
+    margin: 0 !important; padding: 0 !important;
+    width: 210mm !important; height: 297mm !important;
+    overflow: hidden !important;
+    background: #F7F3EE !important;
+  }
+  .page {
+    position: fixed !important;
+    top: 0 !important; left: 0 !important;
+    box-shadow: none !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+  }
   .col-left  { padding: 24px 16px 24px 18px !important; height: 297mm !important; }
-  .job { margin-bottom: 7px !important; }
+  .col-right { padding: 18px 22px 14px 20px !important; }
   .right-section { margin-bottom: 8px !important; }
-  .r-label { margin-bottom: 8px !important; }
-  .bullet { margin-bottom: 2px !important; }
-  .bullet-text { font-size: 8.5px !important; line-height: 1.45 !important; }
-  .bullet-arrow { font-size: 8.5px !important; }
+  .r-label { margin-bottom: 7px !important; }
+  .job { margin-bottom: 6px !important; }
   .job-company { font-size: 12px !important; }
+  .job-role { font-size: 7.5px !important; margin-bottom: 3px !important; }
+  .job-context { font-size: 8px !important; line-height: 1.4 !important; margin-bottom: 3px !important; }
+  .bullet { margin-bottom: 2px !important; }
+  .bullet-text { font-size: 8.5px !important; line-height: 1.4 !important; }
+  .bullet-arrow { font-size: 8.5px !important; }
   .result-box { padding: 2px 6px !important; margin-top: 3px !important; }
-  .result-text { font-size: 8px !important; line-height: 1.4 !important; }
-  .sidebar-section { margin-bottom: 14px !important; }
-  .name-block { margin-bottom: 16px !important; }
+  .result-label { font-size: 6.5px !important; }
+  .result-text { font-size: 8px !important; line-height: 1.35 !important; }
+  .sidebar-section { margin-bottom: 13px !important; }
+  .name-block { margin-bottom: 14px !important; }
   .photo-wrap { margin-bottom: 10px !important; }
-  .summary-text { font-size: 8.5px !important; line-height: 1.6 !important; }
+  .summary-text { font-size: 8.5px !important; line-height: 1.55 !important; }
   .metrics-grid { margin-bottom: 8px !important; }
+  .metric-cell { padding: 4px 6px !important; }
+  .metric-num { font-size: 14px !important; }
+  .metric-lbl { font-size: 6.5px !important; }
 }
 
 body {
@@ -453,5 +476,36 @@ body {
 
   </div>
 </div>
+<script>
+(function() {
+  var page = document.querySelector('.page');
+
+  function applyScale() {
+    if (!page) return;
+    page.style.transform = '';
+    page.style.width = '';
+    var h = page.scrollHeight;
+    // 297mm at 96dpi = ~1122px; use actual devicePixelRatio-adjusted target
+    var pxPerMm = 96 / 25.4;
+    var targetH = Math.round(297 * pxPerMm);
+    if (h > targetH) {
+      var scale = targetH / h;
+      page.style.transformOrigin = 'top left';
+      page.style.transform = 'scale(' + scale.toFixed(4) + ')';
+      // Compensate width so right edge doesn't get clipped
+      page.style.width = (100 / scale).toFixed(2) + '%';
+    }
+  }
+
+  function resetScale() {
+    if (!page) return;
+    page.style.transform = '';
+    page.style.width = '';
+  }
+
+  window.addEventListener('beforeprint', applyScale);
+  window.addEventListener('afterprint', resetScale);
+})();
+</script>
 </body>
 </html>
