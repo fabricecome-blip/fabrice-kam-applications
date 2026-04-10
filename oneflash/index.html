@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fabrice CÔME-PORTILLO — KAM Grands Comptes · OneFlash</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#FF6B00;
+  --accent-light:#FF8C38;
+  --accent-dim:rgba(255,107,0,0.15);
+  --dark:#0F0700;
+  --dark2:#1A0D00;
+  --ink:#F5EDE3;
+  --cream:#FFF8F2;
+  --muted:#8A7060;
+  --border:rgba(255,107,0,0.18);
+  --g:Geist,system-ui,sans-serif;
+  --gs:'Geist Mono','Courier New',monospace;
+  --serif:'Instrument Serif',Georgia,serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--g);background:var(--dark);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ============ NAVBAR ============ */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(15,7,0,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 32px}
+.nav-brand{font-family:var(--gs);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px}
+.nav-bolt{font-size:16px;animation:bolt 1.8s ease-in-out infinite}
+@keyframes bolt{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.85)}}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{font-family:var(--gs);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--accent)}
+.lang-toggle{display:flex;border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-left:12px}
+.lang-btn{font-family:var(--gs);font-size:9px;font-weight:700;letter-spacing:0.1em;padding:5px 10px;border:none;cursor:pointer;background:transparent;color:var(--muted);transition:all 0.2s;text-transform:uppercase}
+.lang-btn.active{background:var(--accent);color:#fff}
+
+/* ============ HERO ============ */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:80px 0 0;position:relative;overflow:hidden;background:var(--dark)}
+.hero-bg{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,107,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,107,0,0.04) 1px,transparent 1px);background-size:60px 60px}
+.hero-glow{position:absolute;top:-200px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(255,107,0,0.12) 0%,transparent 70%);animation:pulse-glow 4s ease-in-out infinite}
+@keyframes pulse-glow{0%,100%{opacity:0.6;transform:scale(1)}50%{opacity:1;transform:scale(1.1)}}
+.hero-inner{max-width:1280px;margin:0 auto;padding:0 48px;width:100%;position:relative;z-index:1}
+.hero-tag{font-family:var(--gs);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:28px;display:flex;align-items:center;gap:10px}
+.hero-tag::before{content:'';width:32px;height:1px;background:var(--accent)}
+.hero h1{font-family:var(--serif);font-size:clamp(44px,7vw,96px);font-weight:400;line-height:1;color:var(--ink);margin-bottom:12px}
+.hero h1 em{color:var(--accent);font-style:italic}
+.hero-sub{font-family:var(--g);font-size:clamp(15px,2vw,20px);font-weight:300;color:var(--muted);margin-bottom:40px;max-width:540px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:64px}
+.btn-primary{font-family:var(--gs);font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:var(--accent);color:#fff;padding:14px 28px;border-radius:4px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.25s;border:2px solid var(--accent)}
+.btn-primary:hover{background:var(--accent-light);border-color:var(--accent-light);transform:translateY(-2px)}
+.btn-outline{font-family:var(--gs);font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;background:transparent;color:var(--accent);padding:14px 28px;border-radius:4px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:2px solid var(--border);transition:all 0.25s}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent-light)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--border);background:var(--dark2)}
+.hero-stat{padding:28px 32px;border-right:1px solid var(--border)}
+.hero-stat:last-child{border-right:none}
+.hero-stat-num{font-family:var(--serif);font-size:clamp(28px,4vw,48px);font-weight:400;color:var(--ink);line-height:1}
+.hero-stat-num span{color:var(--accent)}
+.hero-stat-label{font-family:var(--gs);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+
+/* ============ CHARGE BAR ============ */
+.charge-bar-wrap{width:100%;height:4px;background:rgba(255,107,0,0.12);position:relative;overflow:hidden}
+.charge-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-light));animation:charge 3s ease-out forwards;width:0}
+@keyframes charge{0%{width:0}100%{width:82%}}
+
+/* ============ SECTIONS ============ */
+section{padding:80px 0;border-bottom:1px solid var(--border)}
+.section-inner{max-width:1280px;margin:0 auto;padding:0 48px}
+.section-tag{font-family:var(--gs);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.section-title{font-family:var(--serif);font-size:clamp(28px,4vw,48px);font-weight:400;color:var(--ink);margin-bottom:40px;line-height:1.1}
+.section-title em{color:var(--accent);font-style:italic}
+
+/* ============ BRAND BAR ============ */
+.brand-bar{padding:40px 0;background:var(--dark2)}
+.brand-bar-inner{max-width:1280px;margin:0 auto;padding:0 48px}
+.brand-bar-label{font-family:var(--gs);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+.brand-logos{display:flex;gap:32px;align-items:center;flex-wrap:wrap}
+.brand-logo{font-family:var(--gs);font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);border:1px solid rgba(255,107,0,0.2);padding:8px 16px;border-radius:4px;transition:all 0.3s}
+.brand-logo:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ============ TRACK RECORD ============ */
+.track-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:32px}
+.track-card{background:var(--dark2);padding:32px;border:1px solid var(--border);transition:border-color 0.3s}
+.track-card:hover{border-color:var(--accent)}
+.track-num{font-family:var(--serif);font-size:48px;font-weight:400;line-height:1;margin-bottom:6px}
+.track-num em{color:var(--accent);font-style:normal}
+.track-label{font-family:var(--gs);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted)}
+.track-desc{font-size:13px;color:rgba(245,237,227,0.6);margin-top:10px;line-height:1.6}
+
+/* ============ EXPERIENCES ============ */
+.exp-list{display:flex;flex-direction:column;gap:2px}
+.exp-item{background:var(--dark2);border:1px solid var(--border);overflow:hidden}
+.exp-header{display:grid;grid-template-columns:1fr auto;align-items:start;padding:28px 32px;cursor:pointer;transition:background 0.2s}
+.exp-header:hover{background:rgba(255,107,0,0.05)}
+.exp-co{font-family:var(--serif);font-size:22px;color:var(--ink)}
+.exp-role{font-family:var(--gs);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-top:4px}
+.exp-dates{font-family:var(--gs);font-size:10px;letter-spacing:0.1em;color:var(--muted);text-align:right}
+.exp-body{padding:0 32px 28px;display:none}
+.exp-body.open{display:block}
+.exp-body ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.exp-body ul li{font-size:14px;color:rgba(245,237,227,0.75);line-height:1.6;padding-left:16px;position:relative}
+.exp-body ul li::before{content:'▸';color:var(--accent);position:absolute;left:0;font-size:10px;top:4px}
+
+/* ============ WHY ============ */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.why-card{background:var(--dark2);border:1px solid var(--border);padding:32px}
+.why-icon{font-size:28px;margin-bottom:12px}
+.why-title{font-family:var(--serif);font-size:20px;color:var(--ink);margin-bottom:10px}
+.why-text{font-size:14px;color:rgba(245,237,227,0.7);line-height:1.7}
+.why-highlight{color:var(--accent);font-weight:600}
+
+/* ============ MARCHE ============ */
+.market-grid{display:grid;grid-template-columns:2fr 1fr;gap:32px;align-items:start}
+.market-stats{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.market-card{background:var(--dark2);border:1px solid var(--border);padding:24px}
+.market-big{font-family:var(--serif);font-size:36px;color:var(--accent)}
+.market-label{font-family:var(--gs);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.market-text{font-size:14px;line-height:1.8;color:rgba(245,237,227,0.75)}
+.market-text p{margin-bottom:16px}
+.market-text p:last-child{margin-bottom:0}
+
+/* ============ PLAN ============ */
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.plan-card{background:var(--dark2);border:1px solid var(--border);padding:32px;position:relative;overflow:hidden}
+.plan-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent)}
+.plan-phase{font-family:var(--gs);font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.plan-title{font-family:var(--serif);font-size:22px;color:var(--ink);margin-bottom:20px}
+.plan-items{display:flex;flex-direction:column;gap:10px}
+.plan-item{font-size:13px;color:rgba(245,237,227,0.7);line-height:1.6;padding-left:14px;position:relative}
+.plan-item::before{content:'→';color:var(--accent);position:absolute;left:0;font-size:11px}
+
+/* ============ COMPETENCES ============ */
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.skill-row{display:flex;flex-direction:column;gap:6px}
+.skill-label{font-family:var(--gs);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);display:flex;justify-content:space-between}
+.skill-label span{color:var(--accent)}
+.skill-bar-bg{height:3px;background:rgba(255,107,0,0.12);border-radius:2px;overflow:hidden}
+.skill-bar{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-light));border-radius:2px;width:0;transition:width 1.2s ease-out}
+
+/* ============ REFERENCES ============ */
+.ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.ref-card{background:var(--dark2);border:1px solid var(--border);padding:28px}
+.ref-name{font-family:var(--serif);font-size:18px;color:var(--ink);margin-bottom:4px}
+.ref-title{font-family:var(--gs);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.ref-quote{font-size:13px;color:rgba(245,237,227,0.65);line-height:1.7;font-style:italic}
+
+/* ============ CONTACT ============ */
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.contact-info{display:flex;flex-direction:column;gap:16px}
+.contact-row{display:flex;align-items:center;gap:12px}
+.contact-icon{font-size:16px;width:32px;text-align:center}
+.contact-val{font-family:var(--gs);font-size:13px;color:var(--ink)}
+.contact-val a{color:var(--accent);text-decoration:none}
+.contact-val a:hover{text-decoration:underline}
+.contact-form{background:var(--dark2);border:1px solid var(--border);padding:32px;border-radius:4px}
+.form-field{margin-bottom:16px}
+.form-field label{font-family:var(--gs);font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+.form-field input,.form-field textarea{width:100%;background:rgba(255,107,0,0.05);border:1px solid var(--border);color:var(--ink);font-family:var(--g);font-size:13px;padding:10px 14px;border-radius:4px;outline:none;transition:border-color 0.2s}
+.form-field input:focus,.form-field textarea:focus{border-color:var(--accent)}
+.form-field textarea{height:80px;resize:vertical}
+.form-submit{width:100%;background:var(--accent);color:#fff;font-family:var(--gs);font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:13px;border:none;border-radius:4px;cursor:pointer;transition:all 0.2s}
+.form-submit:hover{background:var(--accent-light)}
+
+/* ============ FOOTER ============ */
+footer{padding:32px 0;background:var(--dark2);border-top:1px solid var(--border)}
+.footer-inner{max-width:1280px;margin:0 auto;padding:0 48px;display:flex;justify-content:space-between;align-items:center}
+.footer-brand{font-family:var(--gs);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted)}
+.footer-links{display:flex;gap:20px}
+.footer-links a{font-family:var(--gs);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--accent)}
+
+/* ============ CHATBOT ============ */
+#fc-launcher{position:fixed;bottom:24px;right:24px;z-index:9999;width:52px;height:52px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(255,107,0,0.5);transition:all 0.3s;border:none;font-size:22px}
+#fc-launcher:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(255,107,0,0.7)}
+#fc-window{position:fixed;bottom:88px;right:24px;z-index:9998;width:340px;height:480px;background:#1A0D00;border:1px solid var(--border);border-radius:12px;display:none;flex-direction:column;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,0.5)}
+#fc-window.open{display:flex}
+#fc-header{background:var(--accent);padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
+#fc-title{font-family:var(--gs);font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#fff}
+#fc-close{background:none;border:none;color:#fff;cursor:pointer;font-size:18px;line-height:1;opacity:0.8}
+#fc-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+.fc-msg{max-width:80%;padding:10px 13px;border-radius:8px;font-size:13px;line-height:1.5}
+.fc-msg.bot{background:rgba(255,107,0,0.12);border:1px solid var(--border);color:var(--ink);align-self:flex-start}
+.fc-msg.user{background:var(--accent);color:#fff;align-self:flex-end}
+.fc-typing{align-self:flex-start;padding:10px 13px;background:rgba(255,107,0,0.12);border:1px solid var(--border);border-radius:8px;display:none}
+.fc-dots{display:flex;gap:4px}
+.fc-dots span{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:dot-bounce 1.2s infinite}
+.fc-dots span:nth-child(2){animation-delay:0.2s}
+.fc-dots span:nth-child(3){animation-delay:0.4s}
+@keyframes dot-bounce{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-6px)}}
+#fc-input-wrap{padding:12px;border-top:1px solid var(--border);display:flex;gap:8px}
+#fc-input{flex:1;background:rgba(255,107,0,0.05);border:1px solid var(--border);color:var(--ink);font-family:var(--g);font-size:13px;padding:9px 12px;border-radius:6px;outline:none}
+#fc-input:focus{border-color:var(--accent)}
+#fc-send{background:var(--accent);border:none;color:#fff;padding:9px 14px;border-radius:6px;cursor:pointer;font-size:16px;transition:background 0.2s}
+#fc-send:hover{background:var(--accent-light)}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:900px){
+  .hero-stats,.track-grid,.why-grid,.plan-grid,.ref-grid{grid-template-columns:1fr 1fr}
+  .market-grid,.contact-wrap,.skills-grid{grid-template-columns:1fr}
+  .hero h1{font-size:40px}
+  .nav-links{display:none}
+}
+@media(max-width:600px){
+  .hero-stats,.track-grid,.why-grid,.plan-grid,.ref-grid{grid-template-columns:1fr}
+  .section-inner{padding:0 24px}
+  .hero-inner{padding:0 24px}
+}
+
+/* ============ SCROLL REVEAL ============ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand"><span class="nav-bolt">⚡</span> Fabrice Côme-Portillo</div>
+  <div class="nav-links">
+    <a href="#track" data-i18n="nav_track">Track Record</a>
+    <a href="#why" data-i18n="nav_why">Pourquoi OneFlash</a>
+    <a href="#marche" data-i18n="nav_market">Marché</a>
+    <a href="#plan" data-i18n="nav_plan">Plan 100 jours</a>
+    <a href="#contact" data-i18n="nav_contact">Contact</a>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-tag" data-i18n="hero_tag">Candidature · Key Account Manager · Grands Comptes & Partenariats</div>
+    <h1><em data-i18n="hero_h1a">Le réseau se déploie.</em><br><span data-i18n="hero_h1b">Les comptes se gagnent.</span></h1>
+    <p class="hero-sub" data-i18n="hero_sub">20 ans à négocier des contrats-cadres avec les plus grands distributeurs et opérateurs de France. Je viens déployer OneFlash là où les batteries se rechargent.</p>
+    <div class="hero-cta">
+      <a href="CV_Fabrice_OneFlash_FR.html" target="_blank" class="btn-primary cv-download" data-i18n="hero_cv">⚡ Voir le CV</a>
+      <a href="cover-letter.html" target="_blank" class="btn-outline cv-download letter-btn" data-i18n="hero_letter">Voir la lettre</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num"><span class="counter" data-target="50">0</span>M<em>€</em></div>
+      <div class="hero-stat-label" data-i18n="stat1">P&L géré — Acer France</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num"><span class="counter" data-target="10">0</span>K<em>+</em></div>
+      <div class="hero-stat-label" data-i18n="stat2">Points de vente adressés</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num"><span class="counter" data-target="20">0</span><em>+</em></div>
+      <div class="hero-stat-label" data-i18n="stat3">Ans en B2B grands comptes</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num"><span class="counter" data-target="4">0</span></div>
+      <div class="hero-stat-label" data-i18n="stat4">Pays managés — Europe du Sud</div>
+    </div>
+  </div>
+  <div class="charge-bar-wrap"><div class="charge-bar"></div></div>
+</section>
+
+<!-- BRAND BAR -->
+<div class="brand-bar">
+  <div class="brand-bar-inner">
+    <div class="brand-bar-label" data-i18n="brand_label">Comptes gérés — Acer France &amp; Europe du Sud</div>
+    <div class="brand-logos">
+      <div class="brand-logo">Orange</div>
+      <div class="brand-logo">SFR</div>
+      <div class="brand-logo">Bouygues</div>
+      <div class="brand-logo">Fnac-Darty</div>
+      <div class="brand-logo">Boulanger</div>
+      <div class="brand-logo">LDLC</div>
+      <div class="brand-logo">Amazon</div>
+      <div class="brand-logo">Carrefour</div>
+      <div class="brand-logo">MediaMarkt</div>
+      <div class="brand-logo">CAC40 ×12</div>
+    </div>
+  </div>
+</div>
+
+<!-- TRACK RECORD -->
+<section id="track">
+  <div class="section-inner">
+    <div class="section-tag" data-i18n="track_tag">Track Record</div>
+    <h2 class="section-title" data-i18n="track_title">Des chiffres qui parlent,<br><em>pas des promesses.</em></h2>
+    <div class="track-grid">
+      <div class="track-card reveal">
+        <div class="track-num"><em>€50M</em></div>
+        <div class="track-label" data-i18n="track1_label">P&L annuel — Acer France</div>
+        <div class="track-desc" data-i18n="track1_desc">Responsable de l'intégralité du compte de résultat Acer France, incluant la gamme smartphones sur 4 canaux : opérateurs, retail, VAR, e-commerce.</div>
+      </div>
+      <div class="track-card reveal">
+        <div class="track-num"><em>+40%</em></div>
+        <div class="track-label" data-i18n="track2_label">Croissance Smartphone BU — an 2</div>
+        <div class="track-desc" data-i18n="track2_desc">Lancé la Business Unit smartphone d'Acer France de zéro. Meme défi 0-to-1 : évangéliser un réseau de distribution qui ne connait pas le produit.</div>
+      </div>
+      <div class="track-card reveal">
+        <div class="track-num"><em>10K+</em></div>
+        <div class="track-label" data-i18n="track3_label">Points de vente adressés</div>
+        <div class="track-desc" data-i18n="track3_desc">Gestion des plans annuels avec Fnac-Darty, Boulanger, LDLC, Carrefour, Casino, GMS. Référencements centraux + animation réseau régional.</div>
+      </div>
+      <div class="track-card reveal">
+        <div class="track-num"><em>×3</em></div>
+        <div class="track-label" data-i18n="track4_label">Contrats-cadres négociés</div>
+        <div class="track-desc" data-i18n="track4_desc">Négociation des accords pluriannuels avec Orange, SFR, Bouygues — plans de déploiement réseau, garanties, MDF. Exactement la logique OneFlash.</div>
+      </div>
+      <div class="track-card reveal">
+        <div class="track-num"><em>4 pays</em></div>
+        <div class="track-label" data-i18n="track5_label">Europe du Sud managée</div>
+        <div class="track-desc" data-i18n="track5_desc">France, Espagne, Portugal, Italie. Structuration des équipes commerciales locales et des réseaux distributeurs sur 4 marchés simultanément.</div>
+      </div>
+      <div class="track-card reveal">
+        <div class="track-num"><em>4 pers.</em></div>
+        <div class="track-label" data-i18n="track6_label">Equipe managée</div>
+        <div class="track-desc" data-i18n="track6_desc">KAM Senior, Product Manager, Chef de Produit, ADV. Recrutement, objectifs, animation hebdomadaire. Management d'une BU autonome dans une grande structure.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCES -->
+<section id="exp">
+  <div class="section-inner">
+    <div class="section-tag" data-i18n="exp_tag">Expériences</div>
+    <h2 class="section-title" data-i18n="exp_title">20 ans de B2B, <em>quatre terrains différents.</em></h2>
+    <div class="exp-list">
+      <div class="exp-item reveal">
+        <div class="exp-header" onclick="toggleExp(this)">
+          <div>
+            <div class="exp-co">Acer — Business Unit Smartphones</div>
+            <div class="exp-role" data-i18n="exp1_role">Country Manager Smartphones France &amp; Europe du Sud</div>
+          </div>
+          <div class="exp-dates">2010 – 2024 <span style="color:var(--accent)">▾</span></div>
+        </div>
+        <div class="exp-body">
+          <ul>
+            <li data-i18n="exp1_1">Création et pilotage de la BU Smartphones Acer France : 0 à 50M€ de CA en 4 ans</li>
+            <li data-i18n="exp1_2">Gestion des comptes nationaux : Orange, SFR, Bouygues, Fnac-Darty, Boulanger, Amazon, Carrefour</li>
+            <li data-i18n="exp1_3">Négociation des contrats-cadres annuels, plans co-marketing, MDF, sell-out garanties</li>
+            <li data-i18n="exp1_4">Déploiement réseau Europe du Sud : France, Espagne, Portugal, Italie — structuration des équipes locales</li>
+            <li data-i18n="exp1_5">Management d'une équipe de 4 : KAM Senior, Product Manager, Chef de Produit, ADV</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-header" onclick="toggleExp(this)">
+          <div>
+            <div class="exp-co">D-Wager</div>
+            <div class="exp-role" data-i18n="exp2_role">Co-fondateur &amp; CEO — Startup Hardware B2B</div>
+          </div>
+          <div class="exp-dates">2016 – 2019 <span style="color:var(--accent)">▾</span></div>
+        </div>
+        <div class="exp-body">
+          <ul>
+            <li data-i18n="exp2_1">Création d'une startup hardware en mode bootstrapé — conception, production, commercialisation</li>
+            <li data-i18n="exp2_2">Développement du réseau de distribution B2B : revendeurs spécialisés, associations professionnelles</li>
+            <li data-i18n="exp2_3">Gestion de toute la chaine : design produit, logistique, SAV, vente directe grands comptes</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-header" onclick="toggleExp(this)">
+          <div>
+            <div class="exp-co">Missions Interim Management</div>
+            <div class="exp-role" data-i18n="exp3_role">KAM / Responsable Grands Comptes — Mandats courts</div>
+          </div>
+          <div class="exp-dates">2024 – 2025 <span style="color:var(--accent)">▾</span></div>
+        </div>
+        <div class="exp-body">
+          <ul>
+            <li data-i18n="exp3_1">Mandats de 3 à 6 mois en gestion de comptes stratégiques sur des marchés en transition</li>
+            <li data-i18n="exp3_2">Capacité à prendre en main un portefeuille, à qualifier les opportunités et à délivrer des résultats rapidement</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ONEFLASH -->
+<section id="why">
+  <div class="section-inner">
+    <div class="section-tag" data-i18n="why_tag">Pourquoi OneFlash</div>
+    <h2 class="section-title" data-i18n="why_title">La même logique de réseau,<br><em>un produit différent.</em></h2>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">🏪</div>
+        <div class="why-title" data-i18n="why1_title">Je connais vos clients</div>
+        <div class="why-text" data-i18n="why1_text">Leroy Merlin, Decathlon, IKEA, Carrefour, RATP, Klepierre — j'ai négocié avec leurs directions achats, leurs category managers et leurs opérations pendant 14 ans. Ce sont <span class="why-highlight">les mêmes interlocuteurs</span>, avec les mêmes process d'appel d'offres, les mêmes cycles de décision.</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">📱</div>
+        <div class="why-title" data-i18n="why2_title">L'écosystème mobile, c'est mon terrain</div>
+        <div class="why-text" data-i18n="why2_text">Smartphones, accessoires, chargeurs, batteries — j'ai vendu ces produits, conçu leurs argumentaires de vente, géré leurs déploiements en linéaire. OneFlash résout un vrai problème utilisateur que je connais intimement : <span class="why-highlight">la panne de batterie en mobilité.</span></div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🌍</div>
+        <div class="why-title" data-i18n="why3_title">Europe du Sud, déjà structurée</div>
+        <div class="why-text" data-i18n="why3_text">Vous êtes déjà en France, Belgique, Suisse, Espagne et Italie. J'ai structuré des réseaux commerciaux en France, Espagne, Portugal et Italie — <span class="why-highlight">simultanément, avec des équipes locales.</span> L'accélération sur ces marchés, je sais faire.</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">⚡</div>
+        <div class="why-title" data-i18n="why4_title">Startup mindset, poids grand compte</div>
+        <div class="why-text" data-i18n="why4_text">J'ai créé une BU de zéro dans une grande entreprise ET fondé une startup hardware. Je sais travailler en mode ressources limitées tout en portant des contrats à 7 chiffres. <span class="why-highlight">C'est exactement ce que vous cherchez.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARCHE -->
+<section id="marche">
+  <div class="section-inner">
+    <div class="section-tag" data-i18n="market_tag">Marché</div>
+    <h2 class="section-title" data-i18n="market_title"><em>Power bank rental :</em><br>un marché en pleine charge.</h2>
+    <div class="market-grid">
+      <div class="market-text reveal">
+        <p data-i18n="market_p1">Le marché mondial des batteries portables en libre-service atteint <strong style="color:var(--accent)">$1.2 milliard en 2023</strong>, avec un CAGR projeté de 25%+ jusqu'en 2030. La demande est portée par une réalité simple : 83% des utilisateurs de smartphones craignent la panne de batterie dans les lieux publics.</p>
+        <p data-i18n="market_p2">En France, 67 millions de smartphones actifs pour un taux de pénétration de 90%+. La durée d'utilisation quotidienne dépasse 4 heures. Dans les centres commerciaux, les enseignes qui déploient des bornes de recharge observent <strong style="color:var(--accent)">+17% d'identification client</strong> et +31% de croissance des utilisateurs d'applications mobiles (données OneFlash partenaires).</p>
+        <p data-i18n="market_p3">OneFlash est positionné comme le leader français avec 2 000 stations actives, 1,2 million d'utilisateurs et 3,2 millions d'appareils rechargés. L'expansion européenne est engagée sur 9 marchés. Le timing de ce recrutement correspond à une phase d'accélération des grands comptes — le bon moment pour entrer.</p>
+      </div>
+      <div class="market-stats">
+        <div class="market-card reveal">
+          <div class="market-big">$1.2B</div>
+          <div class="market-label" data-i18n="mstat1">Marché mondial 2023</div>
+        </div>
+        <div class="market-card reveal">
+          <div class="market-big">25%</div>
+          <div class="market-label" data-i18n="mstat2">CAGR jusqu'en 2030</div>
+        </div>
+        <div class="market-card reveal">
+          <div class="market-big">2 000</div>
+          <div class="market-label" data-i18n="mstat3">Stations OneFlash actives</div>
+        </div>
+        <div class="market-card reveal">
+          <div class="market-big">9</div>
+          <div class="market-label" data-i18n="mstat4">Marchés européens</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN 30/60/90 -->
+<section id="plan">
+  <div class="section-inner">
+    <div class="section-tag" data-i18n="plan_tag">Plan d'action</div>
+    <h2 class="section-title" data-i18n="plan_title">Les 100 premiers jours :<br><em>pas de warming up.</em></h2>
+    <div class="plan-grid">
+      <div class="plan-card reveal">
+        <div class="plan-phase" data-i18n="plan1_phase">Jours 1 à 30</div>
+        <div class="plan-title" data-i18n="plan1_title">Comprendre &amp; cartographier</div>
+        <div class="plan-items">
+          <div class="plan-item" data-i18n="plan1_1">Audit complet du portefeuille grands comptes existant — revenus, potentiel, risques</div>
+          <div class="plan-item" data-i18n="plan1_2">Mapping des 20 enseignes non encore adressées : hypermarchés, pharmacies, hôtellerie, transport</div>
+          <div class="plan-item" data-i18n="plan1_3">Prise en main CRM, outils internes, process onboarding partenaires</div>
+          <div class="plan-item" data-i18n="plan1_4">Premiers appels de découverte avec les 5 comptes les plus stratégiques</div>
+        </div>
+      </div>
+      <div class="plan-card reveal">
+        <div class="plan-phase" data-i18n="plan2_phase">Jours 31 à 60</div>
+        <div class="plan-title" data-i18n="plan2_title">Ouvrir &amp; accélérer</div>
+        <div class="plan-items">
+          <div class="plan-item" data-i18n="plan2_1">Revue d'affaires Klepierre, RATP, Leroy Merlin — proposition de déploiement étendu</div>
+          <div class="plan-item" data-i18n="plan2_2">Ouverture de 3 nouvelles enseignes cibles : pharmacies (réseau Groupement), bureaux/coworking, wellness</div>
+          <div class="plan-item" data-i18n="plan2_3">Présentation plan de croissance Europe du Sud (Espagne/Italie) à la direction</div>
+          <div class="plan-item" data-i18n="plan2_4">Mise en place d'une cadence de reporting mensuel et de KPIs par compte</div>
+        </div>
+      </div>
+      <div class="plan-card reveal">
+        <div class="plan-phase" data-i18n="plan3_phase">Jours 61 à 100</div>
+        <div class="plan-title" data-i18n="plan3_title">Signer &amp; structurer</div>
+        <div class="plan-items">
+          <div class="plan-item" data-i18n="plan3_1">Objectif : 2 nouveaux contrats-cadres signés (cible +200 stations additionnelles)</div>
+          <div class="plan-item" data-i18n="plan3_2">Pilote commercial Espagne — activation du réseau retail existant (Carrefour ES, El Corte Inglés)</div>
+          <div class="plan-item" data-i18n="plan3_3">Structuration du pipeline partenariats stratégiques pour Q3/Q4</div>
+          <div class="plan-item" data-i18n="plan3_4">Recrutement ou briefing d'un profil junior pour la gestion du mid-market</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPETENCES -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-tag" data-i18n="skills_tag">Compétences</div>
+    <h2 class="section-title" data-i18n="skills_title">Le toolkit d'un KAM<br><em>qui a tout fait.</em></h2>
+    <div class="skills-grid" id="skills-grid">
+      <div class="skill-row">
+        <div class="skill-label"><span data-i18n="sk1">Négociation grands comptes B2B</span><span>100%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar" data-width="100%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label"><span data-i18n="sk2">Contrats-cadres &amp; plans annuels</span><span>100%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar" data-width="100%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label"><span data-i18n="sk3">Gestion de P&amp;L</span><span>100%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar" data-width="100%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label"><span data-i18n="sk4">Développement réseau retail</span><span>100%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar" data-width="100%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label"><span data-i18n="sk5">Ecosystem mobile &amp; hardware</span><span>100%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar" data-width="100%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label"><span data-i18n="sk6">Management &amp; recrutement</span><span>100%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar" data-width="100%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label"><span data-i18n="sk7">Europe du Sud (ES/IT/PT)</span><span>100%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar" data-width="100%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-label"><span data-i18n="sk8">Anglais — niveau professionnel</span><span>100%</span></div>
+        <div class="skill-bar-bg"><div class="skill-bar" data-width="100%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section id="refs">
+  <div class="section-inner">
+    <div class="section-tag" data-i18n="ref_tag">Références</div>
+    <h2 class="section-title" data-i18n="ref_title">Trois personnes qui<br><em>peuvent témoigner.</em></h2>
+    <div class="ref-grid">
+      <div class="ref-card reveal">
+        <div class="ref-name">Nicolas Lefevre</div>
+        <div class="ref-title" data-i18n="ref1_title">Directeur Commercial — Acer France</div>
+        <div class="ref-quote" data-i18n="ref1_quote">"Fabrice a construit la BU smartphones d'Acer France depuis zéro. Sa capacité à ouvrir des comptes stratégiques et à gérer la relation dans la durée est remarquable."</div>
+      </div>
+      <div class="ref-card reveal">
+        <div class="ref-name">Sophie Marchand</div>
+        <div class="ref-title" data-i18n="ref2_title">Category Manager Telecom — Fnac-Darty</div>
+        <div class="ref-quote" data-i18n="ref2_quote">"Un interlocuteur qui connait parfaitement les contraintes de la grande distribution, toujours force de proposition sur les plans commerciaux et très fiable sur les engagements pris."</div>
+      </div>
+      <div class="ref-card reveal">
+        <div class="ref-name">Antoine Duval</div>
+        <div class="ref-title" data-i18n="ref3_title">Directeur Partenariats — Orange France</div>
+        <div class="ref-quote" data-i18n="ref3_quote">"Fabrice a su adapter ses offres à nos contraintes réseau et à nos impératifs de déploiement. Un partenaire commercial de confiance sur plusieurs exercices."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-tag" data-i18n="contact_tag">Contact</div>
+    <h2 class="section-title" data-i18n="contact_title">On en parle ?<br><em>Le café est pour moi.</em></h2>
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <div class="contact-row"><div class="contact-icon">📧</div><div class="contact-val"><a href="mailto:fabrice.come@gmail.com">fabrice.come@gmail.com</a></div></div>
+        <div class="contact-row"><div class="contact-icon">📱</div><div class="contact-val">+33 6 74 18 13 93</div></div>
+        <div class="contact-row"><div class="contact-icon">📍</div><div class="contact-val" data-i18n="contact_loc">Paris, Île-de-France</div></div>
+        <div class="contact-row"><div class="contact-icon">💼</div><div class="contact-val"><a href="https://www.linkedin.com/in/fabricecome/" target="_blank">linkedin.com/in/fabricecome</a></div></div>
+        <div class="contact-row"><div class="contact-icon">🌐</div><div class="contact-val"><a href="https://fabricecome-blip.github.io/fabrice-kam-applications/oneflash/" target="_blank">SPA candidature</a></div></div>
+      </div>
+      <div class="contact-form">
+        <div class="form-field">
+          <label data-i18n="form_name">Votre nom</label>
+          <input type="text" placeholder="Kevin Ouillon, Lucas Di Franco...">
+        </div>
+        <div class="form-field">
+          <label data-i18n="form_msg">Votre message</label>
+          <textarea placeholder="Disponible pour un échange cette semaine..."></textarea>
+        </div>
+        <button class="form-submit" onclick="alert('Merci — je vous recontacte sous 24h.')" data-i18n="form_send">⚡ Envoyer</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">OneFlash · KAM Grands Comptes &amp; Partenariats Stratégiques · Fabrice Côme-Portillo</div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/fabricecome/" target="_blank">LinkedIn</a>
+      <a href="CV_Fabrice_OneFlash_FR.html" target="_blank" data-i18n="foot_cv">CV</a>
+      <a href="cover-letter.html" target="_blank" data-i18n="foot_letter">Lettre</a>
+      <a href="https://fabricecome-blip.github.io/fabrice-kam-applications/oneflash/" target="_blank">SPA Live</a>
+    </div>
+  </div>
+</footer>
+
+<!-- CHATBOT -->
+<button id="fc-launcher" onclick="toggleChat()" title="Parlez avec Fabrice">⚡</button>
+<div id="fc-window">
+  <div id="fc-header">
+    <span id="fc-title">Parlez avec Fabrice</span>
+    <button id="fc-close" onclick="toggleChat()">×</button>
+  </div>
+  <div id="fc-messages">
+    <div class="fc-msg bot" data-i18n="chat_welcome">Bonjour ! Je suis l'assistant de Fabrice. Posez-moi n'importe quelle question sur sa candidature pour OneFlash.</div>
+  </div>
+  <div class="fc-typing"><div class="fc-dots"><span></span><span></span><span></span></div></div>
+  <div id="fc-input-wrap">
+    <input id="fc-input" type="text" placeholder="Posez votre question..." data-i18n-placeholder="chat_placeholder" onkeydown="if(event.key==='Enter')sendMsg()">
+    <button id="fc-send" onclick="sendMsg()">→</button>
+  </div>
+</div>
+
+<script>
+// ============ TRANSLATIONS ============
+const translations = {
+  fr: {
+    hero_tag:"Candidature · Key Account Manager · Grands Comptes & Partenariats",
+    hero_h1a:"Le réseau se déploie.",
+    hero_h1b:"Les comptes se gagnent.",
+    hero_sub:"20 ans à négocier des contrats-cadres avec les plus grands distributeurs et opérateurs de France. Je viens déployer OneFlash là où les batteries se rechargent.",
+    hero_cv:"⚡ Voir le CV",
+    hero_letter:"Voir la lettre",
+    stat1:"P&L géré — Acer France",
+    stat2:"Points de vente adressés",
+    stat3:"Ans en B2B grands comptes",
+    stat4:"Pays managés — Europe du Sud",
+    nav_track:"Track Record",nav_why:"Pourquoi OneFlash",nav_market:"Marché",nav_plan:"Plan 100 jours",nav_contact:"Contact",
+    brand_label:"Comptes gérés — Acer France & Europe du Sud",
+    track_tag:"Track Record",track_title:"Des chiffres qui parlent, pas des promesses.",
+    track1_label:"P&L annuel — Acer France",track1_desc:"Responsable de l'intégralité du compte de résultat Acer France, incluant la gamme smartphones sur 4 canaux : opérateurs, retail, VAR, e-commerce.",
+    track2_label:"Croissance Smartphone BU — an 2",track2_desc:"Lancé la Business Unit smartphone d'Acer France de zéro. Même défi 0-to-1 : évangéliser un réseau de distribution qui ne connaît pas le produit.",
+    track3_label:"Points de vente adressés",track3_desc:"Gestion des plans annuels avec Fnac-Darty, Boulanger, LDLC, Carrefour, Casino, GMS. Référencements centraux + animation réseau régional.",
+    track4_label:"Contrats-cadres négociés",track4_desc:"Négociation des accords pluriannuels avec Orange, SFR, Bouygues — plans de déploiement réseau, garanties, MDF. Exactement la logique OneFlash.",
+    track5_label:"Europe du Sud managée",track5_desc:"France, Espagne, Portugal, Italie. Structuration des équipes commerciales locales et des réseaux distributeurs sur 4 marchés simultanément.",
+    track6_label:"Equipe managée",track6_desc:"KAM Senior, Product Manager, Chef de Produit, ADV. Recrutement, objectifs, animation hebdomadaire. Management d'une BU autonome dans une grande structure.",
+    exp_tag:"Expériences",exp_title:"20 ans de B2B, quatre terrains différents.",
+    exp1_role:"Country Manager Smartphones France & Europe du Sud",
+    exp1_1:"Création et pilotage de la BU Smartphones Acer France : 0 à 50M€ de CA en 4 ans",
+    exp1_2:"Gestion des comptes nationaux : Orange, SFR, Bouygues, Fnac-Darty, Boulanger, Amazon, Carrefour",
+    exp1_3:"Négociation des contrats-cadres annuels, plans co-marketing, MDF, sell-out garanties",
+    exp1_4:"Déploiement réseau Europe du Sud : France, Espagne, Portugal, Italie",
+    exp1_5:"Management d'une équipe de 4 : KAM Senior, Product Manager, Chef de Produit, ADV",
+    exp2_role:"Co-fondateur & CEO — Startup Hardware B2B",
+    exp2_1:"Création d'une startup hardware en mode bootstrapé — conception, production, commercialisation",
+    exp2_2:"Développement du réseau de distribution B2B : revendeurs spécialisés, associations professionnelles",
+    exp2_3:"Gestion de toute la chaîne : design produit, logistique, SAV, vente directe grands comptes",
+    exp3_role:"KAM / Responsable Grands Comptes — Mandats courts",
+    exp3_1:"Mandats de 3 à 6 mois en gestion de comptes stratégiques sur des marchés en transition",
+    exp3_2:"Capacité à prendre en main un portefeuille, qualifier les opportunités et délivrer rapidement",
+    why_tag:"Pourquoi OneFlash",why_title:"La même logique de réseau, un produit différent.",
+    why1_title:"Je connais vos clients",why1_text:"Leroy Merlin, Decathlon, IKEA, Carrefour, RATP, Klepierre — j'ai négocié avec leurs directions achats et leurs category managers pendant 14 ans. Ce sont les mêmes interlocuteurs, avec les mêmes process d'appel d'offres.",
+    why2_title:"L'écosystème mobile, c'est mon terrain",why2_text:"Smartphones, accessoires, chargeurs, batteries — j'ai vendu ces produits, conçu leurs argumentaires, géré leurs déploiements. OneFlash résout un vrai problème utilisateur que je connais intimement : la panne de batterie en mobilité.",
+    why3_title:"Europe du Sud, déjà structurée",why3_text:"Vous êtes déjà en France, Belgique, Suisse, Espagne et Italie. J'ai structuré des réseaux commerciaux en France, Espagne, Portugal et Italie — simultanément, avec des équipes locales.",
+    why4_title:"Startup mindset, poids grand compte",why4_text:"J'ai créé une BU de zéro dans une grande entreprise ET fondé une startup hardware. Je sais travailler en mode ressources limitées tout en portant des contrats à 7 chiffres.",
+    market_tag:"Marché",market_title:"Power bank rental : un marché en pleine charge.",
+    market_p1:"Le marché mondial des batteries portables en libre-service atteint $1.2 milliard en 2023, avec un CAGR projeté de 25%+ jusqu'en 2030. 83% des utilisateurs de smartphones craignent la panne de batterie dans les lieux publics.",
+    market_p2:"En France, 67 millions de smartphones actifs pour un taux de pénétration de 90%+. Les enseignes qui déploient des bornes de recharge observent +17% d'identification client et +31% de croissance des utilisateurs d'applications mobiles.",
+    market_p3:"OneFlash est le leader français avec 2 000 stations actives, 1,2 million d'utilisateurs et 3,2 millions d'appareils rechargés. L'expansion européenne est engagée sur 9 marchés.",
+    mstat1:"Marché mondial 2023",mstat2:"CAGR jusqu'en 2030",mstat3:"Stations OneFlash actives",mstat4:"Marchés européens",
+    plan_tag:"Plan d'action",plan_title:"Les 100 premiers jours : pas de warming up.",
+    plan1_phase:"Jours 1 à 30",plan1_title:"Comprendre & cartographier",
+    plan1_1:"Audit complet du portefeuille grands comptes existant",
+    plan1_2:"Mapping des 20 enseignes non encore adressées",
+    plan1_3:"Prise en main CRM et outils internes",
+    plan1_4:"Premiers appels avec les 5 comptes les plus stratégiques",
+    plan2_phase:"Jours 31 à 60",plan2_title:"Ouvrir & accélérer",
+    plan2_1:"Revue d'affaires Klepierre, RATP, Leroy Merlin",
+    plan2_2:"Ouverture de 3 nouvelles enseignes cibles",
+    plan2_3:"Présentation plan Europe du Sud à la direction",
+    plan2_4:"Mise en place KPIs et reporting mensuel",
+    plan3_phase:"Jours 61 à 100",plan3_title:"Signer & structurer",
+    plan3_1:"Objectif : 2 nouveaux contrats-cadres signés (+200 stations)",
+    plan3_2:"Pilote commercial Espagne — retail existant",
+    plan3_3:"Structuration pipeline partenariats stratégiques Q3/Q4",
+    plan3_4:"Briefing profil junior pour le mid-market",
+    skills_tag:"Compétences",skills_title:"Le toolkit d'un KAM qui a tout fait.",
+    sk1:"Négociation grands comptes B2B",sk2:"Contrats-cadres & plans annuels",sk3:"Gestion de P&L",sk4:"Développement réseau retail",sk5:"Ecosystem mobile & hardware",sk6:"Management & recrutement",sk7:"Europe du Sud (ES/IT/PT)",sk8:"Anglais — niveau professionnel",
+    ref_tag:"Références",ref_title:"Trois personnes qui peuvent témoigner.",
+    ref1_title:"Directeur Commercial — Acer France",ref1_quote:'"Fabrice a construit la BU smartphones d'Acer France depuis zéro. Sa capacité à ouvrir des comptes stratégiques et à gérer la relation dans la durée est remarquable."',
+    ref2_title:"Category Manager Telecom — Fnac-Darty",ref2_quote:'"Un interlocuteur qui connaît parfaitement les contraintes de la grande distribution, toujours force de proposition sur les plans commerciaux."',
+    ref3_title:"Directeur Partenariats — Orange France",ref3_quote:'"Fabrice a su adapter ses offres à nos contraintes réseau et à nos impératifs de déploiement. Un partenaire commercial de confiance."',
+    contact_tag:"Contact",contact_title:"On en parle ? Le café est pour moi.",
+    contact_loc:"Paris, Île-de-France",
+    form_name:"Votre nom",form_msg:"Votre message",form_send:"⚡ Envoyer",
+    foot_cv:"CV",foot_letter:"Lettre",
+    chat_welcome:"Bonjour ! Je suis l'assistant de Fabrice. Posez-moi n'importe quelle question sur sa candidature pour OneFlash.",
+    chat_placeholder:"Posez votre question..."
+  },
+  en: {
+    hero_tag:"Application · Key Account Manager · Strategic Accounts & Partnerships",
+    hero_h1a:"The network scales.",
+    hero_h1b:"The accounts are won.",
+    hero_sub:"20 years negotiating framework contracts with France's largest retailers and telcos. I'm here to deploy OneFlash where batteries need charging.",
+    hero_cv:"⚡ View CV",
+    hero_letter:"View cover letter",
+    stat1:"P&L managed — Acer France",
+    stat2:"POS addressed",
+    stat3:"Years in B2B key accounts",
+    stat4:"Countries managed — Southern Europe",
+    nav_track:"Track Record",nav_why:"Why OneFlash",nav_market:"Market",nav_plan:"100-day plan",nav_contact:"Contact",
+    brand_label:"Accounts managed — Acer France & Southern Europe",
+    track_tag:"Track Record",track_title:"Numbers that speak, not promises.",
+    track1_label:"Annual P&L — Acer France",track1_desc:"Full P&L ownership for Acer France, including the smartphone range across 4 channels: telcos, retail, VAR, e-commerce.",
+    track2_label:"Smartphone BU growth — year 2",track2_desc:"Built Acer France's smartphone BU from zero. Same 0-to-1 challenge: evangelizing a distribution network unfamiliar with the product.",
+    track3_label:"Points of sale addressed",track3_desc:"Annual plan management with Fnac-Darty, Boulanger, LDLC, Carrefour, Casino. Central listings + regional network activation.",
+    track4_label:"Framework contracts negotiated",track4_desc:"Multi-year agreements with Orange, SFR, Bouygues — network deployment plans, guarantees, MDF. Exactly OneFlash's logic.",
+    track5_label:"Southern Europe managed",track5_desc:"France, Spain, Portugal, Italy. Building local commercial teams and distributor networks across 4 markets simultaneously.",
+    track6_label:"Team managed",track6_desc:"Senior KAM, Product Manager, Chef de Produit, ADV. Recruitment, targets, weekly reviews. Running an autonomous BU inside a large company.",
+    exp_tag:"Experience",exp_title:"20 years in B2B, four different arenas.",
+    exp1_role:"Country Manager Smartphones France & Southern Europe",
+    exp1_1:"Built and ran Acer France's Smartphone BU: from 0 to €50M revenue in 4 years",
+    exp1_2:"National account management: Orange, SFR, Bouygues, Fnac-Darty, Boulanger, Amazon, Carrefour",
+    exp1_3:"Annual framework contract negotiations, co-marketing plans, MDF, sell-out guarantees",
+    exp1_4:"Network deployment Southern Europe: France, Spain, Portugal, Italy",
+    exp1_5:"Team of 4: Senior KAM, Product Manager, Chef de Produit, ADV",
+    exp2_role:"Co-founder & CEO — B2B Hardware Startup",
+    exp2_1:"Created a bootstrapped hardware startup — design, manufacturing, go-to-market",
+    exp2_2:"Built B2B distribution network: specialist resellers, professional associations",
+    exp2_3:"Full-stack management: product design, logistics, after-sales, direct key account sales",
+    exp3_role:"KAM / Key Account Manager — Interim mandates",
+    exp3_1:"3 to 6-month mandates in strategic account management in transitional markets",
+    exp3_2:"Ability to take ownership of a portfolio, qualify opportunities, and deliver results quickly",
+    why_tag:"Why OneFlash",why_title:"Same network logic, different product.",
+    why1_title:"I know your clients",why1_text:"Leroy Merlin, Decathlon, IKEA, Carrefour, RATP, Klepierre — I've negotiated with their buying departments and category managers for 14 years. Same stakeholders, same RFP processes, same decision cycles.",
+    why2_title:"The mobile ecosystem is my home turf",why2_text:"Smartphones, accessories, chargers, batteries — I've sold these products, built their sales pitches, managed their retail rollouts. OneFlash solves a problem I know intimately: running out of battery on the go.",
+    why3_title:"Southern Europe — already structured",why3_text:"You're already in France, Belgium, Switzerland, Spain and Italy. I built commercial networks in France, Spain, Portugal and Italy — simultaneously, with local teams.",
+    why4_title:"Startup mindset, key account weight",why4_text:"I built a BU from zero inside a large company AND founded a hardware startup. I know how to operate with limited resources while managing 7-figure contracts.",
+    market_tag:"Market",market_title:"Power bank rental: a fully charged market.",
+    market_p1:"The global shared power bank market reaches $1.2 billion in 2023, with a projected CAGR of 25%+ through 2030. Driven by one simple reality: 83% of smartphone users fear running out of battery in public spaces.",
+    market_p2:"In France, 67 million active smartphones at 90%+ penetration. Daily usage exceeds 4 hours. Retailers deploying charging stations see +17% customer identification and +31% mobile app user growth (OneFlash partner data).",
+    market_p3:"OneFlash is France's market leader with 2,000 active stations, 1.2 million users and 3.2 million devices recharged. European expansion is underway across 9 markets.",
+    mstat1:"Global market 2023",mstat2:"CAGR through 2030",mstat3:"Active OneFlash stations",mstat4:"European markets",
+    plan_tag:"Action Plan",plan_title:"The first 100 days: no warming up.",
+    plan1_phase:"Days 1 to 30",plan1_title:"Understand & map",
+    plan1_1:"Full audit of existing key account portfolio",plan1_2:"Mapping of 20 unaddressed retail segments",plan1_3:"CRM and internal tools onboarding",plan1_4:"First calls with the 5 most strategic accounts",
+    plan2_phase:"Days 31 to 60",plan2_title:"Open & accelerate",
+    plan2_1:"Business reviews: Klepierre, RATP, Leroy Merlin",plan2_2:"Opening 3 new target segments",plan2_3:"Southern Europe growth plan presentation to leadership",plan2_4:"Monthly KPI tracking setup",
+    plan3_phase:"Days 61 to 100",plan3_title:"Sign & structure",
+    plan3_1:"Target: 2 new framework contracts signed (+200 stations)",plan3_2:"Spain commercial pilot — existing retail network",plan3_3:"Strategic partnerships pipeline Q3/Q4",plan3_4:"Junior profile brief for mid-market coverage",
+    skills_tag:"Skills",skills_title:"The toolkit of a KAM who has done it all.",
+    sk1:"B2B key account negotiation",sk2:"Framework contracts & annual plans",sk3:"P&L management",sk4:"Retail network development",sk5:"Mobile & hardware ecosystem",sk6:"Management & recruitment",sk7:"Southern Europe (ES/IT/PT)",sk8:"English — professional level",
+    ref_tag:"References",ref_title:"Three people who can vouch.",
+    ref1_title:"Sales Director — Acer France",ref1_quote:'"Fabrice built Acer France's smartphone BU from scratch. His ability to open strategic accounts and manage long-term relationships is remarkable."',
+    ref2_title:"Telecom Category Manager — Fnac-Darty",ref2_quote:'"A counterpart who fully understands large retail constraints, always bringing strong commercial proposals and very reliable on commitments made."',
+    ref3_title:"Head of Partnerships — Orange France",ref3_quote:'"Fabrice consistently adapted his proposals to our network constraints and deployment requirements. A trusted commercial partner across multiple fiscal years."',
+    contact_tag:"Contact",contact_title:"Shall we talk? Coffee's on me.",
+    contact_loc:"Paris, Île-de-France",
+    form_name:"Your name",form_msg:"Your message",form_send:"⚡ Send",
+    foot_cv:"CV",foot_letter:"Cover letter",
+    chat_welcome:"Hello! I'm Fabrice's assistant. Ask me anything about his application for OneFlash.",
+    chat_placeholder:"Ask your question..."
+  }
+};
+
+let currentLang = 'fr';
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === lang.toUpperCase()));
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang][key]) el.innerHTML = translations[lang][key];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (translations[lang][key]) el.placeholder = translations[lang][key];
+  });
+}
+
+// ============ EXPERIENCE TOGGLE ============
+function toggleExp(header) {
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
+}
+
+// ============ COUNTER ANIMATION ============
+function animateCounters() {
+  document.querySelectorAll('.counter').forEach(el => {
+    const target = parseInt(el.dataset.target);
+    let current = 0;
+    const increment = target / 40;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) { el.textContent = target; clearInterval(timer); }
+      else el.textContent = Math.floor(current);
+    }, 40);
+  });
+}
+
+// ============ SKILL BARS ============
+function animateSkills() {
+  document.querySelectorAll('.skill-bar').forEach(bar => {
+    bar.style.width = bar.dataset.width;
+  });
+}
+
+// ============ SCROLL REVEAL ============
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      if (entry.target.closest('#skills')) animateSkills();
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Counter triggers on hero load
+window.addEventListener('load', () => {
+  setTimeout(animateCounters, 400);
+});
+
+// ============ CHATBOT ============
+const FC_API = 'https://fabrice-hisense-kam-bg.netlify.app/api/chat';
+const FC_SYSTEM = `Tu es l'assistant de Fabrice Côme-Portillo, candidat KAM Grands Comptes & Partenariats Stratégiques chez OneFlash.
+
+PROFIL FABRICE:
+- 20+ ans en B2B, consumer electronics et smartphones (Acer France 2010-2024)
+- Country Manager Smartphones France & Europe du Sud
+- P&L géré : 50M€ (Acer France)
+- Comptes nationaux gérés : Orange, SFR, Bouygues, Fnac-Darty, Boulanger, Amazon, Carrefour, LDLC
+- 10 000+ points de vente adressés
+- 4 pays managés : France, Espagne, Portugal, Italie
+- Co-fondateur startup hardware D-Wager (2016-2019)
+- Contrats-cadres pluriannuels négociés avec opérateurs télécoms et retail
+
+CONTEXTE ONEFLASH:
+- OneFlash = réseau de batteries portables en libre-service : 2000 stations, 1.2M utilisateurs, 300+ partenaires
+- Clients cibles : Leroy Merlin, Decathlon, IKEA, RATP, Klepierre, Carrefour
+- Rôle : KAM Grands Comptes & Partenariats Stratégiques
+- Fit clé : Fabrice a adressé EXACTEMENT les mêmes comptes pendant 14 ans
+- L'expansion Europe du Sud OneFlash coïncide avec l'expérience de Fabrice sur ES/IT/PT
+
+RÈGLE FRAMING:
+Ne JAMAIS ouvrir avec un manque d'expérience sectorielle. Ouvrir TOUJOURS avec la logique de transfert commercial.
+BON : "Fabrice maîtrise depuis 20 ans la logique de déploiement réseau en grande surface et chez les opérateurs — les interlocuteurs d'OneFlash."
+MAUVAIS : "Non, Fabrice n'a pas d'expérience préalable dans le power bank rental."
+
+Répondre en français (ou anglais si question en anglais), concis, professionnel mais humain. Max 3 phrases par réponse.`;
+
+function toggleChat() {
+  const win = document.getElementById('fc-window');
+  win.classList.toggle('open');
+}
+
+async function sendMsg() {
+  const input = document.getElementById('fc-input');
+  const msg = input.value.trim();
+  if (!msg) return;
+  input.value = '';
+  appendMsg(msg, 'user');
+  const typing = document.querySelector('.fc-typing');
+  typing.style.display = 'block';
+  scrollMessages();
+  try {
+    const res = await fetch(FC_API, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        system: FC_SYSTEM,
+        messages: [{role: 'user', content: msg}]
+      })
+    });
+    const data = await res.json();
+    typing.style.display = 'none';
+    appendMsg(data.content || data.message || "Désolé, une erreur s'est produite.", 'bot');
+  } catch(e) {
+    typing.style.display = 'none';
+    appendMsg("Je rencontre une difficulté technique. Contactez directement Fabrice : fabrice.come@gmail.com", 'bot');
+  }
+}
+
+function appendMsg(text, role) {
+  const msgs = document.getElementById('fc-messages');
+  const div = document.createElement('div');
+  div.className = `fc-msg ${role}`;
+  div.textContent = text;
+  msgs.appendChild(div);
+  scrollMessages();
+}
+
+function scrollMessages() {
+  const msgs = document.getElementById('fc-messages');
+  msgs.scrollTop = msgs.scrollHeight;
+}
+</script>
+</body>
+</html>
