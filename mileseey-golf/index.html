@@ -243,7 +243,7 @@ footer { background:#030a06; border-top:1px solid rgba(58,158,95,0.15); padding:
       <div class="exp-item">
         <div class="exp-header">
           <span class="exp-title" data-i18n="exp3_title">Missions Interim — KAM Grands Comptes</span>
-          <span class="exp-period">2024 – 2025</span>
+          <span class="exp-period">2024 – 2026</span>
         </div>
         <div class="exp-company">Électronique &amp; Tech — Paris</div>
         <div class="exp-body" data-i18n="exp3_body">Comptes stratégiques, négociations annuelles, structuration CRM et reportings commerciaux.</div>
@@ -293,7 +293,7 @@ footer { background:#030a06; border-top:1px solid rgba(58,158,95,0.15); padding:
       </div>
       <div class="market-card">
         <div class="mval">$8B</div>
-        <div class="mlbl" data-i18n="mkt3">Marché mondial équipements golf 2025</div>
+        <div class="mlbl" data-i18n="mkt3">Marché mondial équipements golf 2026</div>
       </div>
       <div class="market-card">
         <div class="mval">6.7%</div>
@@ -432,7 +432,7 @@ footer { background:#030a06; border-top:1px solid rgba(58,158,95,0.15); padding:
 
 <script>
 const FC_API = 'https://fabrice-hisense-kam-bg.netlify.app/api/chat';
-const FC_SYSTEM = `Tu es l'assistant commercial de Fabrice Côme-Portillo, candidat au poste de KAM / Sales Director France chez Mileseey Golf.
+const FC_SYSTEM = `Nous sommes en avril 2026. Tu es l'assistant commercial de Fabrice Côme-Portillo, candidat au poste de KAM / Sales Director France chez Mileseey Golf.
 
 PROFIL FABRICE:
 - 20+ ans de ventes B2B grands comptes hardware et électronique grand public
@@ -482,7 +482,7 @@ const translations = {
     mkt_label:"Contexte marché",mkt_title:"Golf France & Équipements — Données",
     mkt_intro:"La France compte 800K+ pratiquants et un marché global de 1,5 milliard d'euros. Les équipements electroniques (télémètres, GPS) sont le segment premium à croissance rapide.",
     mkt1:"Pratiquants golf en France",mkt2:"Golfs en France — réseau de pro shops",
-    mkt3:"Marché mondial équipements golf 2025",mkt4:"CAGR marché équipements 2025-2035",
+    mkt3:"Marché mondial équipements golf 2026",mkt4:"CAGR marché équipements 2025-2035",
     mkt5:"Brevets Mileseey — avantage tech défendable",mkt6:"Distribution physique Mileseey en France — à construire",
     plan_label:"Prise de poste",plan_title:"Plan 30 / 60 / 90 jours",
     plan30_head:"J+30 — Cartographier",plan60_head:"J+60 — Ouvrir",plan90_head:"J+90 — Accélérer",
@@ -536,7 +536,7 @@ const translations = {
     mkt_label:"Market context",mkt_title:"Golf France & Equipment — Data",
     mkt_intro:"France has 800K+ golf players and a total market estimated at €1.5bn. Electronic equipment (rangefinders, GPS) is the premium fast-growing segment.",
     mkt1:"Golf players in France",mkt2:"Golf courses in France — pro shop network",
-    mkt3:"Global golf equipment market 2025",mkt4:"Equipment market CAGR 2025-2035",
+    mkt3:"Global golf equipment market 2026",mkt4:"Equipment market CAGR 2025-2035",
     mkt5:"Mileseey patents — defensible tech advantage",mkt6:"Physical Mileseey distribution in France — to build",
     plan_label:"Onboarding",plan_title:"30 / 60 / 90-Day Plan",
     plan30_head:"Day 30 — Map",plan60_head:"Day 60 — Open",plan90_head:"Day 90 — Accelerate",
@@ -573,34 +573,31 @@ applyLang();
 async function sendMsg(){
   const inp=document.getElementById('chat-input');
   const q=inp.value.trim();
-  if(!q)return;
-  inp.value='';addMsg(q,'user');msgs.push({role:'user',content:q});
-  const typing=document.createElement('div');
-  typing.className='msg-bot';typing.textContent='...';typing.id='typing-ind';
-  document.getElementById('chat-messages').appendChild(typing);
-  document.getElementById('chat-messages').scrollTop=999999;
+  if(!q)return;inp.value='';addMsg(q,'user');msgs.push({role:'user',content:q});
+  const box=document.getElementById('chat-messages');
+  const botDiv=document.createElement('div');
+  botDiv.className='msg-bot';botDiv.textContent='...';box.appendChild(botDiv);box.scrollTop=999999;
   try{
     const r=await fetch(FC_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({system:FC_SYSTEM,messages:msgs})});
-    const reader=r.body.getReader();
-    const decoder=new TextDecoder();
-    let reply='',buf='';
+    const reader=r.body.getReader();const decoder=new TextDecoder();
+    let reply='',buf='',started=false;
     while(true){
-      const {done,value}=await reader.read();
-      if(done)break;
+      const {done,value}=await reader.read();if(done)break;
       buf+=decoder.decode(value,{stream:true});
       const lines=buf.split('\n');buf=lines.pop();
       for(const line of lines){
         if(!line.startsWith('data: '))continue;
-        try{const d=JSON.parse(line.slice(6));if(d.type==='content_block_delta'&&d.delta&&d.delta.type==='text_delta')reply+=d.delta.text;}catch(e){}
+        try{const d=JSON.parse(line.slice(6));
+          if(d.type==='content_block_delta'&&d.delta&&d.delta.type==='text_delta'){
+            if(!started){botDiv.textContent='';started=true;}
+            reply+=d.delta.text;botDiv.textContent=reply;box.scrollTop=999999;
+          }
+        }catch(e){}
       }
     }
-    document.getElementById('typing-ind')&&document.getElementById('typing-ind').remove();
-    if(!reply)reply="I couldn't generate a response. Contact Fabrice: fabrice.come@gmail.com";
-    addMsg(reply,'bot');msgs.push({role:'assistant',content:reply});
-  }catch(e){
-    document.getElementById('typing-ind')&&document.getElementById('typing-ind').remove();
-    addMsg("Technical error. Contact Fabrice: fabrice.come@gmail.com",'bot');
-  }
+    if(!reply)botDiv.textContent="I couldn't generate a response. Contact Fabrice: fabrice.come@gmail.com";
+    msgs.push({role:'assistant',content:reply||botDiv.textContent});
+  }catch(e){botDiv.textContent="Technical error. Contact Fabrice: fabrice.come@gmail.com";}
 }
 function addMsg(text,type){const box=document.getElementById('chat-messages');const d=document.createElement('div');d.className=type==='user'?'msg-user':'msg-bot';d.textContent=text;box.appendChild(d);box.scrollTop=box.scrollHeight;}
 </script>
