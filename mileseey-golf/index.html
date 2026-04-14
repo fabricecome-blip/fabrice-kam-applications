@@ -570,7 +570,31 @@ function toggleLang(){lang=lang==='fr'?'en':'fr';document.querySelector('.lang-b
 function applyLang(){document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(translations[lang][k])el.innerHTML=translations[lang][k];});}
 let msgs=[];
 applyLang();
-async function sendMsg(){const inp=document.getElementById('chat-input');const q=inp.value.trim();if(!q)return;inp.value='';addMsg(q,'user');msgs.push({role:'user',content:q});const r=await fetch(FC_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({system:FC_SYSTEM,messages:msgs})});const d=await r.json();const reply=d.content?.[0]?.text||d.reply||"Je n'ai pas pu répondre.";addMsg(reply,'bot');msgs.push({role:'assistant',content:reply});}
+async function sendMsg(){
+  const inp=document.getElementById('chat-input');
+  const q=inp.value.trim();
+  if(!q)return;
+  inp.value='';addMsg(q,'user');msgs.push({role:'user',content:q});
+  const typing=document.createElement('div');
+  typing.className='msg-bot';typing.textContent='...';typing.id='typing-indicator';
+  document.getElementById('chat-messages').appendChild(typing);
+  document.getElementById('chat-messages').scrollTop=999999;
+  try{
+    const r=await fetch(FC_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({system:FC_SYSTEM,messages:msgs})});
+    const raw=await r.text();
+    let reply='';
+    for(const line of raw.split('\n')){
+      if(!line.startsWith('data: '))continue;
+      try{const d=JSON.parse(line.slice(6));if(d.type==='content_block_delta'&&d.delta?.type==='text_delta')reply+=d.delta.text;}catch(e){}
+    }
+    document.getElementById('typing-indicator')?.remove();
+    if(!reply)reply="I couldn't generate a response. Contact Fabrice: fabrice.come@gmail.com";
+    addMsg(reply,'bot');msgs.push({role:'assistant',content:reply});
+  }catch(e){
+    document.getElementById('typing-indicator')?.remove();
+    addMsg("Technical error. Contact Fabrice: fabrice.come@gmail.com",'bot');
+  }
+}
 function addMsg(text,type){const box=document.getElementById('chat-messages');const d=document.createElement('div');d.className=type==='user'?'msg-user':'msg-bot';d.textContent=text;box.appendChild(d);box.scrollTop=box.scrollHeight;}
 </script>
 </body>
