@@ -158,7 +158,7 @@ footer { background:#040d18; border-top:1px solid rgba(42,109,217,0.15); padding
     <a data-i18n="nav_plan" href="#plan">Plan 90J</a>
     <a data-i18n="nav_contact" href="#contact">Contact</a>
   </div>
-  <button class="lang-btn" onclick="toggleLang()">EN</button>
+  <button class="lang-btn" onclick="toggleLang()">FR</button>
 </nav>
 
 <!-- HERO -->
@@ -386,26 +386,38 @@ footer { background:#040d18; border-top:1px solid rgba(42,109,217,0.15); padding
   </div>
 </section>
 
-<!-- REFERENCES -->
 <section id="refs">
   <div class="section-inner">
-    <p class="section-label" data-i18n="ref_label">Références</p>
-    <h2 class="section-title" data-i18n="ref_title">Ils peuvent en parler</h2>
-    <div class="refs-grid">
+    <p class="section-label" data-i18n="ref_label">References</p>
+    <h2 class="section-title" data-i18n="ref_title">References</h2>
+    <div class="refs-grid" style="grid-template-columns:repeat(3,1fr)">
       <div class="ref-card">
-        <div class="ref-name">Jean-Marc Tassetto</div>
-        <div class="ref-title">Ex-DG Google France</div>
-        <div class="ref-quote" data-i18n="ref1_q">"Fabrice a une capacité rare à structurer un marché nascent et à convaincre des décideurs grands comptes dans des délais très courts."</div>
+        <div class="ref-name">Augustin Becquet</div>
+        <div class="ref-title">Former Manager &middot; Acer<br>CEO &mdash; Recommerce</div>
+        <div style="font-family:'Geist Mono',monospace;font-size:12px;color:#2a6dd9;margin-top:8px">+33 6 48 09 44 07</div>
       </div>
       <div class="ref-card">
-        <div class="ref-name">Stéphane Rousset</div>
-        <div class="ref-title">Directeur Retail, Acer France</div>
-        <div class="ref-quote" data-i18n="ref2_q">"Il a construit notre BU smartphone de zéro — référencements opérateurs et retail obtenus en moins de 12 mois, une performance remarquable dans notre contexte."</div>
+        <div class="ref-name">Marlon Rabago</div>
+        <div class="ref-title">President &mdash; Nextincom</div>
+        <div style="font-family:'Geist Mono',monospace;font-size:12px;color:#2a6dd9;margin-top:8px">+33 6 89 21 21 21</div>
       </div>
       <div class="ref-card">
-        <div class="ref-name">Contact disponible</div>
-        <div class="ref-title">Sur demande</div>
-        <div class="ref-quote" data-i18n="ref3_q">Références complémentaires fournies sur demande lors d'un entretien.</div>
+        <div class="ref-name">Alexandre Henry</div>
+        <div class="ref-title">Buyer Terminals &mdash; Bouygues Telecom<br>Ex Head of Purchasing &middot; NRJ Mobile</div>
+        <div style="font-family:'Geist Mono',monospace;font-size:12px;color:#2a6dd9;margin-top:8px">+33 6 06 70 70 70</div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-name">Wahid Razali</div>
+        <div class="ref-title">Global Marketing Manager &mdash; Lenovo<br>Ex EMEA Marketing Manager</div>
+        <div style="font-family:'Geist Mono',monospace;font-size:12px;color:#2a6dd9;margin-top:8px">+33 6 17 33 72 13</div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-name">Boubacar Tall</div>
+        <div class="ref-title">KAM &mdash; Motorola<br>Ex KAM Smartphone &middot; Acer France &amp; Spain</div>
+        <div style="font-family:'Geist Mono',monospace;font-size:12px;color:#2a6dd9;margin-top:8px">+33 6 26 42 46 87</div>
+      </div>
+      <div class="ref-card" style="display:flex;align-items:center;justify-content:center;opacity:0.6">
+        <div style="text-align:center;font-size:13px">More available on request</div>
       </div>
     </div>
   </div>
@@ -576,7 +588,7 @@ const translations = {
   }
 };
 
-let lang = 'fr';
+let lang = 'en';
 function toggleLang() {
   lang = lang==='fr'?'en':'fr';
   document.querySelector('.lang-btn').textContent = lang==='fr'?'EN':'FR';
@@ -590,6 +602,7 @@ function applyLang() {
 }
 
 let msgs = [];
+document.addEventListener("DOMContentLoaded", applyLang);
 async function sendMsg() {
   const inp = document.getElementById('chat-input');
   const q = inp.value.trim();
