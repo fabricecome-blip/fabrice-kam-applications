@@ -610,38 +610,42 @@ async function sendMsg() {
   inp.value = '';
   addMsg(q, 'user');
   msgs.push({role:'user', content:q});
-  // Show typing indicator
   const typing = document.createElement('div');
-  typing.className = 'msg-bot';
-  typing.textContent = '...';
-  typing.id = 'typing-indicator';
+  typing.className = 'msg-bot'; typing.textContent = '...'; typing.id = 'typing-ind';
   document.getElementById('chat-messages').appendChild(typing);
   document.getElementById('chat-messages').scrollTop = 999999;
   try {
     const r = await fetch(FC_API, {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({system:FC_SYSTEM, messages:msgs})
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({system: FC_SYSTEM, messages: msgs})
     });
-    // Parse SSE stream
-    const raw = await r.text();
-    let reply = '';
-    for (const line of raw.split('\n')) {
-      if (!line.startsWith('data: ')) continue;
-      try {
-        const d = JSON.parse(line.slice(6));
-        if (d.type === 'content_block_delta' && d.delta?.type === 'text_delta') {
-          reply += d.delta.text;
-        }
-      } catch(e) {}
+    const reader = r.body.getReader();
+    const decoder = new TextDecoder();
+    let reply = '', buf = '';
+    while (true) {
+      const {done, value} = await reader.read();
+      if (done) break;
+      buf += decoder.decode(value, {stream: true});
+      const lines = buf.split('\n');
+      buf = lines.pop();
+      for (const line of lines) {
+        if (!line.startsWith('data: ')) continue;
+        try {
+          const d = JSON.parse(line.slice(6));
+          if (d.type === 'content_block_delta' && d.delta && d.delta.type === 'text_delta') {
+            reply += d.delta.text;
+          }
+        } catch(e) {}
+      }
     }
-    document.getElementById('typing-indicator')?.remove();
-    if (!reply) reply = "I couldn't generate a response. Contact Fabrice directly: fabrice.come@gmail.com";
+    document.getElementById('typing-ind') && document.getElementById('typing-ind').remove();
+    if (!reply) reply = "I couldn't generate a response. Contact Fabrice: fabrice.come@gmail.com";
     addMsg(reply, 'bot');
     msgs.push({role:'assistant', content:reply});
   } catch(e) {
-    document.getElementById('typing-indicator')?.remove();
-    addMsg("Technical error. Contact Fabrice: fabrice.come@gmail.com", 'bot');
+    document.getElementById('typing-ind') && document.getElementById('typing-ind').remove();
+    addMsg("Technical error. Contact Fabrice directly: fabrice.come@gmail.com", 'bot');
   }
 }
 function addMsg(text, type) {
