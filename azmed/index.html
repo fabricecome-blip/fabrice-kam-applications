@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Fabrice Come-Portillo - AZmed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Geist:wght@400;500;600;700&family=Geist+Mono&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#2DD4BF;--accent-dark:#0F766E;--ink:#0A1A1F;--cream:#F7F3EE;--body-bg:#050E12;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Geist',sans-serif;color:var(--cream);background:var(--body-bg);line-height:1.6}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+nav{position:fixed;top:0;left:0;right:0;background:var(--ink);border-bottom:1px solid rgba(255,255,255,.08);z-index:100;padding:14px 0}
+nav .container{display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:'Instrument Serif',serif;font-size:24px;color:var(--accent)}
+.lang-switch button{background:none;border:1px solid rgba(255,255,255,.2);color:var(--cream);padding:4px 10px;cursor:pointer;font-size:13px;margin-left:6px;border-radius:4px}
+.lang-switch button.active{background:var(--accent);color:var(--ink);border-color:var(--accent)}
+.hero{padding:140px 0 80px;text-align:center}
+.hero h1{font-family:'Instrument Serif',serif;font-size:64px;line-height:1.05;margin-bottom:18px}
+.hero h1 span{color:var(--accent)}
+.hero p{font-size:18px;opacity:.85;max-width:680px;margin:0 auto 32px}
+.cta-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.cv-download{display:inline-block;padding:12px 26px;background:var(--accent);color:var(--ink);text-decoration:none;font-weight:600;border-radius:6px;transition:.2s}
+.cv-download:hover{background:var(--accent-dark);color:#fff}
+.cv-download.letter-btn{background:transparent;border:1.5px solid var(--accent);color:var(--accent);margin-left:0}
+.cv-download.letter-btn:hover{background:var(--accent);color:var(--ink)}
+section{padding:64px 0;border-top:1px solid rgba(255,255,255,.06)}
+section h2{font-family:'Instrument Serif',serif;font-size:40px;margin-bottom:32px;color:var(--accent)}
+.brand-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.brand-bar div{padding:18px;background:rgba(255,255,255,.04);border-radius:8px}
+.brand-bar .num{font-family:'Instrument Serif',serif;font-size:30px;color:var(--accent);display:block;margin-bottom:4px}
+.brand-bar .lbl{font-size:13px;opacity:.75}
+.tr{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:24px}
+.tr-card{padding:22px;background:rgba(255,255,255,.04);border-radius:8px;border-left:3px solid var(--accent)}
+.tr-card .v{font-family:'Instrument Serif',serif;font-size:36px;color:var(--accent);margin-bottom:6px}
+.tr-card .l{font-size:13px;opacity:.8}
+.exp-item{padding:22px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.exp-item:last-child{border:none}
+.exp-item h3{font-family:'Geist',sans-serif;font-size:20px;margin-bottom:6px}
+.exp-item .meta{font-family:'Geist Mono',monospace;font-size:12px;color:var(--accent);margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px}
+.exp-item p{opacity:.85;font-size:15px}
+.why p{font-size:17px;line-height:1.7;max-width:780px}
+.market{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px}
+.market-card{padding:20px;background:rgba(255,255,255,.04);border-radius:8px}
+.market-card .v{font-family:'Instrument Serif',serif;font-size:28px;color:var(--accent);display:block;margin-bottom:4px}
+.market-card .l{font-size:14px;opacity:.85}
+.plan{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+.plan-card{padding:24px;background:rgba(255,255,255,.04);border-radius:8px;border-top:3px solid var(--accent)}
+.plan-card h3{font-family:'Instrument Serif',serif;font-size:24px;color:var(--accent);margin-bottom:12px}
+.plan-card p{font-size:14px;opacity:.85;line-height:1.6}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.skill-row{margin-bottom:14px}
+.skill-row .lab{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px}
+.skill-bar{height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}
+.skill-bar div{height:100%;background:var(--accent);transition:width 1s}
+.refs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ref-card{padding:22px;background:rgba(255,255,255,.04);border-radius:8px;text-align:center}
+.ref-card h4{font-family:'Instrument Serif',serif;font-size:20px;color:var(--accent);margin-bottom:6px}
+.ref-card .role{font-size:13px;opacity:.7;margin-bottom:8px}
+.ref-card .quote{font-style:italic;font-size:14px;opacity:.85}
+.contact{text-align:center}
+.contact a{color:var(--accent);text-decoration:none;font-weight:500}
+.contact .row{margin:10px 0;font-size:16px}
+footer{padding:30px 0;text-align:center;font-size:13px;opacity:.7;border-top:1px solid rgba(255,255,255,.06)}
+footer a{color:var(--accent);text-decoration:none}
+/* Chatbot */
+.chat-fab{position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:var(--accent);color:var(--ink);border:none;cursor:pointer;font-size:26px;box-shadow:0 6px 24px rgba(0,0,0,.4);z-index:200}
+.chat-panel{position:fixed;bottom:96px;right:24px;width:360px;max-width:calc(100vw - 48px);height:480px;background:var(--ink);border:1px solid rgba(255,255,255,.12);border-radius:12px;display:none;flex-direction:column;z-index:200;box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.chat-panel.open{display:flex}
+.chat-header{padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center}
+.chat-header strong{color:var(--accent);font-family:'Instrument Serif',serif;font-size:18px}
+.chat-close{background:none;border:none;color:var(--cream);cursor:pointer;font-size:20px}
+.chat-msgs{flex:1;overflow-y:auto;padding:14px 18px;display:flex;flex-direction:column;gap:10px}
+.msg{padding:10px 14px;border-radius:10px;font-size:14px;max-width:85%;line-height:1.5}
+.msg.bot{background:rgba(255,255,255,.06);align-self:flex-start}
+.msg.user{background:var(--accent);color:var(--ink);align-self:flex-end}
+.chat-input{padding:12px;border-top:1px solid rgba(255,255,255,.08);display:flex;gap:8px}
+.chat-input input{flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:var(--cream);padding:10px 14px;border-radius:6px;font-family:inherit}
+.chat-input button{background:var(--accent);color:var(--ink);border:none;padding:10px 16px;border-radius:6px;cursor:pointer;font-weight:600}
+@media (max-width:768px){
+  .hero h1{font-size:42px}
+  .brand-bar,.tr,.market,.plan,.skills,.refs{grid-template-columns:1fr}
+  section h2{font-size:30px}
+}
+</style>
+</head>
+<body>
+<nav><div class="container">
+  <span class="logo">Fabrice Come-Portillo</span>
+  <div class="lang-switch">
+    <button class="active" onclick="setLang('fr')">FR</button>
+    <button onclick="setLang('en')">EN</button>
+  </div>
+</div></nav>
+
+<section class="hero">
+  <div class="container">
+    <h1 data-i18n="hero_title">Key Account Manager<br/><span>AZmed</span></h1>
+    <p data-i18n="hero_sub">20+ ans B2B grand compte. 14 ans Acer (50M EUR P&L). Candidature au poste de Key Account Manager chez AZmed.</p>
+    <div class="cta-row">
+      <a href="CV_Fabrice_Azmed_FR.html" target="_blank" class="cv-download" data-i18n="cv_btn">Voir le CV</a>
+      <a href="cover-letter.html" target="_blank" class="cv-download letter-btn" data-i18n="letter_btn">Voir la lettre</a>
+    </div>
+  </div>
+</section>
+
+<section><div class="container">
+  <h2 data-i18n="brand_title">Reperes</h2>
+  <div class="brand-bar">
+    <div><span class="num">20+</span><span class="lbl" data-i18n="brand_1">ans en B2B</span></div>
+    <div><span class="num">50M EUR</span><span class="lbl" data-i18n="brand_2">P&amp;L gere</span></div>
+    <div><span class="num">14</span><span class="lbl" data-i18n="brand_3">ans Acer</span></div>
+    <div><span class="num">10K+</span><span class="lbl" data-i18n="brand_4">PDV France</span></div>
+  </div>
+</div></section>
+
+<section><div class="container">
+  <h2 data-i18n="tr_title">Track record</h2>
+  <div class="tr">
+    <div class="tr-card"><div class="v">50M EUR</div><div class="l" data-i18n="tr_1">P&amp;L Smartphones Acer France &amp; Sud Europe</div></div>
+    <div class="tr-card"><div class="v">+40%</div><div class="l" data-i18n="tr_2">croissance annuelle BU Smartphones</div></div>
+    <div class="tr-card"><div class="v">10K+</div><div class="l" data-i18n="tr_3">points de vente couverts</div></div>
+    <div class="tr-card"><div class="v">4</div><div class="l" data-i18n="tr_4">collaborateurs encadres</div></div>
+  </div>
+</div></section>
+
+<section><div class="container">
+  <h2 data-i18n="exp_title">Experiences</h2>
+  <div class="exp-item">
+    <h3>Acer France &amp; Sud Europe</h3>
+    <div class="meta">2010 - 2024 / Senior Sales Manager &amp; BU Lead</div>
+    <p data-i18n="exp_acer">Construction de la BU Smartphones depuis zero a l'interieur d'une entreprise PC. 50M EUR de P&amp;L, contrats-cadres avec Orange, SFR, Bouygues, Fnac-Darty. Couverture France + Espagne + Portugal + Italie.</p>
+  </div>
+  <div class="exp-item">
+    <h3>D-Wager</h3>
+    <div class="meta">2024 - 2025 / Co-fondateur</div>
+    <p data-i18n="exp_dw">Lancement d'une plateforme B2C. Stack go-to-market complet : positionnement, acquisition, partenariats.</p>
+  </div>
+  <div class="exp-item">
+    <h3 data-i18n="exp_int_t">Missions interim management</h3>
+    <div class="meta">2025 - 2026</div>
+    <p data-i18n="exp_int">Missions ponctuelles de structuration commerciale pour PME tech et consumer goods.</p>
+  </div>
+</div></section>
+
+<section class="why"><div class="container">
+  <h2 data-i18n="why_title">Pourquoi AZmed</h2>
+  <p data-i18n="why_text">AZmed coche les cases d'une vraie scale-up : marquage CE, 2500 partenariats, 55 pays, et un produit Rayvolve qui a deja fait ses preuves cliniques. La phase d'expansion UK / India / Nordics / MEA correspond exactement a ce que j'ai fait chez Acer : structurer un deploiement multi-pays en mode hybride direct + reseau de distributeurs.</p>
+</div></section>
+
+<section><div class="container">
+  <h2 data-i18n="market_title">Marche de l'IA en imagerie medicale</h2>
+  <div class="market"><div class="market-card"><span class="v">+34%</span><span class="l">CAGR 2026-2030</span></div><div class="market-card"><span class="v">$5.2 Md</span><span class="l">Marche mondial 2026</span></div><div class="market-card"><span class="v">+62% YoY</span><span class="l">Hopitaux equipes (FR)</span></div><div class="market-card"><span class="v">Standard</span><span class="l">Marquage CE classe IIa</span></div></div>
+</div></section>
+
+<section><div class="container">
+  <h2 data-i18n="plan_title">Plan 30 / 60 / 90</h2>
+  <div class="plan"><div class="plan-card"><h3>Jours 1-30</h3><p>Cartographie des 25 comptes hopitaux cles UK + Nordics. Audit du pipeline existant et des process resellers.</p></div><div class="plan-card"><h3>Jours 31-60</h3><p>Plan d'action terrain : 3 visites distributeurs + 8 RDV directeurs imagerie. Priorisation ARR par compte.</p></div><div class="plan-card"><h3>Jours 61-90</h3><p>Closing premiers contrats-cadres multi-sites. Mise en place reporting hebdo Head of Business. Roadmap annee 1.</p></div></div>
+</div></section>
+
+<section><div class="container">
+  <h2 data-i18n="skills_title">Competences</h2>
+  <div class="skills">
+    <div>
+      <div class="skill-row"><div class="lab"><span data-i18n="sk1">Negociation grand compte</span><span>100%</span></div><div class="skill-bar"><div data-width="100%" style="width:100%"></div></div></div>
+      <div class="skill-row"><div class="lab"><span data-i18n="sk2">Cycle long technique</span><span>100%</span></div><div class="skill-bar"><div data-width="100%" style="width:100%"></div></div></div>
+      <div class="skill-row"><div class="lab"><span data-i18n="sk3">Pilotage P&amp;L</span><span>100%</span></div><div class="skill-bar"><div data-width="100%" style="width:100%"></div></div></div>
+    </div>
+    <div>
+      <div class="skill-row"><div class="lab"><span data-i18n="sk4">Anglais professionnel</span><span>100%</span></div><div class="skill-bar"><div data-width="100%" style="width:100%"></div></div></div>
+      <div class="skill-row"><div class="lab"><span data-i18n="sk5">Organisation matricielle</span><span>100%</span></div><div class="skill-bar"><div data-width="100%" style="width:100%"></div></div></div>
+      <div class="skill-row"><div class="lab"><span data-i18n="sk6">Leadership equipe</span><span>100%</span></div><div class="skill-bar"><div data-width="100%" style="width:100%"></div></div></div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="container">
+  <h2 data-i18n="ref_title">References</h2>
+  <div class="refs">
+    <div class="ref-card"><h4>Olivier Toumieux</h4><div class="role">Country Manager Acer France</div><div class="quote">"Fabrice a transforme une activite test en BU profitable."</div></div>
+    <div class="ref-card"><h4>Marc Pasciuto</h4><div class="role">Ex-Acquisition Lead Telco</div><div class="quote">"Negociateur calme, structure, jamais perdu un compte cle."</div></div>
+    <div class="ref-card"><h4>Sebastien Rohart</h4><div class="role">Directeur Commercial</div><div class="quote">"L'un des meilleurs commerciaux grands comptes que j'ai croises."</div></div>
+  </div>
+</div></section>
+
+<section class="contact"><div class="container">
+  <h2 data-i18n="contact_title">Contact</h2>
+  <div class="row">fabrice.come@gmail.com</div>
+  <div class="row">+33 6 74 18 13 93</div>
+  <div class="row">Paris, Ile-de-France</div>
+  <div class="row"><a href="https://www.linkedin.com/in/fabricecome/" target="_blank">LinkedIn</a></div>
+</div></section>
+
+<footer><div class="container">
+  Fabrice Come-Portillo &middot; AZmed &middot; Paris (75002) &middot; <a href="https://www.linkedin.com/in/fabricecome/" target="_blank">LinkedIn</a>
+</div></footer>
+
+<button class="chat-fab" onclick="toggleChat()" aria-label="Chat">&#128172;</button>
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-header"><strong>Demandez a Claude</strong><button class="chat-close" onclick="toggleChat()">&times;</button></div>
+  <div class="chat-msgs" id="chatMsgs"><div class="msg bot">Je suis Claude, l'assistant de Fabrice. Posez vos questions sur sa candidature au poste de Key Account Manager chez AZmed.</div></div>
+  <div class="chat-input"><input type="text" id="chatInp" placeholder="Posez votre question..." onkeydown="if(event.key==='Enter')sendChat()"/><button onclick="sendChat()">&rarr;</button></div>
+</div>
+
+<script>
+const FC_API='https://fabrice-hisense-kam-bg.netlify.app/api/chat';
+const FC_SYSTEM=`Tu es l'assistant de candidature de Fabrice Come-Portillo. Profil : 20+ ans en B2B grand compte, 14 ans Acer (50M EUR P&L Smartphones France + Sud Europe), contrats-cadres Orange/SFR/Bouygues/Fnac-Darty, entrepreneur (D-Wager), interim management. Bilingue FR/EN, base Paris.
+
+CONTEXTE POSTE : AZmed: scale-up healthtech IA, produit Rayvolve, marquage CE, 2500 partenariats, 55 pays, expansion UK/India/Nordics/MEA. Poste rattache au Head of Business. Cible: hopitaux, cliniques, distributeurs imagerie medicale. Pas d'experience healthtech directe pour Fabrice mais expertise grand compte technique B2B et pilotage hybride direct/distributeur transferable depuis Acer (14 ans, 50M EUR P&L, contrats-cadres CAC40).
+
+REGLE FRAMING : NE JAMAIS ouvrir une reponse sur un manque d'experience sectorielle. Toujours commencer par la logique de transfert commercial. Bon exemple : "Il maitrise depuis 20 ans la logique commerciale de deploiement reseau a grande echelle...". Mauvais exemple : "Non, Fabrice n'a pas d'experience prealable dans ce secteur."
+
+Reponds toujours en francais (sauf demande EN), en 2-4 phrases maximum, avec des chiffres concrets.`;
+
+const translations={
+  fr:{hero_title:`Key Account Manager<br/><span>AZmed</span>`,hero_sub:"20+ ans B2B grand compte. 14 ans Acer (50M EUR P&L). Candidature au poste de Key Account Manager chez AZmed.",cv_btn:"Voir le CV",letter_btn:"Voir la lettre",brand_title:"Reperes",brand_1:"ans en B2B",brand_2:"P&L gere",brand_3:"ans Acer",brand_4:"PDV France",tr_title:"Track record",tr_1:"P&L Smartphones Acer France & Sud Europe",tr_2:"croissance annuelle BU Smartphones",tr_3:"points de vente couverts",tr_4:"collaborateurs encadres",exp_title:"Experiences",exp_acer:"Construction de la BU Smartphones depuis zero a l'interieur d'une entreprise PC. 50M EUR de P&L, contrats-cadres avec Orange, SFR, Bouygues, Fnac-Darty. Couverture France + Espagne + Portugal + Italie.",exp_dw:"Lancement d'une plateforme B2C. Stack go-to-market complet : positionnement, acquisition, partenariats.",exp_int_t:"Missions interim management",exp_int:"Missions ponctuelles de structuration commerciale pour PME tech et consumer goods.",why_title:"Pourquoi AZmed",why_text:"AZmed coche les cases d'une vraie scale-up : marquage CE, 2500 partenariats, 55 pays, et un produit Rayvolve qui a deja fait ses preuves cliniques. La phase d'expansion UK / India / Nordics / MEA correspond exactement a ce que j'ai fait chez Acer : structurer un deploiement multi-pays en mode hybride direct + reseau de distributeurs.",market_title:"Marche de l'IA en imagerie medicale",plan_title:"Plan 30 / 60 / 90",skills_title:"Competences",sk1:"Negociation grand compte",sk2:"Cycle long technique",sk3:"Pilotage P&L",sk4:"Anglais professionnel",sk5:"Organisation matricielle",sk6:"Leadership equipe",ref_title:"References",contact_title:"Contact"},
+  en:{hero_title:`Key Account Manager<br/><span>AZmed</span>`,hero_sub:"20+ years key account B2B. 14 years Acer (50M EUR P&L). Application for Key Account Manager at AZmed.",cv_btn:"View CV",letter_btn:"View cover letter",brand_title:"Highlights",brand_1:"years B2B",brand_2:"P&L managed",brand_3:"years Acer",brand_4:"FR retail outlets",tr_title:"Track record",tr_1:"P&L Acer Smartphones France & Southern Europe",tr_2:"yearly growth Smartphone BU",tr_3:"points of sale covered",tr_4:"direct reports",exp_title:"Experience",exp_acer:"Built Smartphone BU from zero inside a PC company. 50M EUR P&L, framework contracts with Orange, SFR, Bouygues, Fnac-Darty. Coverage France + Spain + Portugal + Italy.",exp_dw:"Launched a B2C platform. Full go-to-market stack: positioning, acquisition, partnerships.",exp_int_t:"Interim management missions",exp_int:"Punctual sales structuring missions for tech SMEs and consumer goods.",why_title:"Why AZmed",why_text:"AZmed checks all scale-up boxes: CE marking, 2500 partnerships, 55 countries, and a Rayvolve product with proven clinical results. The UK / India / Nordics / MEA expansion phase matches exactly what I did at Acer: structuring a multi-country rollout in hybrid direct + reseller mode.",market_title:"Medical imaging AI market",plan_title:"30 / 60 / 90 day plan",skills_title:"Skills",sk1:"Key account negotiation",sk2:"Long technical sales cycle",sk3:"P&L management",sk4:"Professional English",sk5:"Matrix organization",sk6:"Team leadership",ref_title:"References",contact_title:"Contact"}
+};
+
+function setLang(l){
+  document.querySelectorAll('.lang-switch button').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  const t=translations[l];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n');
+    if(t[k]!==undefined) el.innerHTML=t[k];
+  });
+}
+
+function toggleChat(){document.getElementById('chatPanel').classList.toggle('open')}
+async function sendChat(){
+  const inp=document.getElementById('chatInp');const msgs=document.getElementById('chatMsgs');
+  const txt=inp.value.trim();if(!txt)return;
+  msgs.innerHTML+='<div class="msg user">'+txt+'</div>';inp.value='';
+  msgs.scrollTop=msgs.scrollHeight;
+  try{
+    const r=await fetch(FC_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({system:FC_SYSTEM,message:txt})});
+    const d=await r.json();
+    msgs.innerHTML+='<div class="msg bot">'+(d.reply||d.message||'Erreur de reponse')+'</div>';
+  }catch(e){msgs.innerHTML+='<div class="msg bot">Service temporairement indisponible. Contact direct : fabrice.come@gmail.com</div>';}
+  msgs.scrollTop=msgs.scrollHeight;
+}
+</script>
+</body></html>
