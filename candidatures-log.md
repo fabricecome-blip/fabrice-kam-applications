@@ -924,3 +924,4 @@ Valider les offres à traiter :
 | #191 | AZmed | Key Account Manager (International) | 2026-05-04 | https://fabricecome-blip.github.io/fabrice-kam-applications/azmed/ |
 | #192 | Industriel Robotique (UPTOO) | KAM Robotique IDF | 2026-05-04 | https://fabricecome-blip.github.io/fabrice-kam-applications/uptoo-robotique/ |
 | #193 | Industriel Energies (UPTOO) | KAM Marche des Energies | 2026-05-04 | https://fabricecome-blip.github.io/fabrice-kam-applications/uptoo-energies/ |
+| #194 | FDJ UNITED | Responsable Grands Comptes - Developpement Enseignes (CDD, cooptation) | 2026-07-29 | https://fabricecome-blip.github.io/fabrice-kam-applications/fdj-united/ |
