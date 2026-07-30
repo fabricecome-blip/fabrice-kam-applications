@@ -152,6 +152,7 @@ section{padding:80px 0;border-bottom:1px solid var(--border)}
 
 /* ============ CONTACT ============ */
 .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.contact-wrap--solo{grid-template-columns:1fr;max-width:480px}
 .contact-info{display:flex;flex-direction:column;gap:16px}
 .contact-row{display:flex;align-items:center;gap:12px}
 .contact-icon{font-size:16px;width:32px;text-align:center}
@@ -646,24 +647,13 @@ footer{padding:32px 0;background:var(--dark2);border-top:1px solid var(--border)
   <div class="section-inner">
     <div class="section-tag" data-i18n="contact_tag">Contact</div>
     <h2 class="section-title" data-i18n="contact_title">Parlons de ce poste.<br><em>Disponible pour un premier échange.</em></h2>
-    <div class="contact-wrap">
+    <div class="contact-wrap contact-wrap--solo">
       <div class="contact-info">
         <div class="contact-row"><div class="contact-icon">📧</div><div class="contact-val"><a href="mailto:fabrice.come@gmail.com">fabrice.come@gmail.com</a></div></div>
         <div class="contact-row"><div class="contact-icon">📱</div><div class="contact-val">+33 6 74 18 13 93</div></div>
         <div class="contact-row"><div class="contact-icon">📍</div><div class="contact-val" data-i18n="contact_loc">Paris, Île-de-France</div></div>
         <div class="contact-row"><div class="contact-icon">💼</div><div class="contact-val"><a href="https://www.linkedin.com/in/fabricecome/" target="_blank">linkedin.com/in/fabricecome</a></div></div>
         <div class="contact-row"><div class="contact-icon">🌐</div><div class="contact-val"><a href="https://fabricecome-blip.github.io/fabrice-kam-applications/fdj-united/" target="_blank">SPA candidature</a></div></div>
-      </div>
-      <div class="contact-form">
-        <div class="form-field">
-          <label data-i18n="form_name">Votre nom</label>
-          <input type="text" placeholder="Votre nom">
-        </div>
-        <div class="form-field">
-          <label data-i18n="form_msg">Votre message</label>
-          <textarea placeholder="Disponible pour un échange cette semaine..."></textarea>
-        </div>
-        <button class="form-submit" onclick="alert('Merci — je vous recontacte sous 24h.')" data-i18n="form_send">Envoyer</button>
       </div>
     </div>
   </div>
