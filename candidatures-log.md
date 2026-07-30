@@ -925,3 +925,19 @@ Valider les offres à traiter :
 | #192 | Industriel Robotique (UPTOO) | KAM Robotique IDF | 2026-05-04 | https://fabricecome-blip.github.io/fabrice-kam-applications/uptoo-robotique/ |
 | #193 | Industriel Energies (UPTOO) | KAM Marche des Energies | 2026-05-04 | https://fabricecome-blip.github.io/fabrice-kam-applications/uptoo-energies/ |
 | #194 | FDJ UNITED | Responsable Grands Comptes - Developpement Enseignes (CDD, cooptation) | 2026-07-29 | https://fabricecome-blip.github.io/fabrice-kam-applications/fdj-united/ |
+
+---
+
+## 2026-07-30 — FDJ United : refonte de la lettre de motivation
+
+Offre reconfirmée par Fabrice via alerte email (jk=9f9232ae80276959), même poste que #194. Priorité du jour : muscler la lettre, pas régénérer le dossier.
+
+**Changements apportés à `fdj-united/cover-letter.html` :**
+- Accroche reformulée pour miroiter le vocabulaire exact de l'offre ("l'interface entre les Enseignes, les équipes siège et le terrain")
+- Paragraphe track record : ajout explicite de la coordination transverse Trade Marketing / Category Management / Merchandising / terrain, qui correspond mot pour mot à la coordination demandée dans l'offre (Trade Marketing, Merchandising, Category Management, Projets/SI, Opérations PDV)
+- Paragraphe honnêteté : deux points assumés au lieu d'un seul — (1) pas d'expérience jeux d'argent, (2) le poste en CDD cible en général un profil qui démarre en grands comptes, alors que Fabrice est senior ; positionné comme choix assumé (opérationnel immédiat, pas de montée en compétence nécessaire)
+- Suppression de deux tirets cadratins résiduels (titre HTML, ligne de référence)
+
+**Note de fond (transparence) :** l'offre demande explicitement "une première expérience réussie" en environnement commercial — le poste est calibré plus junior que le profil de Fabrice (20+ ans). La cooptation change la donne, mais le décalage de séniorité reste un vrai risque à l'entretien (perception de surqualification sur un CDD 12 mois). La lettre l'adresse frontalement plutôt que de l'ignorer.
+
+**Statut :** Poussé sur GitHub (commit direct), en ligne sur https://fabricecome-blip.github.io/fabrice-kam-applications/fdj-united/cover-letter.html (le CDN Pages peut prendre 1-2 min à rafraîchir après un push).
