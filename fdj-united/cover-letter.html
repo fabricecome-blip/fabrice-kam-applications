@@ -21,6 +21,11 @@
 html,body{height:100%;font-size:16px}
 body{background:#1A0508;display:flex;justify-content:center;align-items:flex-start;padding:32px 16px;font-family:var(--g);-webkit-font-smoothing:antialiased}
 .letter{width:210mm;min-height:297mm;background:var(--cream);display:grid;grid-template-columns:55mm 1fr;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+@media print{
+  html,body{padding:0!important;margin:0!important;height:auto!important;display:block!important;background:var(--cream)!important}
+  .letter{box-shadow:none!important;width:210mm!important;min-height:297mm!important;margin:0!important}
+  @page{size:A4;margin:0}
+}
 
 /* LEFT COLUMN */
 .left{background:var(--ink);padding:32px 20px;display:flex;flex-direction:column;min-height:297mm}
@@ -47,7 +52,7 @@ body{background:#1A0508;display:flex;justify-content:center;align-items:flex-sta
 .right-ref{font-family:var(--gs);font-size:8px;color:#8A7060;margin-bottom:18px}
 .right-object{font-family:var(--serif);font-size:14px;font-style:italic;color:var(--teal);margin-bottom:20px;line-height:1.3}
 .right-salutation{font-family:var(--g);font-size:11px;color:var(--ink);margin-bottom:18px;font-weight:500}
-.right-body p{font-size:11px;line-height:1.9;color:#3A2E26;margin-bottom:18px}
+.right-body p{font-size:10.5px;line-height:1.72;color:#3A2E26;margin-bottom:13px}
 .right-body p:last-child{margin-bottom:0}
 .right-body strong{color:var(--ink);font-weight:600}
 .divider{border:none;border-top:1.5px solid var(--teal);margin:24px 0}
