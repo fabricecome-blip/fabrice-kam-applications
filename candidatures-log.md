@@ -925,6 +925,7 @@ Valider les offres à traiter :
 | #192 | Industriel Robotique (UPTOO) | KAM Robotique IDF | 2026-05-04 | https://fabricecome-blip.github.io/fabrice-kam-applications/uptoo-robotique/ |
 | #193 | Industriel Energies (UPTOO) | KAM Marche des Energies | 2026-05-04 | https://fabricecome-blip.github.io/fabrice-kam-applications/uptoo-energies/ |
 | #194 | FDJ UNITED | Responsable Grands Comptes - Developpement Enseignes (CDD, cooptation) | 2026-07-29 | https://fabricecome-blip.github.io/fabrice-kam-applications/fdj-united/ |
+| #195 | AMD | Senior Commercial Channel Account Manager (France, Remote) | 2026-08-16 | https://fabricecome-blip.github.io/fabrice-kam-applications/amd/ |
 
 ---
 
