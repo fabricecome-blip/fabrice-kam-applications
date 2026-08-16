@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fabrice Côme-Portillo · Cover Letter · Senior Commercial Channel Account Manager · AMD</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=Geist:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #0D0C0B;
+  --cream: #F7F3EE;
+  --warm: #EDE8DF;
+  --teal: #ED1C24;
+  --teal-l: #FF5A5A;
+  --muted: #7A7470;
+  --dim: #B0AAA4;
+  --border: rgba(0,0,0,0.07);
+  --serif: 'Instrument Serif', Georgia, serif;
+  --mono: 'Geist Mono', 'Courier New', monospace;
+  --sans: 'Geist', system-ui, sans-serif;
+}
+
+@page { size: A4 portrait; margin: 0; }
+
+@media print {
+  *, *::before, *::after { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    display: block !important;
+  }
+
+  .page {
+    box-shadow: none !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+    zoom: 0.91;
+  }
+}
+
+body {
+  background: #0A0A0A;
+  font-family: var(--sans);
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  background: var(--cream);
+  box-shadow: 0 40px 120px rgba(0,0,0,0.6);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.page::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--teal) 0%, var(--teal-l) 60%, transparent 100%);
+  z-index: 10;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: var(--ink);
+  padding: 32px 48px 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.012'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.header-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.name-block .name-first {
+  font-family: var(--serif);
+  font-size: 32px;
+  color: rgba(255,255,255,0.95);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.name-block .name-last {
+  font-family: var(--serif);
+  font-size: 32px;
+  color: var(--teal);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.name-block .title-line {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-top: 8px;
+}
+
+.contact-block { text-align: right; }
+
+.contact-block a,
+.contact-block span {
+  display: block;
+  font-family: var(--mono);
+  font-size: 8.5px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  margin-bottom: 4px;
+}
+
+.contact-block a:hover { color: var(--teal); }
+
+/* Meta */
+.meta {
+  padding: 24px 48px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.meta-date {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+.meta-to {
+  font-family: var(--serif);
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.sep {
+  margin: 20px 48px 0;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ===== BODY ===== */
+.body {
+  padding: 28px 48px 32px;
+  flex: 1;
+}
+
+.para {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  line-height: 1.78;
+  color: #3A3733;
+  font-weight: 300;
+  margin-bottom: 18px;
+}
+
+.para.opening {
+  font-family: var(--serif);
+  font-size: 13.5px;
+  line-height: 1.68;
+  color: var(--ink);
+  font-style: italic;
+  border-left: 2px solid var(--teal);
+  padding-left: 16px;
+  margin-bottom: 22px;
+}
+
+.para strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.para.closing {
+  font-family: var(--serif);
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink);
+  margin-top: 4px;
+  margin-bottom: 28px;
+}
+
+.signature { margin-top: 8px; }
+
+.sig-name {
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+
+.sig-role {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  color: var(--teal);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Footer */
+.footer {
+  background: var(--warm);
+  border-top: 1px solid var(--border);
+  padding: 12px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-links { display: flex; gap: 20px; }
+
+.footer-link {
+  font-family: var(--mono);
+  font-size: 7.5px;
+  color: var(--dim);
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+
+.footer-link:hover { color: var(--teal); }
+
+.badge { display: flex; align-items: center; gap: 5px; opacity: 0.35; }
+
+.badge-dot {
+  width: 5px;
+  height: 5px;
+  background: var(--teal);
+  border-radius: 50%;
+}
+
+.badge-text {
+  font-family: var(--mono);
+  font-size: 7px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-inner">
+      <div class="name-block">
+        <div class="name-first">Fabrice</div>
+        <div class="name-last">CÔME-PORTILLO</div>
+        <div class="title-line">Senior Commercial Channel Account Manager · AMD · France, Remote</div>
+      </div>
+      <div class="contact-block">
+        <span>Paris, August 2026</span>
+        <a href="mailto:fabrice.come@gmail.com">fabrice.come@gmail.com</a>
+        <span>+33 6 74 18 13 93</span>
+        <a href="https://linkedin.com/in/fabricecome">linkedin.com/in/fabricecome</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- META -->
+  <div class="meta">
+    <span class="meta-date">Application · Senior Commercial Channel Account Manager · AMD</span>
+    <span class="meta-to">To the AMD Commercial Sales Hiring Team</span>
+  </div>
+
+  <div class="sep"></div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <p class="para opening">
+      Twenty years managing key accounts in French consumer electronics. But what I really learned is how to build channels that don't exist yet. At Acer, a PC company, I was part of a team that developed a Smartphone Business Unit from scratch across four Southern European markets simultaneously, drawing on the group's cross-functional support (finance, supply chain, marketing) to own the commercial side end to end. No playbook, no operator relationships, no internal precedent. We had to earn credibility inside the organisation while building the channels, signing the first operator agreements and activating over 10,000 points of sale across distribution, GMS and e-tail. €50M in revenue. Two million smartphones sold. That experience taught me the one thing that stays true regardless of category: market share isn't won in strategy decks. It's won in partner enablement, buyer negotiations and pipeline execution.
+    </p>
+
+    <p class="para">
+      AMD is at an inflection point in commercial computing. Client CPU unit share reached 29.6% in Q1 2026, up from 29.2% the prior quarter. Desktop share jumped to roughly 36%, up nearly 10 points year-on-year. Mobile share climbed to 26%, from 23.8% a year earlier. Intel still holds the larger base, but is openly struggling to respond before late 2026. That's the context in which channel account management actually matters: distributor programs, VAR and OEM enablement, and the ability to convert momentum into shelf space and design wins before the window narrows. That's exactly where I've been operating for twenty years, in a different category but the same mechanics.
+    </p>
+
+    <p class="para">
+      What I bring is ground-level command of B2B distribution mechanics. I've managed comptes-clés relationships with Orange, SFR, Bouygues, Fnac-Darty, Boulanger and Carrefour, negotiated multi-year framework agreements, and run a €50M P&amp;L across four countries with weekly KPI discipline. <strong>Not in theory. In practice, with an open P&amp;L and C-level counterparts.</strong> I've also managed KAM and Trade Marketing teams, which taught me how to keep partner-facing teams aligned with strategy rather than the other way around.
+    </p>
+
+    <p class="para">
+      What draws me to AMD is precisely this challenger momentum. AMD is no longer the alternative option, it's taking share quarter over quarter in a market Intel has held for decades. That shift happens largely through the channel: in the distributor's stock decisions, in the VAR's pitch, in the OEM's design-in conversation. That's a territory I know well, and a challenge I find more compelling than defending an already-won position.
+    </p>
+
+    <p class="para">
+      The 2019-2026 period deserves to be explained, not sidestepped. I chose to step outside the KAM frame to build differently. D-Wager taught me what it means to found a brand and take it international with no commercial safety net. GreenB put me in front of a business under maximum operational pressure, leading insolvency proceedings for a €10M company. PCG and NextinCom reconnected me to the fundamentals: pipeline, CRM discipline, recurring revenue execution. Those years didn't pull me away from key account management. They gave me a broader read on what a good channel account manager needs to understand beyond their partner list.
+    </p>
+
+    <p class="para">
+      I'll be honest about what I'm still building. Deep knowledge of AMD's commercial PC, workstation and server portfolio is something I'll acquire quickly: that's my first focus from day one. What I bring from the start: P&amp;L discipline, a proven ability to build channel relationships from zero, and the ability to operate cross-functionally with Sales, Marketing and Product Management so that what happens with partners stays coherent with what gets decided internally.
+    </p>
+
+    <p class="para closing">
+      After a first conversation, I commit to delivering a priority partner analysis, a channel growth opportunity map, and a 30/60/90-day action plan. Not as a proof of effort. As a starting point for the real work.
+    </p>
+
+    <p style="font-family:'Geist',system-ui,sans-serif;font-size:11.5px;font-weight:300;color:#3A3733;margin-bottom:16px;">Yours sincerely,</p>
+
+    <div class="signature">
+      <div class="sig-name">Fabrice Côme-Portillo</div>
+      <div class="sig-role">Applicant · Senior Commercial Channel Account Manager · AMD</div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-links">
+      <a class="footer-link" href="https://linkedin.com/in/fabricecome">linkedin.com/in/fabricecome</a>
+      <span class="footer-link">Paris · Île-de-France</span>
+      <span class="footer-link">fabrice.come@gmail.com</span>
+    </div>
+    <div class="badge">
+      <div class="badge-dot"></div>
+      <span class="badge-text">AMD · Senior Commercial Channel Account Manager · France</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
